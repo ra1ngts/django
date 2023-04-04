@@ -49,6 +49,9 @@ class Post(models.Model):
         else:
             return self.text_post[0:124] + '...'
 
+    def __str__(self):
+        return f"{self.title_post} {self.text_post} {self.author_post}"
+
 
 class PostCategory(models.Model):
     post_category = models.ForeignKey(Post, on_delete=models.CASCADE)

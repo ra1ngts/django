@@ -1,0 +1,52 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Портал - новостей</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'news/css/style.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">Портал - новостей</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/">Новости</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Статьи</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container">
+            <div class="text-center mt-5">
+                {% block content %}
+                {% if all_news %}
+                <h1>Все новости</h1>
+                <p>Количество всех новостей: {{ all_news | length }}</p>
+                <hr>
+                    {% for a in all_news %}
+                 <h5><b>{{ a.title_post | censor }}</b></h5>
+                        {{ a.date_post | date:"d-m-Y" }}
+                        {{ a.text_post | linebreaks | truncatewords:20 | censor | safe }}
+                    {% endfor %}
+                {% else %}
+                    {{ amount_news | default_if_none:'Нет новостей' }}
+                {% endif %}
+                {% endblock %}
+                <hr>
+                <p>&copy; 2023 - Портал новостей.</p>
+            </div>
+        </div>
+    </body>
+</html>

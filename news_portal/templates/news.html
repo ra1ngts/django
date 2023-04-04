@@ -1,0 +1,21 @@
+{% extends 'default.html' %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {{ title }}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <h4><b>{{ detail_news.title_post | censor }}</b></h4>
+    <p>{{ detail_news.date_post | date:"d-m-Y" }}</p>
+    <hr>
+    <p>{{ detail_news.text_post | linebreaksbr | censor | safe }}</p>
+    <br>
+    <p>Рейтинг: {{ detail_news.rating_post }}</p>
+    {% endblock content %}
+</body>
+</html>
