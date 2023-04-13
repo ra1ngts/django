@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import Sum
+from django.urls import reverse
 
 from news.resources import *
 
@@ -21,9 +22,15 @@ class Author(models.Model):
         print(self.rating_user)
         self.save()
 
+    def __str__(self):
+        return f'{self.author_user}'
+
 
 class Category(models.Model):
     title_category = models.CharField(max_length=255, unique=True)
+
+    def __str__(self):
+        return self.title_category
 
 
 class Post(models.Model):
@@ -52,10 +59,16 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title_post} {self.text_post} {self.author_post}"
 
+    def get_absolute_url(self):
+        return reverse('news', args=[str(self.id)])
+
 
 class PostCategory(models.Model):
     post_category = models.ForeignKey(Post, on_delete=models.CASCADE)
     category_post = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.post_category} {self.category_post}'
 
 
 class Comment(models.Model):
