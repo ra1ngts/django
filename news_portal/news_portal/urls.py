@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from news.views import permission_denied_error
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('news.urls')),
     path('news/', include('news.urls')),
     path('news/search/', include('news.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
+
+handler403 = permission_denied_error

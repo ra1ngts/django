@@ -1,0 +1,18 @@
+{% extends 'default.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {{ title }}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <h3><b>Недостаточно прав - 403</b></h3>
+    <h5>Только автор может увидеть содержание этой страницы</h5>
+    <hr>
+    <p>Хотите <a href="/be_author/">Стать автором</a> ?</p>
+    {% endblock content %}
+</body>
+</html>
