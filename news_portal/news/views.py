@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.contrib.auth.models import Group
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -53,7 +53,7 @@ class SearchNews(FilterView):
         return context
 
 
-class NewsCreate(PermissionRequiredMixin, CreateView):
+class NewsCreate(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     permission_required = ('news.add_post',)
     form_class = NewsForm
     model = Post
@@ -65,7 +65,7 @@ class NewsCreate(PermissionRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class NewsEdit(PermissionRequiredMixin, UpdateView):
+class NewsEdit(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     permission_required = ('news.change_post',)
     form_class = NewsForm
     model = Post
@@ -80,14 +80,14 @@ class NewsEdit(PermissionRequiredMixin, UpdateView):
         return context
 
 
-class NewsDelete(PermissionRequiredMixin, DeleteView):
+class NewsDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     permission_required = ('news.delete_post',)
     model = Post
     template_name = 'news_delete.html'
     success_url = reverse_lazy('index')
 
 
-class ArticleCreate(PermissionRequiredMixin, CreateView):
+class ArticleCreate(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     permission_required = ('news.add_post',)
     form_class = NewsForm
     model = Post
@@ -99,7 +99,7 @@ class ArticleCreate(PermissionRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ArticleEdit(PermissionRequiredMixin, UpdateView):
+class ArticleEdit(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     permission_required = ('news.change_post',)
     form_class = NewsForm
     model = Post
@@ -114,7 +114,7 @@ class ArticleEdit(PermissionRequiredMixin, UpdateView):
         return context
 
 
-class ArticleDelete(PermissionRequiredMixin, DeleteView):
+class ArticleDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     permission_required = ('news.delete_post',)
     model = Post
     template_name = 'articles_delete.html'
