@@ -3,8 +3,8 @@ from django.urls import path
 from news.views import *
 
 urlpatterns = [
-    path('', AllNews.as_view(), name='index'),
-    path('<int:pk>', DetailNews.as_view(), name='news'),
+    path('news/', AllNews.as_view(), name='index'),
+    path('news/<int:pk>/', DetailNews.as_view(), name='news'),
     path('news/search/', SearchNews.as_view(), name='search'),
     path('news/create/', NewsCreate.as_view(), name='news_create'),
     path('news/<int:pk>/edit/', NewsEdit.as_view(), name='news_edit'),
@@ -13,4 +13,5 @@ urlpatterns = [
     path('articles/<int:pk>/edit/', ArticleEdit.as_view(), name='articles_edit'),
     path('articles/<int:pk>/delete/', ArticleDelete.as_view(), name='articles_delete'),
     path('be_author/', be_author, name='be_author'),
+    path('categories/<int:pk>/', CategoryListView.as_view(), name='category_list'),
 ]

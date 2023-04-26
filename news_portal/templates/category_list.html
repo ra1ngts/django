@@ -22,9 +22,9 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/create">Создать новость</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/1/edit">Изменить новость</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/1/delete">Удалить новость</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/create/">Создать новость</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/1/edit/">Изменить новость</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/1/delete/">Удалить новость</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/articles/create/">Создать статью</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/articles/1/edit/">Изменить статью</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/articles/1/delete/">Удалить статью</a></li>
@@ -38,10 +38,14 @@
         <div class="container">
             <div class="text-center mt-5">
                 {% block content %}
-                <h1>Все новости и статьи</h1>
-                <p>Количество всех новостей: {{ all_news | length }}</p>
+                {% if category_news_list %}
+                <h1>Все новости и статьи в категории {{ categories_post }}</h1>
+                <p>Количество новостей: {{ category_news_list | length }}</p>
+                {% if is_not_subscriber %}
+                    <p class="text-center mt-5"><a href="{}">Подписаться</a></p>
+                {% endif %}
                 <hr>
-                    {% for a in all_news %}
+                    {% for a in category_news_list %}
                  <h5><b>{{ a.title_post | censor }}</b></h5>
                         <small class="fw-bold">{{ a.date_post | date:"d-m-Y" }}</small>
                         <small class="text-muted">Автор: {{ a.author_post }}</small>
@@ -53,7 +57,9 @@
                         {{ a.text_post | linebreaks | truncatewords:20 | censor | safe }}
                         <a href="{% url 'news' a.id %}">Прочитать</a>
                     {% endfor %}
+                {% else %}
                     {{ amount_news | default_if_none:'Нет новостей' }}
+                {% endif %}
                 <br>
                 <br>
                 {% if page_obj.has_previous %}

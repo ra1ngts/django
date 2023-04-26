@@ -1,14 +1,15 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.contrib.auth.models import Group
-from django.shortcuts import redirect, render
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
 
 from news.filters import SearchFilter
 from news.forms import NewsForm
-from news.models import Post
+from news.models import Post, Category
 
 
 class AllNews(ListView):
@@ -121,6 +122,23 @@ class ArticleDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('index')
 
 
+class CategoryListView(ListView):
+    model = Post
+    template_name = 'category_list.html'
+    context_object_name = 'category_news_list'
+
+    def get_queryset(self):
+        self.category = get_object_or_404(Category, id=self.kwargs['pk'])
+        queryset = Post.objects.filter(categories_post=self.category).order_by('-date_post')
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_not_subscriber'] = self.request.user not in self.category.subscribers.all()
+        context['categories_post'] = self.category
+        return context
+
+
 @login_required
 def be_author(request):
     user = request.user
@@ -132,3 +150,7 @@ def be_author(request):
 
 def permission_denied_error(request, exception=None):
     return render(request, '403.html', status=403)
+
+
+def index_redirect(request):
+    return HttpResponseRedirect('news')
