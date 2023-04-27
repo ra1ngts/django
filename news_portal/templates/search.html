@@ -19,9 +19,9 @@
    </form>
     <hr>
     {% for n in filterset.qs %}
-        <h5><b>{{ n.title_post | censor }}</b></h5>
-        <p>{{ n.author_post }}</p>
-        <p>{{ n.date_post | date:"d-m-Y" }}</p>
+        <small class="fw-bold">{{ n.date_post | date:"d-m-Y" }}</small>
+        <b><a href="{% url 'news' n.id %}">{{ n.title_post | censor }}</a></b>
+        <small class="text-muted">Автор: {{ n.author_post }}</small><br><br>
     {% endfor %}
     {% endblock content %}
 </body>

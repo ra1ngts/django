@@ -47,11 +47,11 @@
                         <small class="text-muted">Автор: {{ a.author_post }}</small>
                         <small class="fw-bold">Категории:
                         {% for category in a.categories_post.all %}
-                            <a href="{% url 'category_list' categories_post.id %}">{{ categories_post }}</a>
+                            <a href="{% url 'category_list' category.id %}">{{ category }}</a>
                         {% endfor %}
                         </small>
                         {{ a.text_post | linebreaks | truncatewords:20 | censor | safe }}
-                        <a href="{% url 'news' a.id %}">Прочитать</a>
+                        <p style="text-align: center"><button><a href="{% url 'news' a.id %}">Прочитать</a></button><br>
                     {% endfor %}
                     {{ amount_news | default_if_none:'Нет новостей' }}
                 <br>

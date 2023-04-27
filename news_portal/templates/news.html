@@ -11,11 +11,17 @@
 <body>
     {% block content %}
     <h4><b>{{ detail_news.title_post | censor }}</b></h4>
-    <p>{{ detail_news.date_post | date:"d-m-Y" }}</p>
+    <small class="fw-bold">{{ detail_news.date_post | date:"d-m-Y" }}</small>
+    <small class="text-muted">Автор: {{ detail_news.author_post }}</small>
+    <small class="fw-bold">Категории:
+    {% for category in detail_news.categories_post.all %}
+        <a href="{% url 'category_list' category.id %}">{{ category }}</a>
+    {% endfor %}
+    </small>
     <hr>
     <p>{{ detail_news.text_post | linebreaksbr | censor | safe }}</p>
     <br>
-    <p>Рейтинг: {{ detail_news.rating_post }}</p>
+    <small class="text-muted">Рейтинг: {{ detail_news.rating_post }}</small>
     {% endblock content %}
 </body>
 </html>
