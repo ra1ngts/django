@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'django_apscheduler',
 ]
 
 MIDDLEWARE = [
@@ -157,3 +158,6 @@ SERVER_EMAIL = config('SERVER_EMAIL')
 
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+
+APSCHEDULER_RUN_NOW_TIMEOUT = 25

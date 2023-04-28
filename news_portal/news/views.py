@@ -9,7 +9,7 @@ from django_filters.views import FilterView
 
 from news.filters import SearchFilter
 from news.forms import NewsForm
-from news.models import Post, Category
+from news.models import Post, Category, Author
 
 
 class AllNews(ListView):
@@ -145,6 +145,7 @@ def be_author(request):
     authors_group = Group.objects.get(name='authors')
     if not request.user.groups.filter(name='authors').exists():
         authors_group.user_set.add(user)
+        Author.objects.create(author_user_id=request.user.pk)
     return redirect('index')
 
 

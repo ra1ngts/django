@@ -11,7 +11,8 @@ class NewsForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['author_post', 'title_post', 'text_post']
+        fields = ['author_post', 'title_post', 'text_post', 'categories_post']
+        labels = {'categories_post': 'Категория'}
 
     def clean(self):
         cleaned_data = super().clean()
