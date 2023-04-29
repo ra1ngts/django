@@ -23,11 +23,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/create">Создать новость</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/1/edit">Изменить новость</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/1/delete">Удалить новость</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/articles/create/">Создать статью</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/articles/1/edit/">Изменить статью</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/articles/1/delete/">Удалить статью</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/search/">Поиск</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/be_author/">Стать автором</a></li>
                     </ul>
@@ -51,7 +47,12 @@
                         {% endfor %}
                         </small>
                         {{ a.text_post | linebreaks | truncatewords:20 | censor | safe }}
-                        <p style="text-align: center"><button><a href="{% url 'news' a.id %}">Прочитать</a></button><br>
+                        <style>
+                        /* Стили кнопки */
+                        .main_button{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#e0e0e0;border-radius:5px;border:1px solid #000000;}
+                        .main_button:hover{background:#4d4d4d;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
+                        </style>
+                        <center><a class="main_button" href="{% url 'news' a.id %}" title="Прочитать">Прочитать</a></center>
                     {% endfor %}
                     {{ amount_news | default_if_none:'Нет новостей' }}
                 <br>

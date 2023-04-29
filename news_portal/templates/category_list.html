@@ -6,7 +6,12 @@
 <h1>Все новости и статьи в категории {{ categories_post }}</h1>
 <p>Количество новостей: {{ category_news_list | length }}</p>
 {% if is_not_subscriber %}
-    <p style="text-align: center"><button><a href="{% url 'subscribe' categories_post.id %}">Подписаться</a></button>
+    <style>
+    /* Стили кнопки */
+    .main_button_subsc{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#c2eddd;border-radius:5px;border:1px solid #000000;}
+    .main_button_subsc:hover{background:#36755e;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
+    </style>
+    <center><a class="main_button_subsc" href="{% url 'subscribe' categories_post.id %}" title="Подписаться">Подписаться</a></center>
 {% endif %}
 <hr>
     {% for a in category_news_list %}
@@ -19,7 +24,12 @@
         {% endfor %}
         </small>
         {{ a.text_post | linebreaks | truncatewords:20 | censor | safe }}
-        <p style="text-align: center"><button><a href="{% url 'news' a.id %}">Прочитать</a></button>
+        <style>
+        /* Стили кнопки */
+        .main_button{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#e0e0e0;border-radius:5px;border:1px solid #000000;}
+        .main_button:hover{background:#4d4d4d;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
+        </style>
+        <center><a class="main_button" href="{% url 'news' a.id %}" title="Прочитать">Прочитать</a></center>
     {% endfor %}
 {% else %}
     {{ amount_news | default_if_none:'Нет новостей' }}

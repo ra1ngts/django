@@ -12,7 +12,12 @@
     <h3><b>Недостаточно прав - 403</b></h3>
     <h5>Только автор может увидеть содержание этой страницы</h5>
     <hr>
-    <p style="text-align: center"><button><a href="/be_author/">Стать автором</a></button>
+    <style>
+    /* Стили кнопки */
+    .main_button{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#e0e0e0;border-radius:5px;border:1px solid #000000;}
+    .main_button:hover{background:#4d4d4d;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
+    </style>
+    <center><a class="main_button" href="/be_author/" title="Стать автором">Стать автором</a></center>
     {% endblock content %}
 </body>
 </html>
