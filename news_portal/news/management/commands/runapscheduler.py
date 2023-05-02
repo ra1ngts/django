@@ -16,17 +16,15 @@ from news.models import Post, Category
 logger = logging.getLogger(__name__)
 
 
-def my_job():  # TODO индивидуализировать сообщение на почту (добавить имя пользователя)
+def my_job():
     today = datetime.datetime.now()
     last_week = today - datetime.timedelta(days=7)
     posts = Post.objects.filter(date_post__gte=last_week)
-    users = Post.objects.values_list('categories_post__subscribers', flat=True)
-    get_username = set(Category.objects.filter(subscribers__in=users).values_list('subscribers__username', flat=True))
     categories = set(posts.values_list('categories_post__title_category', flat=True))
     subscribers = set(
         Category.objects.filter(title_category__in=categories).values_list('subscribers__email', flat=True))
     html_content = render_to_string('weekly_news.html',
-                                    {'link': settings.SITE_URL, 'posts': posts, 'get_username': get_username})
+                                    {'link': settings.SITE_URL, 'posts': posts})
 
     msg = EmailMultiAlternatives(subject='Статьи за неделю!', body='', from_email=settings.DEFAULT_FROM_EMAIL,
                                  to=subscribers)
@@ -59,7 +57,7 @@ class Command(BaseCommand):
 
         scheduler.add_job(
             my_job,
-            trigger=CronTrigger(),  # TODO day_of_week="mon", hour="00", minute="00"
+            trigger=CronTrigger(day_of_week="mon", hour="00", minute="00"),
             id="my_job",  # The `id` assigned to each job MUST be unique
             max_instances=1,
             replace_existing=True,

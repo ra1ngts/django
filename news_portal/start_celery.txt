@@ -1,0 +1,3 @@
+celery -A news_portal worker -l INFO --pool=solo
+celery -A news_portal beat -l INFO
+

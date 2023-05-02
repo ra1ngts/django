@@ -155,8 +155,18 @@ def subscribe(request, pk):
     category = Category.objects.get(id=pk)
     category.subscribers.add(user)
 
-    message = 'Вы успешно подписались на рассылку новостей в категории:'
-    return render(request, 'subscribe.html', {'category': category, 'message': message})
+    message = 'вы успешно подписались на рассылку новостей в категории:'
+    return render(request, 'subscribe.html', {'user': user, 'category': category, 'message': message})
+
+
+@login_required
+def un_subscribe(request, pk):
+    user = request.user
+    category = Category.objects.get(id=pk)
+    category.subscribers.remove(user)
+
+    message = 'вы отписались от рассылки новостей в категории:'
+    return render(request, 'subscribe.html', {'user': user, 'category': category, 'message': message})
 
 
 def permission_denied_error(request, exception=None):
