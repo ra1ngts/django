@@ -5,20 +5,24 @@
 {% if category_news_list %}
 <h1>Все новости и статьи в категории {{ categories_post }}</h1>
 <p>Количество новостей: {{ category_news_list | length }}</p>
-{% if is_not_subscriber %}
-    <style>
-    /* Стили кнопки */
-    .main_button_subsc{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#c2eddd;border-radius:5px;border:1px solid #000000;}
-    .main_button_subsc:hover{background:#36755e;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
-    </style>
-    <center><a class="main_button_subsc" href="{% url 'subscribe' categories_post.id %}" title="Подписаться">Подписаться</a></center><br>
+{% if user.is_authenticated %}
+    {% if is_not_subscriber %}
+        <style>
+        /* Стили кнопки */
+        .main_button_subsc{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#c2eddd;border-radius:5px;border:1px solid #000000;}
+        .main_button_subsc:hover{background:#36755e;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
+        </style>
+        <center><a class="main_button_subsc" href="{% url 'subscribe' categories_post.id %}" title="Подписаться">Подписаться</a></center><br>
+    {% endif %}
+    {% if is_subscriber %}
+        <style>
+        /* Стили кнопки */
+        .main_button_un_subsc{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#ffbdbd;border-radius:5px;border:1px solid #000000;}
+        .main_button_un_subsc:hover{background:#ff5454;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
+        </style>
+        <center><a class="main_button_un_subsc" href="{% url 'un_subscribe' categories_post.id %}" title="Отписаться">Отписаться</a></center>
+    {% endif %}
 {% endif %}
-    <style>
-    /* Стили кнопки */
-    .main_button_un_subsc{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#ffbdbd;border-radius:5px;border:1px solid #000000;}
-    .main_button_un_subsc:hover{background:#ff5454;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
-    </style>
-    <center><a class="main_button_un_subsc" href="{% url 'un_subscribe' categories_post.id %}" title="Отписаться">Отписаться</a></center>
 <hr>
     {% for a in category_news_list %}
 <h5><b>{{ a.title_post | censor }}</b></h5>

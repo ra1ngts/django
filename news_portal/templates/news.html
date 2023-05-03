@@ -20,6 +20,7 @@
     </small>
     <hr>
     <p>{{ detail_news.text_post | linebreaksbr | censor | safe }}</p>
+{% if user.is_authenticated %}
     <style>
     /* Стили кнопки */
     .main_button_del{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#ffbdbd;border-radius:5px;border:1px solid #000000;}
@@ -32,6 +33,7 @@
     .main_button_edit:hover{background:#5487ff;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
     </style>
     <a class="main_button_edit" href="{{ 'edit' }}" title="Редактировать">Редактировать</a>
+{% endif %}
     <br>
     <br>
     <small class="text-muted">Рейтинг: {{ detail_news.rating_post }}</small>
