@@ -1,5 +1,6 @@
 {% extends 'default.html' %}
 {% load custom_filters %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
     {% endfor %}
     </small>
     <hr>
-    <p>{{ detail_news.text_post | linebreaksbr | censor | safe }}</p>
+    <p>{{ detail_news.text_post | linebreaks | censor | safe }}</p>
 {% if user.is_authenticated %}
     <style>
     /* Стили кнопки */

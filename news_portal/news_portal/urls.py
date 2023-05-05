@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 
@@ -24,6 +25,7 @@ urlpatterns = [
     path('', include('news.urls')),
     path('', views.index_redirect),
     path('accounts/', include('allauth.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 handler403 = permission_denied_error

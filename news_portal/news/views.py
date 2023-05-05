@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.contrib.auth.models import Group
+from django.core.cache import cache
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse_lazy
@@ -34,6 +35,16 @@ class DetailNews(DetailView):
     model = Post
     template_name = 'news.html'
     context_object_name = 'detail_news'
+    queryset = Post.objects.all()
+
+    def get_object(self, *args, **kwargs):
+        obj = cache.get(f'show_news: {self.kwargs["pk"]}', None)
+
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'show_news: {self.kwargs["pk"]}', obj)
+
+        return obj
 
 
 class SearchNews(FilterView):
