@@ -13,7 +13,7 @@
         .main_button_subsc{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#c2eddd;border-radius:5px;border:1px solid #000000;}
         .main_button_subsc:hover{background:#36755e;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
         </style>
-        <center><a class="main_button_subsc" href="{% url 'subscribe' categories_post.id %}" title="Подписаться">Подписаться</a></center><br>
+        <div align="center"><a class="main_button_subsc" href="{% url 'subscribe' categories_post.id %}" title="Подписаться">Подписаться</a></div><br>
     {% endif %}
     {% if is_subscriber %}
         <style>
@@ -21,7 +21,7 @@
         .main_button_un_subsc{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#ffbdbd;border-radius:5px;border:1px solid #000000;}
         .main_button_un_subsc:hover{background:#ff5454;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
         </style>
-        <center><a class="main_button_un_subsc" href="{% url 'un_subscribe' categories_post.id %}" title="Отписаться">Отписаться</a></center>
+        <div align="center"><a class="main_button_un_subsc" href="{% url 'un_subscribe' categories_post.id %}" title="Отписаться">Отписаться</a></div>
     {% endif %}
 {% endif %}
 <hr>
@@ -40,7 +40,7 @@
         .main_button{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#e0e0e0;border-radius:5px;border:1px solid #000000;}
         .main_button:hover{background:#4d4d4d;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
         </style>
-        <center><a class="main_button" href="{% url 'news' a.id %}" title="Прочитать">Прочитать</a></center>
+        <div align="center"><a class="main_button" href="{% url 'news' a.id %}" title="Прочитать">Прочитать</a></div>
     {% endfor %}
 {% else %}
     {{ amount_news | default_if_none:'Нет новостей' }}

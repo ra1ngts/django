@@ -37,7 +37,19 @@
 {% endif %}
     <br>
     <br>
+    <style>
+    /* Стили кнопки */
+    .like_plus{display: inline-block;cursor: pointer; font-size:13px;text-decoration:none;padding:5px 10px; color:#000000;background:#ffffff;border-radius:20px;border:1px solid #000000;}
+    .like_plus:hover{text-decoration:none;background:#424242;color:#ffffff;border:1px solid #424242;transition: all 0.2s ease;}
+    </style>
+    <a class="like_plus" href="{{ likes.like }}"   title="+">+</a>
     <small class="text-muted">Рейтинг: {{ detail_news.rating_post }}</small>
+    <style>
+    /* Стили кнопки */
+    .like_minus{display: inline-block;cursor: pointer; font-size:13px;text-decoration:none;padding:5px 12px; color:#000000;background:#ffffff;border-radius:20px;border:1px solid #000000;}
+    .like_minus:hover{text-decoration:none;background:#424242;color:#ffffff;border:1px solid #424242;transition: all 0.2s ease;}
+    </style>
+    <a class="like_minus" href="{{ dislikes.dislike }}"   title="-">-</a>
     {% endblock content %}
 </body>
 </html>

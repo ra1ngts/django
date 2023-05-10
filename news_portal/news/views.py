@@ -37,6 +37,16 @@ class DetailNews(DetailView):
     context_object_name = 'detail_news'
     queryset = Post.objects.all()
 
+    def likes(self, pk):
+        like_plus = Post.objects.get(id=pk)
+        like_plus.like()
+        return like_plus
+
+    def dislikes(self, pk):
+        like_minus = Post.objects.get(id=pk)
+        like_minus.like()
+        return like_minus
+
     def get_object(self, *args, **kwargs):
         obj = cache.get(f'show_news: {self.kwargs["pk"]}', None)
 
