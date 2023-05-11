@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.core.cache import cache
 from django.db import models
 from django.db.models import Sum
+from django.db.models.functions import Coalesce
 from django.urls import reverse
 
 from news.resources import *
@@ -16,12 +17,13 @@ class Author(models.Model):
         verbose_name_plural = 'Авторы'
 
     def update_rating(self):
-        rating_posts_author = Post.objects.filter(author_post=self).aggregate(Sum('rating_post')).get(
-            'rating_post__sum') * 3
+        rating_posts_author = \
+            Post.objects.filter(author_post=self).aggregate(rating_post=Coalesce(Sum('rating_post'), 0))[
+                'rating_post'] * 3
         rating_comments_author = Comment.objects.filter(user_comment=self.author_user).aggregate(
-            Sum('rating_comment')).get('rating_comment__sum')
+            rating_comment=Coalesce(Sum('rating_comment'), 0))['rating_comment']
         rating_comments_posts = Comment.objects.filter(post_comment__author_post=self.id).aggregate(
-            Sum('rating_comment')).get('rating_comment__sum')
+            rating_comment=Coalesce(Sum('rating_comment'), 0))['rating_comment']
 
         self.rating_user = rating_posts_author + rating_comments_author + rating_comments_posts
         print(self.rating_user)
@@ -111,3 +113,6 @@ class Comment(models.Model):
     def dislike(self):
         self.rating_comment -= 1
         self.save()
+
+    def __str__(self):
+        return f'{self.text_comment} {self.rating_comment}'

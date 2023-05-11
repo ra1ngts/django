@@ -6,6 +6,8 @@ from news.views import *
 urlpatterns = [
     path('news/', cache_page(60)(AllNews.as_view()), name='index'),
     path('news/<int:pk>/', cache_page(60 * 5)(DetailNews.as_view()), name='news'),
+    path('news/<int:pk>/like/', like_post, name='like_post'),
+    path('news/<int:pk>/dislike/', dislike_post, name='dislike_post'),
     path('news/search/', SearchNews.as_view(), name='search'),
     path('news/create/', NewsCreate.as_view(), name='news_create'),
     path('news/<int:pk>/edit/', NewsEdit.as_view(), name='news_edit'),

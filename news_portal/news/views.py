@@ -10,7 +10,7 @@ from django_filters.views import FilterView
 
 from news.filters import SearchFilter
 from news.forms import NewsForm
-from news.models import Post, Category, Author
+from news.models import Post, Category, Author, Comment
 
 
 class AllNews(ListView):
@@ -37,15 +37,10 @@ class DetailNews(DetailView):
     context_object_name = 'detail_news'
     queryset = Post.objects.all()
 
-    def likes(self, pk):
-        like_plus = Post.objects.get(id=pk)
-        like_plus.like()
-        return like_plus
-
-    def dislikes(self, pk):
-        like_minus = Post.objects.get(id=pk)
-        like_minus.like()
-        return like_minus
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comments'] = Comment.objects.filter(post_comment=Post.objects.get(id=self.kwargs['pk']))
+        return context
 
     def get_object(self, *args, **kwargs):
         obj = cache.get(f'show_news: {self.kwargs["pk"]}', None)
@@ -189,6 +184,22 @@ def un_subscribe(request, pk):
 
     message = 'вы отписались от рассылки новостей в категории:'
     return render(request, 'subscribe.html', {'user': user, 'category': category, 'message': message})
+
+
+@login_required
+def like_post(request, pk):
+    post = Post.objects.get(id=pk)
+    post.like()
+    post.author_post.update_rating()
+    return redirect(f'/news/{post.pk}')
+
+
+@login_required
+def dislike_post(request, pk):
+    post = Post.objects.get(id=pk)
+    post.dislike()
+    post.author_post.update_rating()
+    return redirect(f'/news/{post.pk}')
 
 
 def permission_denied_error(request, exception=None):

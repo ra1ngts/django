@@ -34,7 +34,6 @@
     .main_button_edit:hover{background:#5487ff;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
     </style>
     <a class="main_button_edit" href="{{ 'edit' }}" title="Редактировать">Редактировать</a>
-{% endif %}
     <br>
     <br>
     <style>
@@ -42,14 +41,24 @@
     .like_plus{display: inline-block;cursor: pointer; font-size:13px;text-decoration:none;padding:5px 10px; color:#000000;background:#ffffff;border-radius:20px;border:1px solid #000000;}
     .like_plus:hover{text-decoration:none;background:#424242;color:#ffffff;border:1px solid #424242;transition: all 0.2s ease;}
     </style>
-    <a class="like_plus" href="{{ likes.like }}"   title="+">+</a>
+    <a class="like_plus" href="{% url 'like_post' detail_news.id %}"   title="+">+</a>
+{% endif %}
     <small class="text-muted">Рейтинг: {{ detail_news.rating_post }}</small>
+{% if user.is_authenticated %}
     <style>
     /* Стили кнопки */
     .like_minus{display: inline-block;cursor: pointer; font-size:13px;text-decoration:none;padding:5px 12px; color:#000000;background:#ffffff;border-radius:20px;border:1px solid #000000;}
     .like_minus:hover{text-decoration:none;background:#424242;color:#ffffff;border:1px solid #424242;transition: all 0.2s ease;}
     </style>
-    <a class="like_minus" href="{{ dislikes.dislike }}"   title="-">-</a>
+    <a class="like_minus" href="{% url 'dislike_post' detail_news.id %}"   title="-">-</a>
+{% endif %}
+    <br>
+    <br>
+    {% for comment in comments %}
+    <small class="text-muted">Дата: {{ comment.date_comment }}</small>
+    <small class="text-muted">Автор: {{ comment.user_comment }}</small><br>
+    <small class="text-muted"><b>{{ comment.text_comment | censor }}</b></small><br><br>
+    {% endfor %}
     {% endblock content %}
 </body>
 </html>
