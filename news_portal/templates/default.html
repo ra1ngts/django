@@ -15,6 +15,11 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'news/css/style.css' %}" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <!-- Google fonts end-->
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -29,12 +34,13 @@
                         {% cache 300 main_menu %}
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/search/">Поиск</a></li>
                         {% endcache %}
-                        {% if request.user.is_authenticated %}
+                        {% if user.is_authenticated %}
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/create">Создать новость</a></li>
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="/articles/create/">Создать статью</a></li>
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/accounts/logout/">{{ user.username }}, Выход</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">{{ user.username }}, Выйти</a></li>
                         {% else %}
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/accounts/login/">Вход</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_signup' %}">Регистрация</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_login' %}">Войти</a></li>
                         {% endif %}
                     </ul>
                 </div>
