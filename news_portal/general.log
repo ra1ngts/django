@@ -1,0 +1,7 @@
+2023-06-15 14:14:58,883 - INFO - autoreload - Watching for file changes with StatReloader
+2023-06-15 14:15:28,728 - WARNING - log - Not Found: /news/63/
+2023-06-15 14:15:28,728 - WARNING - basehttp - "GET /news/63/ HTTP/1.1" 404 179
+2023-06-15 14:15:28,797 - WARNING - log - Not Found: /favicon.ico
+2023-06-15 14:15:28,797 - INFO - basehttp - - Broken pipe from ('127.0.0.1', 50623)
+2023-06-15 14:15:40,068 - INFO - basehttp - "GET /news/ HTTP/1.1" 200 16919
+2023-06-15 14:15:41,324 - INFO - basehttp - "GET /news/61/ HTTP/1.1" 200 8700

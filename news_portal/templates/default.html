@@ -26,17 +26,17 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 {% cache 300 logo %}
-                <a class="navbar-brand" href="/news/">Портал - новостей</a>
+                <a class="navbar-brand" href="{% url 'index' %}">Портал - новостей</a>
                 {% endcache %}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         {% cache 300 main_menu %}
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/search/">Поиск</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'search' %}">Поиск</a></li>
                         {% endcache %}
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/news/create">Создать новость</a></li>
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/articles/create/">Создать статью</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'news_create' %}">Создать новость</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'articles_create' %}">Создать статью</a></li>
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">{{ user.username }}, Выйти</a></li>
                         {% else %}
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_signup' %}">Регистрация</a></li>
@@ -69,25 +69,11 @@
                         .main_button:hover{background:#4d4d4d;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
                         </style>
                         <div align="center"><a class="main_button" href="{% url 'news' a.id %}" title="Прочитать">Прочитать</a></div>
-                    {% endfor %}
-                    {{ amount_news | default_if_none:'Нет новостей' }}
-                <br>
-                <br>
-                {% if page_obj.has_previous %}
-                    <a href="?{% url_replace page=1 %}">1</a>
-                    {% if page_obj.previous_page_number != 1 %}
-                        ...
-                        <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
+                    {% endfor %}<br>
+                    {% if all_news == 0 %}
+                        {{ amount_news | default_if_none:'Нет новостей' }}
                     {% endif %}
-                {% endif %}
-                {{ page_obj.number }}
-                {% if page_obj.has_next %}
-                    <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
-                    {% if paginator.num_pages != paje_obj.next_page_number %}
-                        ...
-                        <a href="?{% url_replace page=page_obj.paginator.num_pages  %}">{{ page_obj.paginator.num_pages }}</a>
-                    {% endif %}
-                {% endif %}
+                    <div align="center">{% include 'pagination.html' with page=page_obj %}</div>
                 {% endblock %}
                 <hr>
                 {% cache 300 copyright %}

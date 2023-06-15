@@ -12,6 +12,7 @@ class AuthorAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('title_category',)
     list_display_links = ('title_category',)
+    list_filter = ('subscribers',)
     search_fields = ('title_category',)
 
 
@@ -19,18 +20,21 @@ class PostAdmin(admin.ModelAdmin):
     list_display = (
         'title_post', 'text_post', 'author_post', 'choice_post', 'date_post', 'rating_post')
     list_display_links = ('title_post', 'author_post', 'choice_post', 'date_post', 'rating_post')
+    list_filter = ('author_post', 'choice_post', 'date_post')
     search_fields = ('title_post', 'author_post', 'choice_post', 'date_post', 'rating_post')
 
 
 class PostCategoryAdmin(admin.ModelAdmin):
     list_display = ('post_category', 'category_post')
     list_display_links = ('post_category', 'category_post')
+    list_filter = ('category_post',)
     search_fields = ('post_category', 'category_post')
 
 
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('post_comment', 'user_comment', 'text_comment', 'date_comment', 'rating_comment')
     list_display_links = ('post_comment', 'user_comment', 'text_comment', 'date_comment', 'rating_comment')
+    list_filter = ('user_comment', 'date_comment', 'rating_comment')
     search_fields = ('post_comment', 'user_comment', 'text_comment', 'date_comment', 'rating_comment')
 
 

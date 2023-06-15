@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.contrib.auth.models import Group
@@ -142,6 +144,7 @@ class CategoryListView(ListView):
     model = Post
     template_name = 'category_list.html'
     context_object_name = 'category_news_list'
+    paginate_by = 10
 
     def get_queryset(self):
         self.category = get_object_or_404(Category, id=self.kwargs['pk'])
@@ -208,3 +211,12 @@ def permission_denied_error(request, exception=None):
 
 def index_redirect(request):
     return HttpResponseRedirect('news')
+
+
+logger = logging.getLogger(__name__)
+
+logging.debug('DEBUG message')
+logging.info('INFO message')
+logging.warning('WARNING message')
+logging.error('ERROR message')
+logging.critical('CRITICAL message')

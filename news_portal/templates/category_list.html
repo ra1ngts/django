@@ -13,7 +13,7 @@
         .main_button_subsc{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#c2eddd;border-radius:5px;border:1px solid #000000;}
         .main_button_subsc:hover{background:#36755e;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
         </style>
-        <div align="center"><a class="main_button_subsc" href="{% url 'subscribe' categories_post.id %}" title="Подписаться">Подписаться</a></div><br>
+        <div align="center"><a class="main_button_subsc" href="{% url 'subscribe' categories_post.id %}" title="Подписаться">Подписаться</a></div>
     {% endif %}
     {% if is_subscriber %}
         <style>
@@ -44,23 +44,6 @@
     {% endfor %}
 {% else %}
     {{ amount_news | default_if_none:'Нет новостей' }}
-{% endif %}
-<br>
-<br>
-{% if page_obj.has_previous %}
-    <a href="?{% url_replace page=1 %}">1</a>
-    {% if page_obj.previous_page_number != 1 %}
-        ...
-        <a href="?{% url_replace page=page_obj.previous_page_number %}">{{ page_obj.previous_page_number }}</a>
-    {% endif %}
-{% endif %}
-{{ page_obj.number }}
-{% if page_obj.has_next %}
-    <a href="?{% url_replace page=page_obj.next_page_number %}">{{ page_obj.next_page_number }}</a>
-    {% if paginator.num_pages != paje_obj.next_page_number %}
-        ...
-        <a href="?{% url_replace page=page_obj.paginator.num_pages  %}">{{ page_obj.paginator.num_pages }}</a>
-    {% endif %}
-{% endif %}
+{% endif %}<br>
+<div align="center">{% include 'pagination.html' with page=page_obj %}</div>
 {% endblock %}
-
