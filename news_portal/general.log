@@ -5,3 +5,7 @@
 2023-06-15 14:15:28,797 - INFO - basehttp - - Broken pipe from ('127.0.0.1', 50623)
 2023-06-15 14:15:40,068 - INFO - basehttp - "GET /news/ HTTP/1.1" 200 16919
 2023-06-15 14:15:41,324 - INFO - basehttp - "GET /news/61/ HTTP/1.1" 200 8700
+2023-06-19 09:33:45,427 - INFO - autoreload - Watching for file changes with StatReloader
+2023-06-19 09:33:46,546 - INFO - basehttp - "GET / HTTP/1.1" 302 0
+2023-06-19 09:33:46,615 - WARNING - log - Not Found: /static/news/css/style.css
+2023-06-19 09:33:46,615 - WARNING - basehttp - "GET /static/news/css/style.css HTTP/1.1" 404 179

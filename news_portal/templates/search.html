@@ -1,6 +1,7 @@
 {% extends 'default.html' %}
 {% load custom_filters %}
 {% load custom_tags %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,17 +13,17 @@
 </head>
 <body>
     {% block content %}
-    <h1>Поиск новостей и статей</h1>
+    <h1>{% trans 'Поиск новостей и статей' %}</h1>
     <hr>
     <form action="" method="get">
        {{ filterset.form.as_table }}
-       <input type="submit" value="Найти" />
+       <input type="submit" value="{% trans 'Найти' %}" />
    </form>
     <hr>
     {% for n in filterset.qs %}
         <small class="fw-bold">{{ n.date_post | date:"d-m-Y" }}</small>
         <b><a href="{% url 'news' n.id %}">{{ n.title_post | censor }}</a></b>
-        <small class="text-muted">Автор: {{ n.author_post }}</small><br><br>
+        <small class="text-muted">{% trans 'Автор' %}: {{ n.author_post }}</small><br><br>
     {% endfor %}
     {% endblock content %}
 </body>

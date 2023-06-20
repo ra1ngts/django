@@ -1,11 +1,12 @@
 {% extends 'default.html' %}
+{% load i18n %}
 
 {% block content %}
-<h1>Удалить статью</h1>
+<h1>{% trans 'Удалить статью' %}</h1>
 <hr>
 <form action="" method="post">
     {% csrf_token %}
-    <p>Удалить "{{ object.title_post }}" ?</p>
-    <input type="submit" value="Удалить" />
+    <p>{% trans 'Удалить' %} "{{ object.title_post }}" ?</p>
+    <input type="submit" value="{% trans 'Удалить' %}" />
 </form>
 {% endblock content %}

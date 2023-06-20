@@ -1,5 +1,6 @@
 {% extends 'default.html' %}
 {% load custom_filters %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +14,8 @@
     {% block content %}
     <h4><b>{{ detail_news.title_post | censor }}</b></h4>
     <small class="fw-bold">{{ detail_news.date_post | date:"d-m-Y" }}</small>
-    <small class="text-muted">Автор: {{ detail_news.author_post }}</small>
-    <small class="fw-bold">Категории:
+    <small class="text-muted">{% trans 'Автор' %}: {{ detail_news.author_post }}</small>
+    <small class="fw-bold">{% trans 'Категория' %}:
     {% for category in detail_news.categories_post.all %}
         <a href="{% url 'category_list' category.id %}">{{ category }}</a>
     {% endfor %}
@@ -27,13 +28,13 @@
     .main_button_del{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#ffbdbd;border-radius:5px;border:1px solid #000000;}
     .main_button_del:hover{background:#ff5454;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
     </style>
-    <a class="main_button_del" href="{{ 'delete' }}" title="Удалить">Удалить</a>
+    <a class="main_button_del" href="{{ 'delete' }}" title="Удалить">{% trans 'Удалить' %}</a>
     <style>
     /* Стили кнопки */
     .main_button_edit{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#b0c8ff;border-radius:5px;border:1px solid #000000;}
     .main_button_edit:hover{background:#5487ff;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
     </style>
-    <a class="main_button_edit" href="{{ 'edit' }}" title="Редактировать">Редактировать</a>
+    <a class="main_button_edit" href="{{ 'edit' }}" title="Редактировать">{% trans 'Редактировать' %}</a>
     <br>
     <br>
     <style>
@@ -43,7 +44,7 @@
     </style>
     <a class="like_plus" href="{% url 'like_post' detail_news.id %}"   title="+">+</a>
 {% endif %}
-    <small class="text-muted">Рейтинг: {{ detail_news.rating_post }}</small>
+    <small class="text-muted">{% trans 'Рейтинг' %}: {{ detail_news.rating_post }}</small>
 {% if user.is_authenticated %}
     <style>
     /* Стили кнопки */
@@ -53,8 +54,8 @@
     <a class="like_minus" href="{% url 'dislike_post' detail_news.id %}"   title="-">-</a>
 {% endif %}<br><br>
     {% for comment in comments %}
-    <small class="text-muted">Дата: {{ comment.date_comment }}</small>
-    <small class="text-muted">Автор: {{ comment.user_comment }}</small><br>
+    <small class="text-muted">{% trans 'Дата' %}: {{ comment.date_comment }}</small>
+    <small class="text-muted">{% trans 'Автор' %}: {{ comment.user_comment }}</small><br>
     <small class="text-muted"><b>{{ comment.text_comment | censor }}</b></small><br>
     {% endfor %}
     {% endblock content %}

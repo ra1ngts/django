@@ -1,10 +1,12 @@
+{% load i18n %}
 {% load static %}
 {% load custom_filters %}
 {% load custom_tags %}
 {% load cache %}
+{% load tz %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -20,28 +22,57 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         <!-- Google fonts end-->
+        <style>
+            body {background-color: {% if current_time.hour >= 18 or current_time.hour <= 7 %} #BAAA8D {% else %} #FFFBDB {% endif %};}
+        </style>
     </head>
     <body>
+    {% get_current_timezone as TIME_ZONE %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="timezone">{% trans 'Time zone' %}:</label>
+        <select name="timezone">
+            {% for tz in timezones %}
+            <option value="{{ tz }}"{% if tz == TIME_ZONE %} selected{% endif %}>{{ tz }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="{% trans 'Выбрать' %}">
+        {{ current_time | timezone:TIME_ZONE }}
+    </form>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 {% cache 300 logo %}
-                <a class="navbar-brand" href="{% url 'index' %}">Портал - новостей</a>
+                <a class="navbar-brand" href="{% url 'index' %}">{% trans 'Портал - новостей' %}</a>
                 {% endcache %}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         {% cache 300 main_menu %}
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'search' %}">Поиск</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'search' %}">{% trans 'Поиск' %}</a></li>
                         {% endcache %}
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'news_create' %}">Создать новость</a></li>
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'articles_create' %}">Создать статью</a></li>
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">{{ user.username }}, Выйти</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'news_create' %}">{% trans 'Создать новость' %}</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'articles_create' %}">{% trans 'Создать статью' %}</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">{{ user.username }}, {% trans 'Выйти' %}</a></li>
                         {% else %}
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_signup' %}">Регистрация</a></li>
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_login' %}">Войти</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_signup' %}">{% trans 'Регистрация' %}</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_login' %}">{% trans 'Войти' %}</a></li>
                         {% endif %}
+                        <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                            <input name="next" type="hidden" value="{{ redirect_to }}">
+                                <select name="language">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {% get_available_languages as LANGUAGES %}
+                                {% get_language_info_list for LANGUAGES as languages %}
+                                    {% for language in languages %}
+                                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                        {{ language.name_local }} ({{ language.code }})
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            <input type="submit" value="{% trans 'Выбрать' %}">
+                        </form>
                     </ul>
                 </div>
             </div>
@@ -50,14 +81,14 @@
         <div class="container">
             <div class="text-center mt-5">
                 {% block content %}
-                <h1>Все новости и статьи</h1>
-                <p>Количество всех новостей: {{ all_news | length }}</p>
+                <h1>{% trans 'Все новости и статьи' %}</h1>
+                <p>{% trans 'Количество всех новостей' %}: {{ all_news | length }}</p>
                 <hr>
                     {% for a in all_news %}
                  <h5><b>{{ a.title_post | censor }}</b></h5>
                         <small class="fw-bold">{{ a.date_post | date:"d-m-Y" }}</small>
-                        <small class="text-muted">Автор: {{ a.author_post }}</small>
-                        <small class="fw-bold">Категории:
+                        <small class="text-muted">{% trans 'Автор' %}: {{ a.author_post }}</small>
+                        <small class="fw-bold">{% trans 'Категория' %}:
                         {% for category in a.categories_post.all %}
                             <a href="{% url 'category_list' category.id %}">{{ category }}</a>
                         {% endfor %}
@@ -68,7 +99,7 @@
                         .main_button{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#e0e0e0;border-radius:5px;border:1px solid #000000;}
                         .main_button:hover{background:#4d4d4d;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
                         </style>
-                        <div align="center"><a class="main_button" href="{% url 'news' a.id %}" title="Прочитать">Прочитать</a></div>
+                        <div align="center"><a class="main_button" href="{% url 'news' a.id %}" title="Прочитать">{% trans 'Прочитать' %}</a></div>
                     {% endfor %}<br>
                     {% if all_news == 0 %}
                         {{ amount_news | default_if_none:'Нет новостей' }}
@@ -77,7 +108,7 @@
                 {% endblock %}
                 <hr>
                 {% cache 300 copyright %}
-                <p>&copy; 2023 - Портал новостей.</p>
+                <p>&copy; 2023 - {% trans 'Портал - новостей' %}.</p>
                 {% endcache %}
             </div>
         </div>

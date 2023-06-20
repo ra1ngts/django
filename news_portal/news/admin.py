@@ -1,4 +1,5 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
 
 from news.models import Author, Category, Post, PostCategory, Comment
 
@@ -36,6 +37,14 @@ class CommentAdmin(admin.ModelAdmin):
     list_display_links = ('post_comment', 'user_comment', 'text_comment', 'date_comment', 'rating_comment')
     list_filter = ('user_comment', 'date_comment', 'rating_comment')
     search_fields = ('post_comment', 'user_comment', 'text_comment', 'date_comment', 'rating_comment')
+
+
+class CategoryTransAdmin(TranslationAdmin):
+    model = Category
+
+
+class PostTransAdmin(TranslationAdmin):
+    model = Post
 
 
 admin.site.register(Author, AuthorAdmin)

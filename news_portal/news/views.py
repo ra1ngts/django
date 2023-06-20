@@ -1,5 +1,6 @@
 import logging
 
+import pytz
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 from django.contrib.auth.models import Group
@@ -7,12 +8,14 @@ from django.core.cache import cache
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse_lazy
+from django.utils import timezone
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
 
 from news.filters import SearchFilter
 from news.forms import NewsForm
 from news.models import Post, Category, Author, Comment
+from django.utils.translation import gettext as _
 
 
 class AllNews(ListView):
@@ -30,7 +33,13 @@ class AllNews(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['amount_news'] = None
+        context['current_time'] = timezone.now()
+        context['timezones'] = pytz.common_timezones
         return context
+
+    def post(self, request):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('index')
 
 
 class DetailNews(DetailView):
@@ -42,6 +51,8 @@ class DetailNews(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['comments'] = Comment.objects.filter(post_comment=Post.objects.get(id=self.kwargs['pk']))
+        context['current_time'] = timezone.now()
+        context['timezones'] = pytz.common_timezones
         return context
 
     def get_object(self, *args, **kwargs):
@@ -52,6 +63,10 @@ class DetailNews(DetailView):
             cache.set(f'show_news: {self.kwargs["pk"]}', obj)
 
         return obj
+
+    def post(self, request, pk):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('news', pk)
 
 
 class SearchNews(FilterView):
@@ -69,7 +84,13 @@ class SearchNews(FilterView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['filterset'] = self.filterset
+        context['current_time'] = timezone.now()
+        context['timezones'] = pytz.common_timezones
         return context
+
+    def post(self, request):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('search')
 
 
 class NewsCreate(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
@@ -82,6 +103,16 @@ class NewsCreate(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
         choice_news = form.save(commit=False)
         choice_news.choice_post = 'НОВОСТЬ'
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_time'] = timezone.now()
+        context['timezones'] = pytz.common_timezones
+        return context
+
+    def post(self, request):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('news_create')
 
 
 class NewsEdit(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
@@ -96,7 +127,13 @@ class NewsEdit(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['not_author'] = not self.request.user.groups.filter(name='authors').exists()
+        context['current_time'] = timezone.now()
+        context['timezones'] = pytz.common_timezones
         return context
+
+    def post(self, request, pk):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('news_edit', pk)
 
 
 class NewsDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
@@ -104,6 +141,16 @@ class NewsDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     model = Post
     template_name = 'news_delete.html'
     success_url = reverse_lazy('index')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_time'] = timezone.now()
+        context['timezones'] = pytz.common_timezones
+        return context
+
+    def post(self, request, pk):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('news_delete', pk)
 
 
 class ArticleCreate(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
@@ -116,6 +163,16 @@ class ArticleCreate(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
         choice_news = form.save(commit=False)
         choice_news.choice_post = 'СТАТЬЯ'
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_time'] = timezone.now()
+        context['timezones'] = pytz.common_timezones
+        return context
+
+    def post(self, request):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('articles_create')
 
 
 class ArticleEdit(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
@@ -130,7 +187,13 @@ class ArticleEdit(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['not_author'] = not self.request.user.groups.filter(name='authors').exists()
+        context['current_time'] = timezone.now()
+        context['timezones'] = pytz.common_timezones
         return context
+
+    def post(self, request, pk):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('articles_edit', pk)
 
 
 class ArticleDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
@@ -138,6 +201,16 @@ class ArticleDelete(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     model = Post
     template_name = 'articles_delete.html'
     success_url = reverse_lazy('index')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['current_time'] = timezone.now()
+        context['timezones'] = pytz.common_timezones
+        return context
+
+    def post(self, request, pk):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('articles_delete', pk)
 
 
 class CategoryListView(ListView):
@@ -156,7 +229,13 @@ class CategoryListView(ListView):
         context['is_not_subscriber'] = self.request.user not in self.category.subscribers.all()
         context['is_subscriber'] = self.request.user in self.category.subscribers.all()
         context['categories_post'] = self.category
+        context['current_time'] = timezone.now()
+        context['timezones'] = pytz.common_timezones
         return context
+
+    def post(self, request, pk):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('category_list', pk)
 
 
 @login_required
@@ -175,7 +254,7 @@ def subscribe(request, pk):
     category = Category.objects.get(id=pk)
     category.subscribers.add(user)
 
-    message = 'вы успешно подписались на рассылку новостей в категории:'
+    message = _('вы успешно подписались на рассылку новостей в категории:')
     return render(request, 'subscribe.html', {'user': user, 'category': category, 'message': message})
 
 
@@ -185,7 +264,7 @@ def un_subscribe(request, pk):
     category = Category.objects.get(id=pk)
     category.subscribers.remove(user)
 
-    message = 'вы отписались от рассылки новостей в категории:'
+    message = _('вы отписались от рассылки новостей в категории:')
     return render(request, 'subscribe.html', {'user': user, 'category': category, 'message': message})
 
 

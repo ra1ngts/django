@@ -21,6 +21,7 @@ from news import views
 from news.views import permission_denied_error
 
 urlpatterns = [
+    path("i18n/", include("django.conf.urls.i18n")),
     path('admin/', admin.site.urls),
     path('', include('news.urls')),
     path('', views.index_redirect),

@@ -1,0 +1,310 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-20 09:46+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\news\filters.py:10 .\news\forms.py:9 .\news\models.py:13
+#: .\news\models.py:17 .\news\models.py:52 .\news\models.py:101
+#: .\templates\category_list.html:32 .\templates\default.html:74
+#: .\templates\news.html:17 .\templates\news.html:58 .\templates\search.html:26
+msgid "Автор"
+msgstr "Author"
+
+#: .\news\filters.py:11 .\news\forms.py:9
+msgid "Не выбран"
+msgstr "Not selected"
+
+#: .\news\filters.py:12 .\news\forms.py:10
+msgid "Заголовок"
+msgstr "Title"
+
+#: .\news\filters.py:14 .\news\models.py:54 .\news\models.py:103
+#: .\templates\news.html:57
+msgid "Дата"
+msgstr "Date"
+
+#: .\news\forms.py:11
+msgid "Text"
+msgstr "Text"
+
+#: .\news\forms.py:16 .\news\models.py:55 .\news\models.py:92
+msgid "Категория публикации"
+msgstr "Publication category"
+
+#: .\news\models.py:14 .\news\models.py:56 .\news\models.py:104
+#: .\templates\news.html:47
+msgid "Рейтинг"
+msgstr "Rating"
+
+#: .\news\models.py:18
+msgid "Авторы"
+msgstr "Author's"
+
+#: .\news\models.py:38
+msgid "Название новости или статьи"
+msgstr "Title of news or article"
+
+#: .\news\models.py:42 .\news\models.py:89 .\templates\category_list.html:33
+#: .\templates\default.html:75 .\templates\news.html:18
+msgid "Категория"
+msgstr "Category"
+
+#: .\news\models.py:43
+msgid "Категории"
+msgstr "Categories"
+
+#: .\news\models.py:50
+msgid "Название"
+msgstr "Title"
+
+#: .\news\models.py:51 .\news\models.py:102
+msgid "Текст"
+msgstr "Text"
+
+#: .\news\models.py:53
+msgid "Выбор публикации"
+msgstr "Publication selection"
+
+#: .\news\models.py:59 .\news\models.py:88 .\news\models.py:100
+msgid "Публикация"
+msgstr "Publication"
+
+#: .\news\models.py:60
+msgid "Публикации"
+msgstr "Publications"
+
+#: .\news\models.py:93
+msgid "Категории публикаций"
+msgstr "Publication categories"
+
+#: .\news\models.py:107
+msgid "Комментарий"
+msgstr "Comment"
+
+#: .\news\models.py:108
+msgid "Комментарии"
+msgstr "Comments"
+
+#: .\news\views.py:179
+msgid "вы успешно подписались на рассылку новостей в категории:"
+msgstr "you have successfully subscribed to the newsletter in the category:"
+
+#: .\news\views.py:189
+msgid "вы отписались от рассылки новостей в категории:"
+msgstr "you have unsubscribed from the newsletter in the category:"
+
+#: .\templates\403.html:14
+msgid "Недостаточно прав"
+msgstr "Not enough rights"
+
+#: .\templates\403.html:15
+msgid "Только автор может увидеть содержание этой страницы"
+msgstr "Only the author can see the content of this page"
+
+#: .\templates\403.html:22
+msgid "Стать автором"
+msgstr "Become an author"
+
+#: .\templates\account\base.html:18
+msgid "Messages:"
+msgstr "Messages:"
+
+#: .\templates\account\base.html:28
+msgid "Menu:"
+msgstr "Menu:"
+
+#: .\templates\account\base.html:31
+msgid "Change E-mail"
+msgstr "Change E-mail"
+
+#: .\templates\account\base.html:32 .\templates\account\logout.html:5
+#: .\templates\account\logout.html:8 .\templates\account\logout.html:17
+msgid "Sign Out"
+msgstr "Sign Out"
+
+#: .\templates\account\base.html:34 .\templates\account\login.html:6
+#: .\templates\account\login.html:10 .\templates\account\login.html:43
+msgid "Sign In"
+msgstr "Sign In"
+
+#: .\templates\account\base.html:35 .\templates\account\signup.html:8
+#: .\templates\account\signup.html:18
+msgid "Sign Up"
+msgstr "Sign Up"
+
+#: .\templates\account\email\email_confirmation_signup_message.html:8
+msgid "Подтверждение регистрации \"Портал - новостей\""
+msgstr "Registration confirmation \"News - portal\""
+
+#: .\templates\account\email\email_confirmation_signup_message.html:12
+msgid "Благодарим Вас за регистрацию"
+msgstr "Thank you for registering"
+
+#: .\templates\account\email\email_confirmation_signup_message.html:13
+#, python-format
+msgid ""
+"Пожалуйста пройдите по <a href=\"%(activate_url)s\">ссылке</a> для активации "
+"вашего аккаунта."
+msgstr "Please go to <a href=\"%(activate_url)s\">link</a> to activate of your account."
+
+#: .\templates\account\login.html:15
+#, python-format
+msgid ""
+"Please sign in with one\n"
+"of your existing third party accounts. Or, <a href=\"%(signup_url)s\">sign "
+"up</a>\n"
+"for a %(site_name)s account and sign in below:"
+msgstr ""
+
+#: .\templates\account\login.html:25
+msgid "or"
+msgstr "or"
+
+#: .\templates\account\login.html:32
+#, python-format
+msgid ""
+"If you have not created an account yet, then please\n"
+"<a href=\"%(signup_url)s\">sign up</a> first."
+msgstr ""
+
+#: .\templates\account\login.html:42
+msgid "Forgot Password?"
+msgstr "Forgot Password?"
+
+#: .\templates\account\logout.html:10
+msgid "Are you sure you want to sign out?"
+msgstr "Are you sure you want to sign out?"
+
+#: .\templates\account\signup.html:5
+msgid "Signup"
+msgstr "Signup"
+
+#: .\templates\account\signup.html:10
+#, python-format
+msgid ""
+"Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+
+#: .\templates\articles_create.html:5 .\templates\default.html:40
+msgid "Создать статью"
+msgstr "Create article"
+
+#: .\templates\articles_create.html:10 .\templates\articles_edit.html:10
+#: .\templates\news_create.html:10 .\templates\news_edit.html:10
+msgid "Сохранить"
+msgstr "Save"
+
+#: .\templates\articles_delete.html:5
+msgid "Удалить статью"
+msgstr "Delete article"
+
+#: .\templates\articles_delete.html:9 .\templates\articles_delete.html:10
+#: .\templates\news.html:31 .\templates\news_delete.html:9
+#: .\templates\news_delete.html:10
+msgid "Удалить"
+msgstr "Delete"
+
+#: .\templates\articles_edit.html:5
+msgid "Изменить статью"
+msgstr "Edit article"
+
+#: .\templates\category_list.html:8
+msgid "Все новости и статьи в категории"
+msgstr "All news and articles in the category"
+
+#: .\templates\category_list.html:9
+msgid "Количество новостей"
+msgstr "Number of news"
+
+#: .\templates\category_list.html:17
+msgid "Подписаться"
+msgstr "Subscribe"
+
+#: .\templates\category_list.html:25
+msgid "Отписаться"
+msgstr "Unsubscribe"
+
+#: .\templates\category_list.html:44 .\templates\default.html:86
+msgid "Прочитать"
+msgstr "Read"
+
+#: .\templates\default.html:30 .\templates\default.html:95
+msgid "Портал - новостей"
+msgstr "News - portal"
+
+#: .\templates\default.html:36
+msgid "Поиск"
+msgstr "Search"
+
+#: .\templates\default.html:39 .\templates\news_create.html:5
+msgid "Создать новость"
+msgstr "Create news"
+
+#: .\templates\default.html:41
+msgid "Выйти"
+msgstr "Logout"
+
+#: .\templates\default.html:43
+msgid "Регистрация"
+msgstr "Registration"
+
+#: .\templates\default.html:44
+msgid "Войти"
+msgstr "Login"
+
+#: .\templates\default.html:58
+msgid "Выбрать"
+msgstr "Choose"
+
+#: .\templates\default.html:68
+msgid "Все новости и статьи"
+msgstr "All news and articles"
+
+#: .\templates\default.html:69
+msgid "Количество всех новостей"
+msgstr "Number of all news"
+
+#: .\templates\news.html:37
+msgid "Редактировать"
+msgstr "Edit"
+
+#: .\templates\news_delete.html:5
+msgid "Удалить новость"
+msgstr "Delete news"
+
+#: .\templates\news_edit.html:5
+msgid "Изменить новость"
+msgstr "Edit news"
+
+#: .\templates\post_created_email.html:10
+#, python-format
+msgid ""
+"Здравствуй. Новая<a href=\"%(link)s\">статья</a>в твоём любимом разделе!"
+msgstr "Hello. New<a href=\"%(link)s\">article</a>in your favorite section!"
+
+#: .\templates\search.html:16
+msgid "Поиск новостей и статей"
+msgstr "Search for news and articles"
+
+#: .\templates\search.html:20
+msgid "Найти"
+msgstr "Find"
+
+#: .\templates\weekly_news.html:10
+msgid "Здравствуй. Новые статьи за последнюю неделю"
+msgstr "Hello. New<a href=\"%(link)s\">articles</a>in the last week"

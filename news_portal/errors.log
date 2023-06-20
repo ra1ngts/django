@@ -1,0 +1,1132 @@
+2023-06-19 15:40:21,141 - ERROR - Internal Server Error: /articles/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("<ExtendsNode: extends 'default.html'> must be the first tag in the template."), <traceback object at 0x000002868FF0B4C0>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 514, in parse
+    self.extend_nodelist(nodelist, compiled_result, token)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 531, in extend_nodelist
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: <ExtendsNode: extends 'default.html'> must be the first tag in the template.
+2023-06-19 15:40:21,141 - ERROR - Internal Server Error: /articles/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("<ExtendsNode: extends 'default.html'> must be the first tag in the template."), <traceback object at 0x000002868FF0B4C0>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 514, in parse
+    self.extend_nodelist(nodelist, compiled_result, token)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 531, in extend_nodelist
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: <ExtendsNode: extends 'default.html'> must be the first tag in the template.
+2023-06-19 15:40:21,163 - ERROR - "GET /articles/create/ HTTP/1.1" 500 137073 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-19 15:40:21,163 - ERROR - "GET /articles/create/ HTTP/1.1" 500 137073 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-19 21:34:35,654 - ERROR - Internal Server Error: / - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'OSError'>, OSError(0, 'Bad magic number'), <traceback object at 0x000001AF79673740>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\middleware\locale.py", line 43, in process_request
+    translation.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\__init__.py", line 181, in activate
+    return _trans.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 303, in activate
+    _active.value = translation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 292, in translation
+    _translations[language] = DjangoTranslation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+  File "D:\Python\lib\gettext.py", line 598, in translation
+    t = _translations.setdefault(key, class_(fp))
+  File "D:\Python\lib\gettext.py", line 261, in __init__
+    self._parse(fp)
+  File "D:\Python\lib\gettext.py", line 393, in _parse
+    raise OSError(0, 'Bad magic number', filename)
+OSError: [Errno 0] Bad magic number: 'D:\\PycharmProjects\\django_prj\\news_portal\\locale\\en\\LC_MESSAGES\\django.mo'
+2023-06-19 21:34:35,654 - ERROR - Internal Server Error: / - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'OSError'>, OSError(0, 'Bad magic number'), <traceback object at 0x000001AF79673740>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\middleware\locale.py", line 43, in process_request
+    translation.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\__init__.py", line 181, in activate
+    return _trans.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 303, in activate
+    _active.value = translation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 292, in translation
+    _translations[language] = DjangoTranslation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+  File "D:\Python\lib\gettext.py", line 598, in translation
+    t = _translations.setdefault(key, class_(fp))
+  File "D:\Python\lib\gettext.py", line 261, in __init__
+    self._parse(fp)
+  File "D:\Python\lib\gettext.py", line 393, in _parse
+    raise OSError(0, 'Bad magic number', filename)
+OSError: [Errno 0] Bad magic number: 'D:\\PycharmProjects\\django_prj\\news_portal\\locale\\en\\LC_MESSAGES\\django.mo'
+2023-06-19 21:34:35,654 - ERROR - "GET / HTTP/1.1" 500 108077 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-19 21:34:35,654 - ERROR - "GET / HTTP/1.1" 500 108077 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-19 21:35:13,525 - ERROR - Internal Server Error: / - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'OSError'>, OSError(0, 'Bad magic number'), <traceback object at 0x000002C60CC575C0>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\middleware\locale.py", line 43, in process_request
+    translation.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\__init__.py", line 181, in activate
+    return _trans.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 303, in activate
+    _active.value = translation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 292, in translation
+    _translations[language] = DjangoTranslation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+  File "D:\Python\lib\gettext.py", line 598, in translation
+    t = _translations.setdefault(key, class_(fp))
+  File "D:\Python\lib\gettext.py", line 261, in __init__
+    self._parse(fp)
+  File "D:\Python\lib\gettext.py", line 393, in _parse
+    raise OSError(0, 'Bad magic number', filename)
+OSError: [Errno 0] Bad magic number: 'D:\\PycharmProjects\\django_prj\\news_portal\\locale\\en\\LC_MESSAGES\\django.mo'
+2023-06-19 21:35:13,525 - ERROR - Internal Server Error: / - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'OSError'>, OSError(0, 'Bad magic number'), <traceback object at 0x000002C60CC575C0>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\middleware\locale.py", line 43, in process_request
+    translation.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\__init__.py", line 181, in activate
+    return _trans.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 303, in activate
+    _active.value = translation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 292, in translation
+    _translations[language] = DjangoTranslation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+  File "D:\Python\lib\gettext.py", line 598, in translation
+    t = _translations.setdefault(key, class_(fp))
+  File "D:\Python\lib\gettext.py", line 261, in __init__
+    self._parse(fp)
+  File "D:\Python\lib\gettext.py", line 393, in _parse
+    raise OSError(0, 'Bad magic number', filename)
+OSError: [Errno 0] Bad magic number: 'D:\\PycharmProjects\\django_prj\\news_portal\\locale\\en\\LC_MESSAGES\\django.mo'
+2023-06-19 21:35:13,541 - ERROR - "GET / HTTP/1.1" 500 108077 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-19 21:35:13,541 - ERROR - "GET / HTTP/1.1" 500 108077 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-19 21:35:18,238 - ERROR - Internal Server Error: /news/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'OSError'>, OSError(0, 'Bad magic number'), <traceback object at 0x000002C60CB21880>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\middleware\locale.py", line 43, in process_request
+    translation.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\__init__.py", line 181, in activate
+    return _trans.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 303, in activate
+    _active.value = translation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 292, in translation
+    _translations[language] = DjangoTranslation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+  File "D:\Python\lib\gettext.py", line 598, in translation
+    t = _translations.setdefault(key, class_(fp))
+  File "D:\Python\lib\gettext.py", line 261, in __init__
+    self._parse(fp)
+  File "D:\Python\lib\gettext.py", line 393, in _parse
+    raise OSError(0, 'Bad magic number', filename)
+OSError: [Errno 0] Bad magic number: 'D:\\PycharmProjects\\django_prj\\news_portal\\locale\\en\\LC_MESSAGES\\django.mo'
+2023-06-19 21:35:18,238 - ERROR - Internal Server Error: /news/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'OSError'>, OSError(0, 'Bad magic number'), <traceback object at 0x000002C60CB21880>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\middleware\locale.py", line 43, in process_request
+    translation.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\__init__.py", line 181, in activate
+    return _trans.activate(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 303, in activate
+    _active.value = translation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 292, in translation
+    _translations[language] = DjangoTranslation(language)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 171, in __init__
+    self._add_local_translations()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 231, in _add_local_translations
+    translation = self._new_gnu_trans(localedir)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\translation\trans_real.py", line 198, in _new_gnu_trans
+    return gettext_module.translation(
+  File "D:\Python\lib\gettext.py", line 598, in translation
+    t = _translations.setdefault(key, class_(fp))
+  File "D:\Python\lib\gettext.py", line 261, in __init__
+    self._parse(fp)
+  File "D:\Python\lib\gettext.py", line 393, in _parse
+    raise OSError(0, 'Bad magic number', filename)
+OSError: [Errno 0] Bad magic number: 'D:\\PycharmProjects\\django_prj\\news_portal\\locale\\en\\LC_MESSAGES\\django.mo'
+2023-06-19 21:35:18,238 - ERROR - "GET /news/ HTTP/1.1" 500 108120 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-19 21:35:18,238 - ERROR - "GET /news/ HTTP/1.1" 500 108120 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 09:00:20,720 - ERROR - Internal Server Error: /articles/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("gettext() missing 1 required positional argument: 'message'"), <traceback object at 0x000002026E19B800>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 89, in rendered_content
+    return template.render(context, self._request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 914, in _resolve_lookup
+    current = current()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\forms\utils.py", line 84, in as_p
+    return self.render(self.template_name_p)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\forms\utils.py", line 75, in render
+    return mark_safe(renderer.render(template, context))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\forms\renderers.py", line 29, in render
+    return template.render(context, request=request).strip()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\defaulttags.py", line 320, in render
+    if match:
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\functional.py", line 149, in __wrapper__
+    res = func(*self.__args, **self.__kw)
+TypeError: gettext() missing 1 required positional argument: 'message'
+2023-06-20 09:00:20,720 - ERROR - Internal Server Error: /articles/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("gettext() missing 1 required positional argument: 'message'"), <traceback object at 0x000002026E19B800>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 89, in rendered_content
+    return template.render(context, self._request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 914, in _resolve_lookup
+    current = current()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\forms\utils.py", line 84, in as_p
+    return self.render(self.template_name_p)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\forms\utils.py", line 75, in render
+    return mark_safe(renderer.render(template, context))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\forms\renderers.py", line 29, in render
+    return template.render(context, request=request).strip()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\defaulttags.py", line 320, in render
+    if match:
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\functional.py", line 149, in __wrapper__
+    res = func(*self.__args, **self.__kw)
+TypeError: gettext() missing 1 required positional argument: 'message'
+2023-06-20 09:00:20,798 - ERROR - "GET /articles/create/ HTTP/1.1" 500 250325 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 09:00:20,798 - ERROR - "GET /articles/create/ HTTP/1.1" 500 250325 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:34:16,491 - ERROR - Internal Server Error: /news/1/edit/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() got an unexpected keyword argument 'pk'"), <traceback object at 0x000002375A43A540>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\news_portal\news\views.py", line 109, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'pk'
+2023-06-20 18:34:16,491 - ERROR - Internal Server Error: /news/1/edit/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() got an unexpected keyword argument 'pk'"), <traceback object at 0x000002375A43A540>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\news_portal\news\views.py", line 109, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'pk'
+2023-06-20 18:34:16,513 - ERROR - "POST /news/1/edit/ HTTP/1.1" 500 95820 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:34:16,513 - ERROR - "POST /news/1/edit/ HTTP/1.1" 500 95820 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:34:24,213 - ERROR - Internal Server Error: /news/1/edit/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() got an unexpected keyword argument 'pk'"), <traceback object at 0x000002375A9EDC40>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\news_portal\news\views.py", line 109, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'pk'
+2023-06-20 18:34:24,213 - ERROR - Internal Server Error: /news/1/edit/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() got an unexpected keyword argument 'pk'"), <traceback object at 0x000002375A9EDC40>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\news_portal\news\views.py", line 109, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'pk'
+2023-06-20 18:34:24,235 - ERROR - "POST /news/1/edit/ HTTP/1.1" 500 95820 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:34:24,235 - ERROR - "POST /news/1/edit/ HTTP/1.1" 500 95820 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:34:47,231 - ERROR - Internal Server Error: /news/1/edit/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'django.urls.exceptions.NoReverseMatch'>, NoReverseMatch("Reverse for 'news_edit' with no arguments not found. 1 pattern(s) tried: ['news/(?P<pk>[0-9]+)/edit/\\\\Z']"), <traceback object at 0x0000022A092E95C0>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\news_portal\news\views.py", line 109, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\news_portal\news\views.py", line 120, in post
+    return redirect('news_edit')
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'news_edit' with no arguments not found. 1 pattern(s) tried: ['news/(?P<pk>[0-9]+)/edit/\\Z']
+2023-06-20 18:34:47,231 - ERROR - Internal Server Error: /news/1/edit/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'django.urls.exceptions.NoReverseMatch'>, NoReverseMatch("Reverse for 'news_edit' with no arguments not found. 1 pattern(s) tried: ['news/(?P<pk>[0-9]+)/edit/\\\\Z']"), <traceback object at 0x0000022A092E95C0>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\news_portal\news\views.py", line 109, in dispatch
+    return super().dispatch(*args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\news_portal\news\views.py", line 120, in post
+    return redirect('news_edit')
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'news_edit' with no arguments not found. 1 pattern(s) tried: ['news/(?P<pk>[0-9]+)/edit/\\Z']
+2023-06-20 18:34:47,311 - ERROR - "POST /news/1/edit/ HTTP/1.1" 500 119726 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:34:47,311 - ERROR - "POST /news/1/edit/ HTTP/1.1" 500 119726 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:38:12,524 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x0000025AFCCC6740>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 18:38:12,524 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x0000025AFCCC6740>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 18:38:12,540 - ERROR - "POST /news/create/ HTTP/1.1" 500 91511 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:38:12,540 - ERROR - "POST /news/create/ HTTP/1.1" 500 91511 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:39:21,980 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001A1E1FF9480>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 18:39:21,980 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001A1E1FF9480>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 18:39:22,033 - ERROR - "POST /news/create/ HTTP/1.1" 500 91512 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:39:22,033 - ERROR - "POST /news/create/ HTTP/1.1" 500 91512 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:39:27,097 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001A1E2285EC0>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 18:39:27,097 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001A1E2285EC0>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 18:39:27,113 - ERROR - "POST /news/create/ HTTP/1.1" 500 91511 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:39:27,113 - ERROR - "POST /news/create/ HTTP/1.1" 500 91511 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:41:19,976 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001A1E4B8D500>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 18:41:19,976 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001A1E4B8D500>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 18:41:19,992 - ERROR - "POST /news/create/ HTTP/1.1" 500 91506 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:41:19,992 - ERROR - "POST /news/create/ HTTP/1.1" 500 91506 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:49:03,509 - ERROR - Internal Server Error: /news/1/delete/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() got an unexpected keyword argument 'pk'"), <traceback object at 0x0000023B3A332800>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'pk'
+2023-06-20 18:49:03,509 - ERROR - Internal Server Error: /news/1/delete/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() got an unexpected keyword argument 'pk'"), <traceback object at 0x0000023B3A332800>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'pk'
+2023-06-20 18:49:03,590 - ERROR - "POST /news/1/delete/ HTTP/1.1" 500 91590 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:49:03,590 - ERROR - "POST /news/1/delete/ HTTP/1.1" 500 91590 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:54:15,871 - ERROR - Internal Server Error: /categories/5/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() got an unexpected keyword argument 'pk'"), <traceback object at 0x000001F828986780>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'pk'
+2023-06-20 18:54:15,871 - ERROR - Internal Server Error: /categories/5/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() got an unexpected keyword argument 'pk'"), <traceback object at 0x000001F828986780>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'pk'
+2023-06-20 18:54:15,887 - ERROR - "POST /categories/5/ HTTP/1.1" 500 82889 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:54:15,887 - ERROR - "POST /categories/5/ HTTP/1.1" 500 82889 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:54:45,618 - ERROR - Internal Server Error: /categories/5/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() got an unexpected keyword argument 'pk'"), <traceback object at 0x000001CFDC605300>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'pk'
+2023-06-20 18:54:45,618 - ERROR - Internal Server Error: /categories/5/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() got an unexpected keyword argument 'pk'"), <traceback object at 0x000001CFDC605300>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() got an unexpected keyword argument 'pk'
+2023-06-20 18:54:45,656 - ERROR - "POST /categories/5/ HTTP/1.1" 500 82890 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:54:45,656 - ERROR - "POST /categories/5/ HTTP/1.1" 500 82890 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:59:49,276 - ERROR - Internal Server Error: /articles/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000002C60D950740>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 18:59:49,276 - ERROR - Internal Server Error: /articles/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000002C60D950740>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 18:59:49,291 - ERROR - "POST /articles/create/ HTTP/1.1" 500 91583 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 18:59:49,291 - ERROR - "POST /articles/create/ HTTP/1.1" 500 91583 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:00:33,717 - ERROR - Internal Server Error: /articles/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001FC57813400>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 19:00:33,717 - ERROR - Internal Server Error: /articles/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001FC57813400>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 19:00:33,777 - ERROR - "POST /articles/create/ HTTP/1.1" 500 91584 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:00:33,777 - ERROR - "POST /articles/create/ HTTP/1.1" 500 91584 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:00:38,580 - ERROR - Internal Server Error: /articles/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001FC57B6E5C0>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 19:00:38,580 - ERROR - Internal Server Error: /articles/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001FC57B6E5C0>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 19:00:38,611 - ERROR - "POST /articles/create/ HTTP/1.1" 500 91578 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:00:38,611 - ERROR - "POST /articles/create/ HTTP/1.1" 500 91578 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:03:41,782 - ERROR - Internal Server Error: /accounts/logout/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'extends' cannot appear more than once in the same template"), <traceback object at 0x000001901E8C3B00>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'extends' cannot appear more than once in the same template
+2023-06-20 19:03:41,782 - ERROR - Internal Server Error: /accounts/logout/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'extends' cannot appear more than once in the same template"), <traceback object at 0x000001901E8C3B00>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'extends' cannot appear more than once in the same template
+2023-06-20 19:03:41,813 - ERROR - "GET /accounts/logout/ HTTP/1.1" 500 143650 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:03:41,813 - ERROR - "GET /accounts/logout/ HTTP/1.1" 500 143650 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:04:03,324 - ERROR - Internal Server Error: /accounts/logout/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'extends' cannot appear more than once in the same template"), <traceback object at 0x000001901E97DF80>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'extends' cannot appear more than once in the same template
+2023-06-20 19:04:03,324 - ERROR - Internal Server Error: /accounts/logout/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'extends' cannot appear more than once in the same template"), <traceback object at 0x000001901E97DF80>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'extends' cannot appear more than once in the same template
+2023-06-20 19:04:03,339 - ERROR - "GET /accounts/logout/ HTTP/1.1" 500 143842 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:04:03,339 - ERROR - "GET /accounts/logout/ HTTP/1.1" 500 143842 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:04:04,242 - ERROR - Internal Server Error: /accounts/logout/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'extends' cannot appear more than once in the same template"), <traceback object at 0x000001901E9BF240>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'extends' cannot appear more than once in the same template
+2023-06-20 19:04:04,242 - ERROR - Internal Server Error: /accounts/logout/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'django.template.exceptions.TemplateSyntaxError'>, TemplateSyntaxError("'extends' cannot appear more than once in the same template"), <traceback object at 0x000001901E9BF240>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 87, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\response.py", line 69, in resolve_template
+    return select_template(template, using=self.using)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'extends' cannot appear more than once in the same template
+2023-06-20 19:04:04,273 - ERROR - "GET /accounts/logout/ HTTP/1.1" 500 143842 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:04:04,273 - ERROR - "GET /accounts/logout/ HTTP/1.1" 500 143842 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:05:13,290 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001901FCFA980>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 19:05:13,290 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x000001901FCFA980>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 19:05:13,305 - ERROR - "POST /news/create/ HTTP/1.1" 500 91553 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:05:13,305 - ERROR - "POST /news/create/ HTTP/1.1" 500 91553 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:05:44,077 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x00000256976BF200>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 19:05:44,077 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x00000256976BF200>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 19:05:44,140 - ERROR - "POST /news/create/ HTTP/1.1" 500 91554 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:05:44,140 - ERROR - "POST /news/create/ HTTP/1.1" 500 91554 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:05:51,286 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x00000256976EFE80>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 19:05:51,286 - ERROR - Internal Server Error: /news/create/ - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\utils\log.py - (<class 'TypeError'>, TypeError("post() missing 1 required positional argument: 'pk'"), <traceback object at 0x00000256976EFE80>)
+Traceback (most recent call last):
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "D:\PycharmProjects\django_prj\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: post() missing 1 required positional argument: 'pk'
+2023-06-20 19:05:51,308 - ERROR - "POST /news/create/ HTTP/1.1" 500 91548 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
+2023-06-20 19:05:51,308 - ERROR - "POST /news/create/ HTTP/1.1" 500 91548 - D:\PycharmProjects\django_prj\venv\lib\site-packages\django\core\servers\basehttp.py - None
