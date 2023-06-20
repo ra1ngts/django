@@ -17,6 +17,7 @@
 - Implementing user registration, authentication, and authorization (as well as authorization through google).
 - Implementation of automatic adding users to categories (regular category and privileged).
 - Сaching templates and sections of the site.
+- Implementation of error logging and other data **(NEW)**
 
 #### For what :
 - Thesis for several months of learning django.
