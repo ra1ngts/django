@@ -28,6 +28,7 @@
 - Using HTML templates and CSS styles.
 
 #### Technologies and Libraries :
+- Python 3.8.10
 - Django 4.1
 - APScheduler 3.10.1
 - Celery 5.2.7
@@ -37,6 +38,8 @@
 - Redis 4.5.4
 - Requests 2.28.2
 - Installed google fonts
+- Pytz
+- Logging
 
 #### Install :
 - Folder name: __news_portal__
@@ -55,3 +58,5 @@
 ![News_portal_scr_2](https://github.com/ra1ngts/django/assets/122100029/d687f5a1-8b4c-4e0d-bce5-9453eb17a283)
 ![News_portal_scr_3](https://github.com/ra1ngts/django/assets/122100029/cab35b18-6ba9-41ef-ae9b-387857344ff9)
 ![News_portal_scr_4](https://github.com/ra1ngts/django/assets/122100029/aa162582-81a7-4ebc-9615-e42dc788fa4a)
+![News_portal_scr_5](https://github.com/ra1ngts/django/assets/122100029/6aaa644d-c1e9-46c7-9165-b3976e72f291)
+![News_portal_scr_6](https://github.com/ra1ngts/django/assets/122100029/605e6766-9b6f-4de3-8e1a-e0295aaad4d8)
