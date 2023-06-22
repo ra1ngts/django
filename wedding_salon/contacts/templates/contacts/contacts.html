@@ -1,0 +1,25 @@
+{% extends 'dress/default.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+{% for c in contacts %}
+<div align="center">
+<h3>{{ c.title }}</h3>
+<p>Наш адрес: {{ c.address }}</p>
+<p>м. {{ c.metro }}</p>
+<p><u>Часы работы</u></p>
+<p><b>ПН - ПТ: {{ c.weekdays }}</b></p>
+<p><b>СБ, ВС: {{ c.weekend }}</b></p>
+<p>Телефон: {{ c.phones }}</p>
+<p>E-mail: {{ c.email }}</p>
+    {% for c in contacts %}
+        {% if c.photo_1 %}
+            <p><img class="img article-left-thumb" src="{{ c.photo_1.url }}" style="margin-right: 15px;padding-right: 5px;padding-top: 5px;padding-left: 5px;padding-bottom: 5px;margin-left: 370px; height: 400px;"></p>
+        {% endif %}
+        {% if c.photo_2 %}
+            <p><img class="img article-left-thumb" src="{{ c.photo_2.url }}" style="margin-right: 15px;padding-right: 5px;padding-top: 5px;padding-left: 5px;padding-bottom: 5px;height: 400px;"></p>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endfor %}
+{% endblock %}

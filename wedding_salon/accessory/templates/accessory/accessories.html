@@ -1,0 +1,20 @@
+{% extends 'dress/default.html' %}
+
+{% block content %}
+<ul class="list-articles">
+    {% for a in accessories %}
+        <li><div class="article-panel">
+        <p class="first">Категория: {{ a.acat }}</p></div>
+            {% if a.main_photo %}
+                <p><img class="img article-left-thumb" src="{{ a.main_photo.url }}" style="margin-right: 15px;padding-right: 5px;padding-top: 5px;padding-left: 5px;padding-bottom: 5px;"></p>
+            {% endif %}
+            <h2>{{ a.title }}</h2>
+            <p>Цвет: {{ a.color.all | join:', '  }}</p>
+            <p>Цена: <b>{{ a.price }}</b> руб.</p>
+            <p>Наличие: <b>{{ a.availability }}</b></p>
+            <div class="clear"></div>
+            <p class="link-read-post"><a href="{{ a.get_absolute_url }}" style="padding-left: 720px;padding-right: 720px;border-top-width: 0px;border-top-style: solid;border-bottom-width: 0px;border-bottom-style: solid;border-right-width: 0px;border-right-style: solid;border-left-width: 0px;border-left-style: solid;"><b>Посмотреть</b></a> </p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

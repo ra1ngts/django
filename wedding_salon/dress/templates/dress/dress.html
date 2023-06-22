@@ -1,0 +1,64 @@
+{% extends 'dress/default.html' %}
+{% load static %}
+
+{% block content %}
+    {% if dress.photos %}
+        {% for p in dress.photos.all %}
+            <style>
+            #sclae {cursor: pointer; height: 550px;}
+            #scale:hover {height: 800px}
+            </style>
+            <img id="scale" src="{{ p.photo.url }}" style="padding-right: 5px;padding-top: 5px;padding-left: 5px;padding-bottom: 5px;margin-left: 0px;margin-right: 15px;">
+        {% endfor %}
+    {% endif %}
+            <h2>{{ dress.title }}</h2>
+            <p>Цвет: <b>{{ dress.color.all | join:', ' }}</b></p>
+            <p>Состав: <b>{{ dress.textile.all | join:', ' }}</b></p>
+            <p>Размер: <b>{{ dress.size.all | join:', ' }}</b></p>
+            <p>Цена: <b>{{ dress.price }}</b> руб.</p>
+            <p>Наличие: <b>{{ dress.availability }}</b></p><br>
+{% if user.is_authenticated %}
+            <style>
+            /* Стили кнопки */
+            .like_plus{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#444;background:#ffffff;border-radius:20px;border:1px solid #444;}
+            .like_plus:hover{text-decoration:none;background:#6f5673;color:#ffffff;border:1px solid #140f14;transition: all 0.4s ease;}
+            </style>
+            <a class="like_plus" href="{% url 'dress_like' dress.slug %}"   title="+">+</a>
+{% endif %}
+            <small class="text-muted">Рейтинг: <b>{{ dress.rating }}</b></small>
+{% if user.is_authenticated %}
+            <style>
+            /* Стили кнопки */
+            .like_min{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#444;background:#ffffff;border-radius:20px;border:1px solid #444;}
+            .like_min:hover{text-decoration:none;background:#6f5673;color:#ffffff;border:1px solid #140f14;transition: all 0.4s ease;}
+            </style>
+            <a class="like_min" href="{% url 'dress_dislike' dress.slug %}"   title="-">-</a>
+{% endif %}
+<br>
+<br>
+<br>
+<style>
+/* Стили кнопки */
+.Twitter{display: inline-block;cursor: pointer; font-size:12px;text-decoration:none;padding:5px 20px; color:#6f5673;background:#ffff0;border-radius:15px;border:1px solid #6f5673;}
+.Twitter:hover{text-decoration:none;background:#cebed0;color:#6f5673;border:1px solid #6f5673;transition: all 0.2s ease;}
+</style>
+<a class="Twitter" href="https://twitter.com/share?url=#тут адрес сайта#{{ get_absolute_url }}"   title="Twitter">Twitter</a>
+<style>
+/* Стили кнопки */
+.Facebook{display: inline-block;cursor: pointer; font-size:12px;text-decoration:none;padding:5px 20px; color:#6f5673;background:#ffff0;border-radius:15px;border:1px solid #6f5673;}
+.Facebook:hover{text-decoration:none;background:#cebed0;color:#6f5673;border:1px solid #6f5673;transition: all 0.2s ease;}
+</style>
+<a class="Facebook" href="https://www.facebook.com/sharer/sharer.php?u=#тут адрес сайта#{{ get_absolute_url }}"   title="Facebook">Facebook</a>
+<style>
+/* Стили кнопки */
+.Linkedin{display: inline-block;cursor: pointer; font-size:12px;text-decoration:none;padding:5px 20px; color:#6f5673;background:#ffff0;border-radius:15px;border:1px solid #6f5673;}
+.Linkedin:hover{text-decoration:none;background:#cebed0;color:#6f5673;border:1px solid #6f5673;transition: all 0.2s ease;}
+</style>
+<a class="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=#тут адрес сайта#{{ get_absolute_url }}"   title="Linkedin">Linkedin</a>
+<style>
+/* Стили кнопки */
+.Google{display: inline-block;cursor: pointer; font-size:12px;text-decoration:none;padding:5px 20px; color:#6f5673;background:#ffff0;border-radius:15px;border:1px solid #6f5673;}
+.Google:hover{text-decoration:none;background:#cebed0;color:#6f5673;border:1px solid #6f5673;transition: all 0.2s ease;}
+</style>
+<a class="Google" href="https://plus.google.com/share?url=#тут адрес сайта#{{ get_absolute_url }}"   title="Google+">Google+</a>
+{% endblock %}

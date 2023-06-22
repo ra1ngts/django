@@ -1,0 +1,30 @@
+{% extends 'dress/default.html' %}
+{% load custom_filters %}
+{% load main_tags %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+    {% for p in page_obj.object_list %}
+<b>{{ p.name | censor }}</b>
+    {{ p.time_create | date:"d-m-Y" }}
+<hr style="height:1px;border:none;color:#ccc;background-color:#ccc;">
+    {{ p.review | censor | linebreaksbr }}
+<br>
+<br>
+    {% endfor %}
+{% if user.is_authenticated %}
+<form action="{% url 'reviews' %}" method="post">
+    {% csrf_token %}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    <br>
+    <h3 style="text-align:center">Добавить отзыв</h3>
+{% for f in form %}
+    <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+    <div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+    <button type="submit">Опубликовать</button>
+</form>
+{% endif %}
+<br>
+<div align="center">{% include '../dress/pagination.html' with page=page_obj %}</div>
+{% endblock %}

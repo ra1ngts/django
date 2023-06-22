@@ -1,0 +1,7 @@
+{% for b in bcatg %}
+	{% if b.pk == bcat_selected %}
+		<li class="selected">{{ b.name }}</li>
+	{% else %}
+		<li><a href="{{ b.get_absolute_url }}">{{ b.name }}</a></li>
+	{% endif %}
+{% endfor %}

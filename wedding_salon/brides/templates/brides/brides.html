@@ -1,0 +1,17 @@
+{% extends 'dress/default.html' %}
+
+{% block content %}
+<ul class="list-articles">
+    {% for b in brides %}
+        <li><div class="article-panel">
+        <p class="first">Категория: {{ b.bcat }}</p></div>
+            {% if b.main_photo %}
+                <p><img class="img article-left-thumb" src="{{ b.main_photo.url }}" style="margin-right: 15px;padding-right: 5px;padding-top: 5px;padding-left: 5px;padding-bottom: 5px;"></p>
+            {% endif %}
+            <h2>{{ b.title }}</h2>
+            <div class="clear"></div>
+            <p class="link-read-post"><a href="{{ b.get_absolute_url }}" style="padding-left: 720px;padding-right: 720px;border-top-width: 0px;border-top-style: solid;border-bottom-width: 0px;border-bottom-style: solid;border-right-width: 0px;border-right-style: solid;border-left-width: 0px;border-left-style: solid;"><b>Посмотреть</b></a> </p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

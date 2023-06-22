@@ -1,0 +1,42 @@
+{% extends 'dress/default.html' %}
+{% load custom_filters %}
+{% load main_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {{ title }}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <h1>Поиск платьев</h1>
+    <hr style="height:1px;border:none;color:#ccc;background-color:#ccc;" />
+    <form action="" method="get">
+        {{ filterset.form.as_p }}
+       <input type="submit" value="Найти" />
+    </form>
+    <hr style="height:1px;border:none;color:#ccc;background-color:#ccc;" />
+    {% for d in page_obj.object_list %}
+<ul class="list-articles">
+        <li><div class="article-panel">
+        <p class="first">Категория: {{ d.cat }}</p></div>
+            {% if d.main_photo %}
+                <p><img class="img article-left-thumb" src="{{ d.main_photo.url }}" style="margin-right: 15px;padding-right: 5px;padding-top: 5px;padding-left: 5px;padding-bottom: 5px; height: 250px"></p>
+            {% endif %}
+            <h2>{{ d.title }}</h2>
+            <p>Цвет: <b>{{ d.color.all | join:', ' }}</b></p>
+            <p>Состав: <b>{{ d.textile.all | join:', ' }}</b></p>
+            <p>Размер: <b>{{ d.size.all | join:', ' }}</b></p>
+            <p>Цена: <b>{{ d.price }}</b> руб.</p>
+            <p>Наличие: <b>{{ d.availability }}</b></p>
+            <p class="link-read-post"><a href="{{ d.get_absolute_url }}" style="padding-left: 720px;padding-right: 720px;border-top-width: 0px;border-top-style: solid;border-bottom-width: 0px;border-bottom-style: solid;border-right-width: 0px;border-right-style: solid;border-left-width: 0px;border-left-style: solid;"><b>Посмотреть</b></a> </p>
+        </li>
+    {% endfor %}
+</ul>
+    <div align="center">{% include '../dress/pagination.html' with page=page_obj %}</div>
+{% endblock content %}
+</body>
+</html>
