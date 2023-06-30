@@ -78,6 +78,9 @@
 - Ability to register, authenticate and authorize a user.
 - Ability to add multiple photos to models.
 - Implemented pagination.
+- Implementation of logging
+- Implementation of caching
+- Adaptation to REST architecture
 
 #### For what :
 - Personal project for business.
@@ -87,12 +90,14 @@
 
 #### Technologies and Libraries :
 - Python 3.8.10
-- Django 4.1
+- Django 4.2
 - Django-allauth 0.54.0
 - Django-filter 23.1
 - Python-decouple 3.8
 - Requests 2.28.2
 - Installed google fonts
+- Logging
+- REST framework
 
 #### Install :
 - Folder name: __wedding_salon__
