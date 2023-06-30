@@ -107,7 +107,9 @@
 |     3| HTML      |
 
 #### Demonstration :
-![Wedding_salon_scr_1](https://github.com/ra1ngts/django/assets/122100029/a924349e-0c77-41fb-8df1-b931080f28cb)
-![Wedding_salon_scr_2](https://github.com/ra1ngts/django/assets/122100029/828d81de-750c-4192-b12d-736dfe238bac)
-![Wedding_salon_scr_3](https://github.com/ra1ngts/django/assets/122100029/839a229c-f4ea-48c7-b57f-986257b1a4dc)
-![Wedding_salon_scr_4](https://github.com/ra1ngts/django/assets/122100029/6315c274-fb22-4e4f-bed0-ca97ee1b0039)
+![Wedding_salon_scr_1](https://github.com/ra1ngts/django/assets/122100029/3c715c10-ee85-4df2-812a-750f09e2ba10)
+![Wedding_salon_scr_2](https://github.com/ra1ngts/django/assets/122100029/ab56195f-f51c-49ca-a025-c07cffc03c98)
+![Wedding_salon_scr_3](https://github.com/ra1ngts/django/assets/122100029/5116d12b-a9a3-4a3b-8690-00d8694adea7)
+![Wedding_salon_scr_4](https://github.com/ra1ngts/django/assets/122100029/518b7e1c-9357-4827-8752-185ad027bddc)
+![Wedding_salon_scr_5](https://github.com/ra1ngts/django/assets/122100029/31a7bc06-365c-4064-b925-82c72e234457)
+![Wedding_salon_scr_6](https://github.com/ra1ngts/django/assets/122100029/9e20234b-b196-4d28-aad5-8a30b5d58116)
