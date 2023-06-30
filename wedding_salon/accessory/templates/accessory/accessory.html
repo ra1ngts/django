@@ -7,11 +7,28 @@
             #sclae {cursor: pointer; height: 550px;}
             #scale:hover {height: 800px}
             </style>
-            <img id="scale" src="{{ p.photo.url }}" style="padding-right: 5px;padding-top: 5px;padding-left: 5px;padding-bottom: 5px;margin-left: 0px;margin-right: 15px;">
+            <img id="scale" src="{{ p.photo.url }}" style="padding-right: 5px;padding-top: 5px;padding-left: 5px;padding-bottom: 5px;margin-left: 0px;margin-right: 15px;margin-top: 15px;">
         {% endfor %}
     {% endif %}
             <h2>{{ accessory.title }}</h2>
             <p>Цвет: {{ accessory.color.all | join:', ' }}</p>
             <p>Цена: <b>{{ accessory.price }}</b> руб.</p>
             <p>Наличие: <b>{{ accessory.availability }}</b></p>
+{% if user.is_authenticated %}
+            <style>
+            /* Стили кнопки */
+            .like_plus{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#444;background:#ffffff;border-radius:20px;border:1px solid #444;}
+            .like_plus:hover{text-decoration:none;background:#6f5673;color:#ffffff;border:1px solid #140f14;transition: all 0.4s ease;}
+            </style>
+            <a class="like_plus" href="{% url 'accessory_like' accessory.slug %}"   title="+">+</a>
+{% endif %}
+            <small class="text-muted">Рейтинг: <b>{{ accessory.rating }}</b></small>
+{% if user.is_authenticated %}
+            <style>
+            /* Стили кнопки */
+            .like_min{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#444;background:#ffffff;border-radius:20px;border:1px solid #444;}
+            .like_min:hover{text-decoration:none;background:#6f5673;color:#ffffff;border:1px solid #140f14;transition: all 0.4s ease;}
+            </style>
+            <a class="like_min" href="{% url 'accessory_dislike' accessory.slug %}"   title="-">-</a>
+{% endif %}
 {% endblock %}

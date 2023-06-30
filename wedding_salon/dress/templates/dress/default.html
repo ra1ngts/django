@@ -1,5 +1,6 @@
 {% load static %}
 {% load main_tags %}
+{% load cache %}
 
 <!DOCTYPE html>
 <html>
@@ -7,7 +8,7 @@
 	<title>{{ title }}</title>
 	<link type="text/css" href="{% static 'dress/css/style.css' %}" rel="stylesheet" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="shortcut icon" href="{% static 'dress/images/main.ico' %}" type="image/x-icon"/>
+	<link rel="shortcut icon" href="{% static 'dress/images/favicon.png' %}" type="image/x-icon"/>
 <!-- Google fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,14 +23,18 @@
 		<div class="header">
 			<ul id="mainmenu" class="mainmenu">
 			<li class="logo"><a href="{% url 'home' %}"><div class="logo"></div></a></li>
-			<li><a href="{% url 'brides' %}">Невесты</a></li>
-			<li><a href="{% url 'reviews' %}">Отзывы</a></li>
-			<li><a href="{% url 'contacts' %}">Контакты</a></li>
-			<li><a href="{% url 'dresses_search' %}">Поиск платьев</a></li>
+		{% cache 300 brides %}
+			<li class="selected"><a href="{% url 'brides' %}">Невесты</a></li>
+		{% endcache %}
+			<li class="selected"><a href="{% url 'reviews' %}">Отзывы</a></li>
+		{% cache 300 contacts and search %}
+			<li class="selected"><a href="{% url 'contacts' %}">Контакты</a></li>
+			<li class="selected"><a href="{% url 'dresses_search' %}">Поиск платьев</a></li>
+		{% endcache %}
 		{% if not user.is_authenticated %}
-			<li class="last"><a href="{% url 'account_signup' %}">Регистрация</a> | <a href="{% url 'account_login' %}">Войти</a> </li>
+			<li class="last selected"><a href="{% url 'account_signup' %}">Регистрация</a> | <a href="{% url 'account_login' %}">Войти</a> </li>
 		{% else %}
-			<li class="last"><a href="{% url 'account_logout' %}">{{ user.username }}, Выйти</a> </li>
+			<li class="last selected"><a href="{% url 'account_logout' %}">{{ user.username }}, Выйти</a> </li>
 		{% endif %}
 			</ul>
 			<div class="clear"></div>
@@ -71,7 +76,9 @@
 <!-- Footer -->
 <tr><td valign=top>
 	<div id="footer">
-		<p>&copy; 2023 Свадебный салон.</p>
+		{% cache 300 footer %}
+		<p>&copy; 2023 Wedding House.</p>
+		{% endcache %}
 	</div>
 </td></tr></table>
 <!-- Footer end block -->

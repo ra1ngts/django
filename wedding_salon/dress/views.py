@@ -71,7 +71,7 @@ class SearchDress(FilterView):
     template_name = 'dress/dresses_search.html'
     context_object_name = 'dresses_search'
     filterset_class = SearchFilter
-    paginate_by = 3
+    paginate_by = 10
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -226,6 +226,18 @@ def dress_dislike(request, dress_slug):
     dislike = Dress.objects.get(slug=dress_slug)
     dislike.dislike()
     return redirect(f'/look_dress/{dislike.slug}')
+
+
+def accessory_like(request, accessory_slug):
+    like = Accessory.objects.get(slug=accessory_slug)
+    like.like()
+    return redirect(f'/look_accessory/{like.slug}')
+
+
+def accessory_dislike(request, accessory_slug):
+    dislike = Accessory.objects.get(slug=accessory_slug)
+    dislike.dislike()
+    return redirect(f'/look_accessory/{dislike.slug}')
 
 
 def index_redirect(request):

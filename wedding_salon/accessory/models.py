@@ -25,6 +25,15 @@ class Accessory(models.Model):
                                    verbose_name='Главная фотография')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
     acat = models.ForeignKey('AccessoryCategory', on_delete=models.PROTECT, null=True, verbose_name='Категория')
+    rating = models.IntegerField(default=0, verbose_name='Рейтинг')
+
+    def like(self):
+        self.rating += 1
+        self.save()
+
+    def dislike(self):
+        self.rating -= 1
+        self.save()
 
     def __str__(self):
         return self.title

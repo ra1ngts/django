@@ -11,4 +11,11 @@
         {% endfor %}
     {% endif %}
             <h2>{{ bride.title }}</h2>
+<style>
+/* Стили кнопки */
+.get_price{display: inline-block;cursor: pointer; font-size:14px;text-decoration:none;padding:10px 15px; color:#6F5673;background:#FDEEFF;border-radius:0px;border:2px solid #6F5673;}
+.get_price:hover{background:#6F5673;text-decoration: none;color:#FDEEFF;border:2px solid #6F5673;transition: all 0.4s ease;}
+</style>
+
+<a class="get_price" href="{{ bride.get_dress_url }}"   title="">Узнать цену</a>
 {% endblock %}

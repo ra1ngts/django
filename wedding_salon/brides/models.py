@@ -16,6 +16,9 @@ class Bride(models.Model):
     def get_absolute_url(self):
         return reverse('look_bride', kwargs={'bride_slug': self.slug})
 
+    def get_dress_url(self):
+        return reverse('look_dress', kwargs={'dress_slug': self.slug})
+
     class Meta:
         verbose_name = 'Невеста'
         verbose_name_plural = 'Невесты'
