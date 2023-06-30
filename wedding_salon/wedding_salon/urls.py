@@ -16,17 +16,25 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
 
 from dress import views
-from dress.views import pageNotFound
+from dress.views import pageNotFound, DressAPI, AccessoryAPI, BrideAPI
 
 from wedding_salon import settings
+
+router = routers.SimpleRouter()
+router.register(r'dresses', DressAPI)
+router.register(r'accessory', AccessoryAPI)
+router.register(r'brides', BrideAPI)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('dress.urls')),
     path('', views.index_redirect),
     path('accounts/', include('allauth.urls')),
+    path('api/v1/drf-auth/', include('rest_framework.urls')),
+    path('api/v1/', include(router.urls)),
 ]
 
 if settings.DEBUG:

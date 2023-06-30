@@ -3,12 +3,15 @@ from django.http import HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django_filters.views import FilterView
+from rest_framework import viewsets, permissions
+from rest_framework.pagination import PageNumberPagination
 
 from accessory.models import Accessory
 from brides.models import Bride
 from contacts.models import Contacts
 from dress.filters import SearchFilter
 from dress.models import Dress
+from dress.serializers import DressSerializer, AccessorySerializer, BrideSerializer
 from review.forms import AddReviewForm
 from review.models import Review
 
@@ -214,6 +217,33 @@ class Contact(ListView):
         context['menu'] = menu
         context['title'] = 'Контакты'
         return context
+
+
+class PaginationAPI(PageNumberPagination):
+    page_size = 5
+    page_size_query_param = 'page_size'
+    max_page_size = 1000
+
+
+class DressAPI(viewsets.ModelViewSet):
+    queryset = Dress.objects.all()
+    serializer_class = DressSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    pagination_class = PaginationAPI
+
+
+class AccessoryAPI(viewsets.ModelViewSet):
+    queryset = Accessory.objects.all()
+    serializer_class = AccessorySerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    pagination_class = PaginationAPI
+
+
+class BrideAPI(viewsets.ModelViewSet):
+    queryset = Bride.objects.all()
+    serializer_class = BrideSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    pagination_class = PaginationAPI
 
 
 def dress_like(request, dress_slug):

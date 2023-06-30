@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -155,4 +156,91 @@ CACHES = {
         'LOCATION': os.path.join(BASE_DIR, 'cache_files'),
         'OPTIONS': {'MAX_ENTRIES': 500},
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        # 'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'style': '{',
+    'formatters': {
+        'info_fmt': {
+            'format': '%(asctime)s - %(name)s - %(levelname)s %(message)s'
+        },
+        'warning_fmt': {
+            'format': '%(asctime)s - %(name)s - %(levelname)s %(message)s'
+        },
+        'error_critical_fmt': {
+            'format': '%(asctime)s - %(name)s - %(levelname)s %(message)s'
+        },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+    },
+    'handlers': {
+        'info': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'info_fmt'
+        },
+        'warning': {
+            'level': 'WARNING',
+            'class': 'logging.StreamHandler',
+            'formatter': 'warning_fmt'
+        },
+        'error': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': 'error_critical.log',
+            'formatter': 'error_critical_fmt'
+        },
+        'critical': {
+            'level': 'CRITICAL',
+            'class': 'logging.FileHandler',
+            'filename': 'error_critical.log',
+            'formatter': 'error_critical_fmt'
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'error_critical_fmt'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['info', 'warning', 'error', 'critical'],
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['error', 'critical', 'mail_admins'],
+            'propagate': True,
+        },
+        'django.server': {
+            'handlers': ['error', 'critical', 'mail_admins'],
+            'propagate': True,
+        },
+        'django.template': {
+            'handlers': ['error', 'critical'],
+            'propagate': True,
+        },
+        'django.db.backends': {
+            'handlers': ['error', 'critical'],
+            'propagate': True,
+        },
+    },
 }
