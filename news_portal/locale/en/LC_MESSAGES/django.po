@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-20 09:46+0300\n"
+"POT-Creation-Date: 2023-06-21 09:15+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: .\news\filters.py:10 .\news\forms.py:9 .\news\models.py:13
 #: .\news\models.py:17 .\news\models.py:52 .\news\models.py:101
-#: .\templates\category_list.html:32 .\templates\default.html:74
+#: .\templates\category_list.html:32 .\templates\default.html:90
 #: .\templates\news.html:17 .\templates\news.html:58 .\templates\search.html:26
 msgid "Автор"
 msgstr "Author"
@@ -60,7 +60,7 @@ msgid "Название новости или статьи"
 msgstr "Title of news or article"
 
 #: .\news\models.py:42 .\news\models.py:89 .\templates\category_list.html:33
-#: .\templates\default.html:75 .\templates\news.html:18
+#: .\templates\default.html:91 .\templates\news.html:18
 msgid "Категория"
 msgstr "Category"
 
@@ -100,11 +100,11 @@ msgstr "Comment"
 msgid "Комментарии"
 msgstr "Comments"
 
-#: .\news\views.py:179
+#: .\news\views.py:257
 msgid "вы успешно подписались на рассылку новостей в категории:"
 msgstr "you have successfully subscribed to the newsletter in the category:"
 
-#: .\news\views.py:189
+#: .\news\views.py:267
 msgid "вы отписались от рассылки новостей в категории:"
 msgstr "you have unsubscribed from the newsletter in the category:"
 
@@ -160,7 +160,9 @@ msgstr "Thank you for registering"
 msgid ""
 "Пожалуйста пройдите по <a href=\"%(activate_url)s\">ссылке</a> для активации "
 "вашего аккаунта."
-msgstr "Please go to <a href=\"%(activate_url)s\">link</a> to activate of your account."
+msgstr ""
+"Please go to <a href=\"%(activate_url)s\">link</a> to activate of your "
+"account."
 
 #: .\templates\account\login.html:15
 #, python-format
@@ -200,7 +202,7 @@ msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
 msgstr ""
 
-#: .\templates\articles_create.html:5 .\templates\default.html:40
+#: .\templates\articles_create.html:5 .\templates\default.html:56
 msgid "Создать статью"
 msgstr "Create article"
 
@@ -239,43 +241,47 @@ msgstr "Subscribe"
 msgid "Отписаться"
 msgstr "Unsubscribe"
 
-#: .\templates\category_list.html:44 .\templates\default.html:86
+#: .\templates\category_list.html:44 .\templates\default.html:102
 msgid "Прочитать"
 msgstr "Read"
 
-#: .\templates\default.html:30 .\templates\default.html:95
-msgid "Портал - новостей"
-msgstr "News - portal"
+#: .\templates\default.html:33
+msgid "Часовой пояс"
+msgstr "Time zone"
 
-#: .\templates\default.html:36
-msgid "Поиск"
-msgstr "Search"
-
-#: .\templates\default.html:39 .\templates\news_create.html:5
-msgid "Создать новость"
-msgstr "Create news"
-
-#: .\templates\default.html:41
-msgid "Выйти"
-msgstr "Logout"
-
-#: .\templates\default.html:43
-msgid "Регистрация"
-msgstr "Registration"
-
-#: .\templates\default.html:44
-msgid "Войти"
-msgstr "Login"
-
-#: .\templates\default.html:58
+#: .\templates\default.html:39 .\templates\default.html:74
 msgid "Выбрать"
 msgstr "Choose"
 
-#: .\templates\default.html:68
+#: .\templates\default.html:46 .\templates\default.html:111
+msgid "Портал - новостей"
+msgstr "News - portal"
+
+#: .\templates\default.html:52
+msgid "Поиск"
+msgstr "Search"
+
+#: .\templates\default.html:55 .\templates\news_create.html:5
+msgid "Создать новость"
+msgstr "Create news"
+
+#: .\templates\default.html:57
+msgid "Выйти"
+msgstr "Logout"
+
+#: .\templates\default.html:59
+msgid "Регистрация"
+msgstr "Registration"
+
+#: .\templates\default.html:60
+msgid "Войти"
+msgstr "Login"
+
+#: .\templates\default.html:84
 msgid "Все новости и статьи"
 msgstr "All news and articles"
 
-#: .\templates\default.html:69
+#: .\templates\default.html:85
 msgid "Количество всех новостей"
 msgstr "Number of all news"
 

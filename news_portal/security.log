@@ -1,3 +1,0 @@
-2023-06-20 12:54:03,739 - WARNING - log - Forbidden (CSRF token from POST incorrect.): /i18n/setlang/
-2023-06-20 12:54:11,837 - WARNING - log - Forbidden (CSRF token from POST incorrect.): /i18n/setlang/
-2023-06-20 12:54:15,694 - WARNING - log - Forbidden (CSRF token from POST incorrect.): /i18n/setlang/

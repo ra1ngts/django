@@ -1,5 +1,4 @@
-import logging
-
+from rest_framework import viewsets
 import pytz
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
@@ -11,11 +10,15 @@ from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 
 from news.filters import SearchFilter
 from news.forms import NewsForm
 from news.models import Post, Category, Author, Comment
 from django.utils.translation import gettext as _
+
+from news.serializers import NewsArticleSerializer
 
 
 class AllNews(ListView):
@@ -238,6 +241,26 @@ class CategoryListView(ListView):
         return redirect('category_list', pk)
 
 
+class NewsArticlePaginator(PageNumberPagination):
+    page_size = 5
+    page_size_query_param = 'page_size'
+    max_page_size = 10000
+
+
+class NewsViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.filter(choice_post='НОВОСТЬ')
+    serializer_class = NewsArticleSerializer
+    permission_classes = (IsAuthenticated,)  # IsAuthenticatedOrReadOnly
+    pagination_class = NewsArticlePaginator
+
+
+class ArticleViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.filter(choice_post='СТАТЬЯ')
+    serializer_class = NewsArticleSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    pagination_class = NewsArticlePaginator
+
+
 @login_required
 def be_author(request):
     user = request.user
@@ -290,12 +313,3 @@ def permission_denied_error(request, exception=None):
 
 def index_redirect(request):
     return HttpResponseRedirect('news')
-
-
-logger = logging.getLogger(__name__)
-
-logging.debug('DEBUG message')
-logging.info('INFO message')
-logging.warning('WARNING message')
-logging.error('ERROR message')
-logging.critical('CRITICAL message')
