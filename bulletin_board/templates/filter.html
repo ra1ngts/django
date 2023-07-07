@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% load custom_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {{ title }}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <h1>Фильтр комментариев</h1>
+    <hr>
+    <form action="" method="get">
+       {{ filterset.form.as_table }}
+       <input type="submit" value="Найти" />
+   </form>
+    <hr>
+    {% for n in filterset.qs %}
+        <small class="fw-bold">Дата: {{ n.date_comment | date:"d.m.Y" }}</small>
+        <small class="text-muted">Автор: {{ n.author_comment }}</small><br><br>
+        <a href="{{ n.get_absolute_url }}">{{ n.post_comment }}</a>
+        <p>Комментарий: {{ n.text_comment }}</p>
+    <hr>
+    {% endfor %}
+    <div align="center">{% include 'pagination.html' with page=page_obj %}</div>
+    {% endblock content %}
+</body>
+</html>

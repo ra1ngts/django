@@ -1,0 +1,75 @@
+{% load static %}
+{% load custom_tags %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Доска объявлений "MMORPG"</title>
+        <!-- Favicon-->
+        <link rel="icon" href="{% static 'mmorpg/assets/favicon.png' %}" type="image/x-icon"/>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'mmorpg/css/style.css' %}" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <!-- Google fonts end-->
+        <style>
+            body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} #B7A999 {% else %} #E1DBD5 {% endif %};}
+        </style>
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'posts' %}">Доска объявлений "MMORPG"</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'profile' %}">Профиль</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">{{ user.username }}, Выйти</a></li>
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_signup' %}">Регистрация</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'account_login' %}">Войти</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container">
+            <div class="text-center mt-5">
+                {% block content %}
+                <h1>Все объявления</h1>
+                <p>Количество всех объявлений: {{ posts | length }}</p>
+                    <hr>
+                    {% for post in posts %}
+                        <small class="fw-bold">Дата: {{ post.date_post | date:"d.m.Y" }}</small>
+                        <small class="text-muted">Автор: {{ post.author_post }}</small>
+                        <small class="fw-bold">Категория: {{ post.category_post }}</small>
+                        <h5><b>{{ post.title_post }}</b></h5>
+                        {{ post.text_post | linebreaks | truncatewords:30 | safe }}
+                        <style>
+                        /* Стили кнопки */
+                        .main_button{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#e0e0e0;border-radius:5px;border:1px solid #000000;}
+                        .main_button:hover{background:#4d4d4d;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
+                        </style>
+                        <div align="center"><a class="main_button" href="{{ post.get_absolute_url }}" title="Прочитать">Прочитать</a></div>
+                    <hr>
+                    {% endfor %}
+                    {% if posts == 0 %}
+                        {{ amount_posts | default_if_none:'Нет объявлений' }}
+                    {% endif %}
+                <div align="center">{% include 'pagination.html' with page=page_obj %}</div>
+                {% endblock %}
+                <br>
+                <p>&copy; 2023 - Доска объявлений "MMORPG".</p>
+            </div>
+        </div>
+    </body>
+</html>

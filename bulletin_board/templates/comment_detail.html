@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {{ title }}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <hr>
+    <small class="fw-bold">Дата: {{ comment_detail.date_comment | date:"d.m.Y" }}</small>
+    <small class="text-muted">Автор: {{ comment_detail.author_comment }}</small>
+    <p>{{ comment_detail.text_comment | linebreaks | safe }}</p>
+    <hr>
+    {% endblock content %}
+</body>
+</html>

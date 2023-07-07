@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {{ title }}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <h1>Недостаточно прав - 403</h1>
+    <hr>
+    <p><b>{{ user.username }}</b>, вы не можете редактировать содержание этой страницы!</p>
+    <style>
+    /* Стили кнопки */
+    .main_button{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#e0e0e0;border-radius:5px;border:1px solid #000000;}
+    .main_button:hover{background:#4d4d4d;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
+    </style>
+    <div align="center"><a class="main_button" href="{% url 'posts' %}" title="На главную">На главную</a></div>
+    <hr>
+    {% endblock content %}
+</body>
+</html>
