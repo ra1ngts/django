@@ -18,8 +18,9 @@
 - Implementation of automatic adding users to categories (regular category and privileged).
 - Сaching templates and sections of the site.
 - Implementation of error logging and other data
-- Added localization and internationalization **(NEW)**
-- Added light and dark themes **(NEW)**
+- Added localization and internationalization
+- Added light and dark themes
+- Adaptation to REST architecture
 
 #### For what :
 - Thesis for several months of learning django.
@@ -29,7 +30,7 @@
 
 #### Technologies and Libraries :
 - Python 3.8.10
-- Django 4.1
+- Django 4.2
 - APScheduler 3.10.1
 - Celery 5.2.7
 - Django-allauth 0.54.0
@@ -38,8 +39,11 @@
 - Redis 4.5.4
 - Requests 2.28.2
 - Installed google fonts
-- Pytz
+- Pytz 2023.3
 - Logging
+- REST framework 3.14.0
+- REST Simple-jwt 5.2.2
+- Djoser 2.2.0
 
 #### Install :
 - Folder name: __news_portal__
@@ -97,7 +101,7 @@
 - Requests 2.28.2
 - Installed google fonts
 - Logging
-- REST framework
+- REST framework 3.14.0
 
 #### Install :
 - Folder name: __wedding_salon__
