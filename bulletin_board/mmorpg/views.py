@@ -123,7 +123,7 @@ class CommentCreate(CreateView):  # TODO создается только есл�
     def form_valid(self, form):
         comment = form.save(commit=False)
         comment.user = User.objects.get(id=self.request.user.id)
-        comment.post_comment = Post.objects.get(id=self.request.user.id)
+        comment.post_comment = Post.objects.get(id=self.kwargs['pk'])
         comment.save()
         result = super().form_valid(form)
         send_mail(

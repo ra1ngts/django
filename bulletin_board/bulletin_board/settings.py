@@ -138,7 +138,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
-SITE_URL = 'http://127.0.0.1:8000'
+SITE_URL = config('SITE_URL')
 
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = 'profile'
@@ -170,4 +170,17 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_RESTRICT_BY_USER = True
 CKEDITOR_BROWSE_SHOW_DIRS = True
 CKEDITOR_RESTRICT_BY_DATE = True
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
+
+CKEDITOR_CONFIGS = {
+    'default':
+        {
+            'toolbar': 'full',
+            'width': 'auto',
+            'extraPlugins': ','.join([
+                'codesnippet',
+            ]),
+        },
+}

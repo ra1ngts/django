@@ -5,7 +5,6 @@
 <hr>
 <form action="" method="post">
     {% csrf_token %}
-    {{ form.text | safe }}
     {{ form.media }}
     {{ form.as_p }}
     <input type="submit" value="Сохранить" />

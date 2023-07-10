@@ -28,17 +28,17 @@
     <br>
     <style>
     /* Стили кнопки */
-    .main_button_comments{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#e0e0e0;border-radius:5px;border:1px solid #000000;}
-    .main_button_comments:hover{background:#4d4d4d;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
-    </style>
-    <div align="center"><a class="main_button_comments" href="{% url 'comments' %}" title="Мои комментарии">Мои комментарии</a></div>
-    <br>
-    <style>
-    /* Стили кнопки */
     .main_button_filter{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#e0e0e0;border-radius:5px;border:1px solid #000000;}
     .main_button_filter:hover{background:#4d4d4d;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
     </style>
     <div align="center"><a class="main_button_filter" href="{% url 'filter' %}" title="Фильтр объявлений">Фильтр объявлений</a></div>
+    <br>
+    <style>
+    /* Стили кнопки */
+    .main_button_comments{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#e0e0e0;border-radius:5px;border:1px solid #000000;}
+    .main_button_comments:hover{background:#4d4d4d;color:#ffffff;border:1px solid #000000;transition: all 0.2s ease;}
+    </style>
+    <div align="center"><a class="main_button_comments" href="{% url 'comments' %}" title="Мои комментарии">Мои комментарии</a></div>
     <hr>
     {% endblock content %}
 </body>

@@ -17,7 +17,7 @@
         {% for comment in comments %}
             {% if comment.confirmation_comment is False %}
                 <small class="fw-bold">Дата: {{ comment.date_comment | date:"d.m.Y" }}</small>
-                <small class="text-muted">Автор комментария: {{ comment.author_comment }}</small>
+                <small class="text-muted">Автор: {{ comment.author_comment }}</small>
                 <p>Комментарий к {{ comment.post_comment | linebreaks | safe }}</p>
                 <style>
                 /* Стили кнопки */
@@ -35,7 +35,7 @@
                 <br>
             {% else %}
                 <small class="fw-bold">Дата: {{ comment.date_comment | date:"d.m.Y" }}</small>
-                <small class="text-muted">Автор комментария: {{ comment.author_comment }}</small>
+                <small class="text-muted">Автор: {{ comment.author_comment }}</small>
                 <p>Комментарий к {{ comment.post_comment | linebreaks | safe }} <b>{{ comment.text_comment | linebreaks | truncatechars:130 | safe }}</b></p>
                 <style>
                 /* Стили кнопки */
