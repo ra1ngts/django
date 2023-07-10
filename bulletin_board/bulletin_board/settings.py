@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django_filters',
+    'ckeditor',
+    'ckeditor_uploader',
+    'django.forms',
 ]
 
 MIDDLEWARE = [
@@ -156,3 +159,15 @@ ADMINS = config('ADMINS')
 SERVER_EMAIL = config('SERVER_EMAIL')
 
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+
+CELERY_BROKER_URL = config('CELERY_BROKER_URL')
+CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND')
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_RESTRICT_BY_USER = True
+CKEDITOR_BROWSE_SHOW_DIRS = True
+CKEDITOR_RESTRICT_BY_DATE = True
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'

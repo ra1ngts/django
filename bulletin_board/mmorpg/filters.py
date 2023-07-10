@@ -1,9 +1,9 @@
 from django_filters import FilterSet
 
-from mmorpg.models import Comment
+from mmorpg.models import Post
 
 
 class SearchFilter(FilterSet):
     class Meta:
-        model = Comment
-        fields = ['post_comment']
+        model = Post
+        fields = ['category_post', 'title_post']

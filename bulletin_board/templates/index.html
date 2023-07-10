@@ -52,8 +52,8 @@
                         <small class="fw-bold">Дата: {{ post.date_post | date:"d.m.Y" }}</small>
                         <small class="text-muted">Автор: {{ post.author_post }}</small>
                         <small class="fw-bold">Категория: {{ post.category_post }}</small>
-                        <h5><b>{{ post.title_post }}</b></h5>
-                        {{ post.text_post | linebreaks | truncatewords:30 | safe }}
+                        <h5><b>{{ post.title_post | truncatewords:10 }}</b></h5>
+                        {{ post.text_post | safe }}
                         <style>
                         /* Стили кнопки */
                         .main_button{display: inline-block;cursor: pointer; font-size:15px;text-decoration:none;padding:5px 10px; color:#000000;background:#e0e0e0;border-radius:5px;border:1px solid #000000;}

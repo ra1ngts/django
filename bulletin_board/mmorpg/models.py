@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
@@ -20,7 +21,7 @@ class Category(models.Model):
 class Post(models.Model):
     author_post = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор')
     title_post = models.CharField(max_length=255, verbose_name='Заголовок')
-    text_post = models.TextField(verbose_name='Текст')
+    text_post = RichTextUploadingField(verbose_name='Контент')
     category_post = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='Категория')
     date_post = models.DateTimeField(auto_now_add=True, verbose_name='Дата')
 
@@ -29,7 +30,7 @@ class Post(models.Model):
         verbose_name_plural = 'Объявления'
 
     def __str__(self):
-        return f'{self.author_post} {self.title_post} {self.text_post} {self.category_post}'
+        return f'объявлению: "{self.title_post}" в категории "{self.category_post}" от {self.author_post}'
 
     def get_absolute_url(self):
         return reverse('post_detail', args=[str(self.pk)])

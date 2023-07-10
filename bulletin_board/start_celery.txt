@@ -1,0 +1,3 @@
+celery -A bulletin_board worker -l INFO --pool=solo
+celery -A bulletin_board beat -l INFO
+

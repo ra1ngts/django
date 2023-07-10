@@ -4,14 +4,15 @@ from django.contrib.auth.models import User
 from django.core.exceptions import PermissionDenied
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django_filters.views import FilterView
 
 from mmorpg.filters import SearchFilter
 from mmorpg.forms import PostForm, CommentForm
-from mmorpg.models import Post, Comment, Category
+from mmorpg.models import Post, Comment
+from mmorpg.tasks import post_create
 
 
 class Posts(ListView):
@@ -43,6 +44,7 @@ class PostCreate(CreateView):
         if self.request.method == 'POST':
             post.author_post, created = User.objects.get_or_create(id=self.request.user.id)
             post.save()
+            post_create(post_comment_id=post.id)
         return super().form_valid(form)
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -78,34 +80,21 @@ class PostDelete(DeleteView):
             raise PermissionDenied
 
 
-class PostCategory(ListView):
-    model = Post
-    template_name = 'post_category.html'
-    context_object_name = 'post_category'
-    paginate_by = 5
-
-    def get_queryset(self):
-        category = get_object_or_404(Category, id=self.kwargs['pk'])
-        queryset = Post.objects.filter(category_post=category)
-        return queryset
-
-
 class Profile(ListView):
     model = Comment
     template_name = 'profile.html'
 
 
 class Search(FilterView):
-    model = Comment
-    ordering = '-date_comment'
+    model = Post
+    ordering = '-date_post'
     template_name = 'filter.html'
     context_object_name = 'search'
     filterset_class = SearchFilter
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        self.filterset = SearchFilter(self.request.GET, queryset)
-        return self.filterset.qs
+        queryset = super().get_queryset().filter(author_post=self.request.user)
+        return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -129,6 +118,7 @@ class CommentCreate(CreateView):  # TODO создается только есл�
     model = Comment
     template_name = 'comment_create.html'
     form_class = CommentForm
+    success_url = '/comments/'
 
     def form_valid(self, form):
         comment = form.save(commit=False)
@@ -160,21 +150,21 @@ class CommentDetail(DetailView):
 
 
 @login_required()
-def confirm_comment(request, pk):  # TODO не работают кнопки в шаблоне
+def confirm_comment(request, pk):
     comment = Comment.objects.get(pk=pk)
     comment.confirmation_comment = True
     comment.save()
     send_mail(
-        subject=f'{comment.author_comment} ваш комментарий принят',
-        message=f'Принят комментарий к объявлению "{comment.post_comment.title_post}"',
+        subject=f'Принят комментарий от {comment.author_comment}',
+        message=f'Принят комментарий от {comment.author_comment} к объявлению "{comment.post_comment.title_post}"',
         from_email=config('DEFAULT_FROM_EMAIL'),
         recipient_list=[config('DEFAULT_FROM_EMAIL')]
     )
-    return HttpResponseRedirect(reverse('comments'))
+    return render(request, 'accept.html')
 
 
 @login_required()
-def reject_comment(request, pk):  # TODO не работают кнопки в шаблоне
+def reject_comment(request, pk):
     comment = Comment.objects.get(pk=pk)
     comment.confirmation_comment = False
     comment.save()

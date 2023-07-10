@@ -15,7 +15,7 @@
     <small class="text-muted">Автор: {{ post_detail.author_post }}</small>
     <small class="fw-bold">Категория: {{ post_detail.category_post }}</small>
     <h4><b>{{ post_detail.title_post }}</b></h4>
-    <p>{{ post_detail.text_post | linebreaks | safe }}</p>
+    <p>{{ post_detail.text_post | safe }}</p>
 {% if user.is_authenticated %}
     <style>
     /* Стили кнопки */
