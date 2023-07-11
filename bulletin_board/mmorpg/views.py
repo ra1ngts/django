@@ -114,7 +114,7 @@ class Comments(ListView):
         return queryset
 
 
-class CommentCreate(CreateView):  # TODO создается только если в форме добавить поле автора!
+class CommentCreate(CreateView):
     model = Comment
     template_name = 'comment_create.html'
     form_class = CommentForm
@@ -122,7 +122,7 @@ class CommentCreate(CreateView):  # TODO создается только есл�
 
     def form_valid(self, form):
         comment = form.save(commit=False)
-        comment.user = User.objects.get(id=self.request.user.id)
+        comment.author_comment = User.objects.get(id=self.request.user.id)
         comment.post_comment = Post.objects.get(id=self.kwargs['pk'])
         comment.save()
         result = super().form_valid(form)

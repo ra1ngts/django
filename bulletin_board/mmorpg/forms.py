@@ -19,4 +19,4 @@ class CommentForm(forms.ModelForm):
 
     class Meta:
         model = Comment
-        fields = ['author_comment', 'text_comment']  # TODO если убрать 'author_comment' то коммент не создается!
+        fields = ['text_comment']
