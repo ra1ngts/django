@@ -17,10 +17,10 @@
 - Implementing user registration, authentication, and authorization (as well as authorization through google).
 - Implementation of automatic adding users to categories (regular category and privileged).
 - Сaching templates and sections of the site.
-- Implementation of error logging and other data
-- Added localization and internationalization
-- Added light and dark themes
-- Adaptation to REST architecture
+- Implementation of error logging and other data.
+- Added localization and internationalization.
+- Added light and dark themes.
+- Adaptation to REST architecture.
 
 #### For what :
 - Thesis for several months of learning django.
@@ -82,9 +82,9 @@
 - Ability to register, authenticate and authorize a user.
 - Ability to add multiple photos to models.
 - Implemented pagination.
-- Implementation of logging
-- Implementation of caching
-- Adaptation to REST architecture
+- Implementation of logging.
+- Implementation of caching.
+- Adaptation to REST architecture.
 
 #### For what :
 - Personal project for business.
@@ -122,3 +122,59 @@
 ![Wedding_salon_scr_4](https://github.com/ra1ngts/django/assets/122100029/518b7e1c-9357-4827-8752-185ad027bddc)
 ![Wedding_salon_scr_5](https://github.com/ra1ngts/django/assets/122100029/31a7bc06-365c-4064-b925-82c72e234457)
 ![Wedding_salon_scr_6](https://github.com/ra1ngts/django/assets/122100029/9e20234b-b196-4d28-aad5-8a30b5d58116)
+
+### :open_book: "Project - Bulletin board"
+
+---
+
+#### About project :
+- __"Project - Bulletin board"__ - The final project in the school of learning.
+
+#### Peculiarities :
+- Ability to create ads by category.
+- Ability to edit, delete and comment on ads.
+- Ability to search ads by filters.
+- With the help of the WYSIWYG editor, additional features have been added (editing text, choosing a color, font, as well as adding and editing photos) when creating or editing an ad.
+- Ability to register, authenticate and authorize the user.
+- Ability to manage through the user's personal account.
+- Implemented pagination.
+- Sending Email Notifications with Celery.
+
+#### For what :
+- The final project in the school of learning.
+
+#### Visualization :
+- Using HTML templates and CSS styles.
+
+#### Technologies and Libraries :
+- Python 3.8.10
+- Django 4.2
+- Celery 5.2.7
+- Django-allauth 0.54.0
+- Django-filter 23.1
+- Python-decouple 3.8
+- Requests 2.28.2
+- Installed google fonts
+- Django-ckeditor 6.6.1
+
+#### Install :
+- Folder name: __bulletin_board__
+- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
+- Save and extract the folder to any convenient location.
+
+#### Language :
+| Rank | Languages |
+|-----:|-----------|
+|     1| Python    |
+|     2| CSS       |
+|     3| HTML      |
+
+#### Demonstration :
+![Bulletin_board_scr_1](https://github.com/ra1ngts/django/assets/122100029/7c90b009-d58b-4abd-abbe-865a09f0393c)
+![Bulletin_board_scr_2](https://github.com/ra1ngts/django/assets/122100029/ecaf8825-85b5-4d6c-9806-a8004714028a)
+![Bulletin_board_scr_3](https://github.com/ra1ngts/django/assets/122100029/5ab03fcd-5aec-40f7-86fa-0a575d1b9750)
+![Bulletin_board_scr_4](https://github.com/ra1ngts/django/assets/122100029/25393336-daad-4e20-a4f9-cb276a323ed9)
+![Bulletin_board_scr_5](https://github.com/ra1ngts/django/assets/122100029/b8ddf92e-c068-4fe8-ac01-f6ef2f5c4b35)
+![Bulletin_board_scr_6](https://github.com/ra1ngts/django/assets/122100029/20c0e093-8e33-4716-96e5-1fd8f520a220)
+![Bulletin_board_scr_7](https://github.com/ra1ngts/django/assets/122100029/845d28a5-4836-4a8e-b488-986c8f50577b)
+
