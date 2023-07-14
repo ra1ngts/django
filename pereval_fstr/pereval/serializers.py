@@ -10,9 +10,13 @@ class UsersSerializer(serializers.ModelSerializer):
 
 
 class ImagesSerializer(serializers.ModelSerializer):
+    image_1 = serializers.URLField(label='URL изображения 1')
+    image_2 = serializers.URLField(label='URL изображения 2')
+    image_3 = serializers.URLField(label='URL изображения 3')
+
     class Meta:
         model = Images
-        fields = '__all__'
+        fields = ['title_1', 'image_1', 'title_2', 'image_2', 'title_3', 'image_3']
 
 
 class CoordsSerializer(serializers.ModelSerializer):
