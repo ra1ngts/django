@@ -4,22 +4,25 @@ from pereval.models import Pereval, Images, Coords, Users
 
 
 class UsersAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'surname', 'email', 'phone')
-    list_display_links = ('first_name', 'last_name', 'surname', 'email', 'phone')
-    list_filter = ('first_name', 'last_name', 'surname', 'email', 'phone')
+    list_display = ('first_name', 'last_name', 'patronymic', 'email', 'phone')
+    list_display_links = ('first_name', 'last_name', 'patronymic', 'email', 'phone')
+    list_filter = ('first_name', 'last_name', 'patronymic', 'email', 'phone')
 
 
 class PerevalAdmin(admin.ModelAdmin):
-    list_display = ('beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'status', 'level', 'coordinates')
+    list_display = (
+        'beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'status', 'level', 'coordinates', 'user',
+        'images')
     list_display_links = ('beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'status', 'level',
-                          'coordinates')
-    list_filter = ('beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'status', 'level', 'coordinates')
+                          'coordinates', 'user', 'images')
+    list_filter = (
+        'beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'status', 'level', 'coordinates', 'user',
+        'images')
 
 
 class ImagesAdmin(admin.ModelAdmin):
-    list_display = ('image_1', 'image_2', 'image_3', 'images')
-    list_display_links = ('image_1', 'image_2', 'image_3', 'images')
-    list_filter = ('images',)
+    list_display = ('title_1', 'image_1', 'title_2', 'image_2', 'title_3', 'image_3')
+    list_display_links = ('title_1', 'image_1', 'title_2', 'image_2', 'title_3', 'image_3')
 
 
 class CoordsAdmin(admin.ModelAdmin):
