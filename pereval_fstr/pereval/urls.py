@@ -16,8 +16,9 @@ Including another URLconf
 """
 
 from django.urls import path
-from pereval.views import SubmitData
+from pereval.views import SubmitData, SubmitDataDetail
 
 urlpatterns = [
     path('api/v1/submitData/', SubmitData.as_view(), name='submitData'),
+    path('api/v1/submitData/<int:pk>/', SubmitDataDetail.as_view(), name='submitDataDetail')
 ]

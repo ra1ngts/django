@@ -48,3 +48,15 @@ class PerevalSerializer(serializers.ModelSerializer):
         pereval = Pereval.objects.create(user=user, images=images, coordinates=coordinates, **validated_data)
         pereval.save()
         return pereval
+
+
+class PerevalDetailSerializer(serializers.ModelSerializer):
+    user = UsersSerializer()
+    images = ImagesSerializer()
+    coordinates = CoordsSerializer()
+
+    class Meta:
+        model = Pereval
+        fields = ['beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'status', 'level', 'coordinates',
+                  'user',
+                  'images']
