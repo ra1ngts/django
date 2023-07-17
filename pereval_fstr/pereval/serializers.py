@@ -1,3 +1,4 @@
+from drf_writable_nested import WritableNestedModelSerializer
 from rest_framework import serializers
 
 from pereval.models import Users, Pereval, Images, Coords
@@ -10,9 +11,9 @@ class UsersSerializer(serializers.ModelSerializer):
 
 
 class ImagesSerializer(serializers.ModelSerializer):
-    image_1 = serializers.URLField(label='URL изображения 1')
-    image_2 = serializers.URLField(label='URL изображения 2')
-    image_3 = serializers.URLField(label='URL изображения 3')
+    image_1 = serializers.URLField(label='URL изображения 1', allow_blank=True)
+    image_2 = serializers.URLField(label='URL изображения 2', allow_blank=True)
+    image_3 = serializers.URLField(label='URL изображения 3', allow_blank=True)
 
     class Meta:
         model = Images
@@ -50,7 +51,7 @@ class PerevalSerializer(serializers.ModelSerializer):
         return pereval
 
 
-class PerevalDetailSerializer(serializers.ModelSerializer):
+class PerevalDetailSerializer(WritableNestedModelSerializer):
     user = UsersSerializer()
     images = ImagesSerializer()
     coordinates = CoordsSerializer()
