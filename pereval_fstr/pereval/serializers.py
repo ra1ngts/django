@@ -61,3 +61,8 @@ class PerevalDetailSerializer(WritableNestedModelSerializer):
         fields = ['beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'status', 'level', 'coordinates',
                   'user',
                   'images']
+
+    def validate(self, data):
+        if 'user' in data:
+            raise serializers.ValidationError({'forbidden': 'Данные пользователя нельзя изменить'})
+        return data
