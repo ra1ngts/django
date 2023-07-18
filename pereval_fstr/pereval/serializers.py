@@ -1,5 +1,6 @@
 from drf_writable_nested import WritableNestedModelSerializer
 from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
 
 from pereval.models import Users, Pereval, Images, Coords
 
@@ -33,7 +34,8 @@ class PerevalSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Pereval
-        fields = ['beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'status', 'level', 'coordinates',
+        fields = ['id', 'beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'status', 'level',
+                  'coordinates',
                   'user',
                   'images']
 
@@ -58,11 +60,20 @@ class PerevalDetailSerializer(WritableNestedModelSerializer):
 
     class Meta:
         model = Pereval
-        fields = ['beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'status', 'level', 'coordinates',
+        fields = ['id', 'beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'status', 'level',
+                  'coordinates',
                   'user',
                   'images']
 
     def validate(self, data):
-        if 'user' in data:
-            raise serializers.ValidationError({'forbidden': 'Данные пользователя нельзя изменить'})
-        return data
+        user_data = data.get('user')
+        user = self.instance.user
+        if user_data is not None:
+
+            if user.first_name != user_data.get('first_name') \
+                    or user.last_name != user_data.get('last_name') \
+                    or user.patronymic != user_data.get('patronymic') \
+                    or user.email != user_data.get('email') \
+                    or user.phone != user_data.get('phone'):
+                raise ValidationError({'message': 'Редактирование пользовательских данных запрещено'})
+            return data

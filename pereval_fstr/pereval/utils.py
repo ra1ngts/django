@@ -1,2 +1,2 @@
 def get_image_path(instance, file):
-    return f'photos/pereval-{instance.images.id}/{file}'
+    return f'media/pereval-{instance}/{file}'
