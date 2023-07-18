@@ -42,11 +42,11 @@ class Pereval(models.Model):
 
 class Images(models.Model):
     title_1 = models.CharField(max_length=255, blank=True, verbose_name='Название фото 1')
-    image_1 = models.ImageField(upload_to=get_image_path, blank=True, verbose_name='Фотография 1')
+    image_1 = models.ImageField(max_length=255, upload_to=get_image_path, blank=True, verbose_name='Фотография 1')
     title_2 = models.CharField(max_length=255, blank=True, verbose_name='Название фото 2')
-    image_2 = models.ImageField(upload_to=get_image_path, blank=True, verbose_name='Фотография 2')
+    image_2 = models.ImageField(max_length=255, upload_to=get_image_path, blank=True, verbose_name='Фотография 2')
     title_3 = models.CharField(max_length=255, blank=True, verbose_name='Название фото 3')
-    image_3 = models.ImageField(upload_to=get_image_path, blank=True, verbose_name='Фотография 3')
+    image_3 = models.ImageField(max_length=255, upload_to=get_image_path, blank=True, verbose_name='Фотография 3')
 
     class Meta:
         verbose_name = 'Изображение'
