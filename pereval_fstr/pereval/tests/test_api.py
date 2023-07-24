@@ -3,10 +3,10 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from pereval.models import Pereval, Coords, Users, Images
-from pereval.serializers import PerevalSerializer
+from pereval.serializers import PerevalSerializer, PerevalDetailSerializer
 
 
-class SubmitDataTest(APITestCase):
+class SubmitDataAPITest(APITestCase):
     def setUp(self):
         self.pereval_1 = Pereval.objects.create(beauty_title='Пер.',
                                                 title='Перевал Pas de Chevres',
@@ -51,10 +51,17 @@ class SubmitDataTest(APITestCase):
                                                                              title_3='',
                                                                              image_3=''))
 
-    def test_get_submitData_list(self):
+    def test_get_submitData(self):
         url = reverse('submitData')
         response = self.client.get(url)
         serializer_data = PerevalSerializer([self.pereval_1, self.pereval_2], many=True).data
-        self.assertEquals(serializer_data, response.data['results'], msg='Ошибка')
-        self.assertEquals(len(serializer_data), 2, msg='Ошибка')
-        self.assertEquals(status.HTTP_200_OK, response.status_code, msg='Ошибка')
+        self.assertEquals(serializer_data, response.data['results'], msg='Ошибка: Данные не соответствуют')
+        self.assertEquals(len(serializer_data), 2, msg='Ошибка: Длина списка не соответствует')
+        self.assertEquals(status.HTTP_200_OK, response.status_code, msg='Ошибка: Статус код не соответствует')
+
+    def test_get_submitDetailData(self):
+        url = reverse('submitDetailData', args=(self.pereval_1.id,))
+        response = self.client.get(url)
+        serializer_data = PerevalDetailSerializer(self.pereval_1).data
+        self.assertEquals(serializer_data, response.data, msg='Ошибка: Данные не соответствуют')
+        self.assertEquals(status.HTTP_200_OK, response.status_code, msg='Ошибка: Статус код не соответствует')
