@@ -16,6 +16,7 @@ Including another URLconf
 """
 
 from django.urls import path
+
 from pereval.views import SubmitData, SubmitDetailData
 
 urlpatterns = [
