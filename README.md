@@ -178,3 +178,260 @@
 ![Bulletin_board_scr_6](https://github.com/ra1ngts/django/assets/122100029/20c0e093-8e33-4716-96e5-1fd8f520a220)
 ![Bulletin_board_scr_7](https://github.com/ra1ngts/django/assets/122100029/845d28a5-4836-4a8e-b488-986c8f50577b)
 
+### :mountain_snow: "Project - Pereval REST API"
+
+---
+
+1.Technical task
+---
+
+Our company received an order from the Federation of Sports Tourism of Russia (FSTR).
+FSTR is an organization that develops and popularizes sports tourism in Russia and manages the holding of all-Russian competitions in this sport.
+
+On the site https://pereval.online/, the FSTR maintains a database of mountain passes, which is replenished by tourists.
+After overcoming the next pass, the tourist fills out a report in PDF format and sends it to the e-mail of the federation. The FSTR expert group receives this information, verifies it, and then enters it into the database, which is maintained in a Google spreadsheet.
+
+The whole process is very inconvenient and long and takes an average of 3 to 6 months.
+FSTR commissioned students to develop a mobile application for Android and IOS that would make it easier for tourists to send data about the pass and reduce the request processing time to three days.
+
+Tourists will use the mobile application. In the mountains, they will enter the pass data into the application and send it to the FSTR as soon as Internet access becomes available.
+The moderator from the federation will verify and enter the information received from users into the database, and they, in turn, will be able to see the moderation status in the mobile application and view the database with objects contributed by others.
+
+2.Preparing Rest API Requirements
+---
+
+  - Entering information about a new object (pass) into the object card.
+  - Editing in the application of data about objects not sent to the FSTR server. The Internet does not always work at the pass.
+  - Filling in the full name and contact details (phone and e-mail) with their subsequent autocompletion when entering data about new objects.
+  - Sending data to the FSTR server.
+  - Receive notification of the status of the submission (success/failure).
+  - The user's consent to the personal data processing policy in case of clicking on the "Send" button when sending data to the server.
+
+__The user, using the mobile application, will transfer the following data about the pass to the FSTR:__
+
+  - __coordinates of the pass and its height__
+  - __Username__
+  - __mail and phone number of the user__
+  - __the name of the pass__
+  - __some photos of the pass__
+
+3.Implementation
+----
+
+:mountain_snow: *submitData*
+----
+  Returns data as a list of JSON records<sup>1</sup>.<br>
+  <sup>1</sup> - Mandatory fields for creating a post: first_name, last_name, patronymic, email, phone.
+
+* **URL**
+
+  `/api/v1/submitData/`
+
+* **Method:**
+
+  `POST /submitData/` - creating a record using the POST method.<br>
+  `GET /submitData/` - getting record via GET method.<br>
+  `GET /submitData/?user__email=<email>` - a list of data about all objects that the user with mail <email> sent to the server.
+  
+*  **URL Params**
+
+  None
+
+* **Data Params**
+
+       "user": {
+        "first_name": "",
+        "last_name": "",
+        "patronymic": "",
+        "email": "",
+        "phone": ""
+        }
+
+* **Success Response:**
+
+  * **Code:** 201 CREATED { message : "Запись успешно создана." } <br />
+    **Content:**
+    
+                    Префикс: ""
+                    Название: ""
+                    Другое название: ""
+                    Соединяет: ""
+                    Статус данных: "new"
+                    Категория трудности: "winter-1A"
+                    
+                    Широта: ""
+                    Долгота: ""
+                    Высота: ""
+
+                    Имя: "Василий"
+                    Фамилия: "Васильев"
+                    Отчество: "Васильевич"
+                    Электронная почта: "vasyl60@example.com"
+                    Телефон: "+70123456789"
+
+                    Название фото 1: ""
+                    URL изображения 1: ""
+                    Название фото 2: ""
+                    URL изображения 2: ""
+                    Название фото 3: ""
+                    URL изображения 3: ""
+
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ error : "Это поле не может быть пустым." }`
+
+* **Sample Call:**
+
+  ```
+     {
+         "id": 1,
+         "beauty_title": "",
+         "title": "",
+         "other_titles": "",
+         "connect": "",
+         "add_time": "2023-07-19T12:06:44.305663+03:00",
+         "status": "new",
+         "level": "winter-1A",
+         "coordinates": {
+             "id": 1,
+             "latitude": null,
+             "longitude": null,
+             "height": null
+         },
+         "user": {
+             "id": 1,
+             "first_name": "Василий",
+             "last_name": "Васильев",
+             "patronymic": "Васильевич",
+             "email": "vasyl60@example.com",
+             "phone": "+70123456789"
+         },
+         "images": {
+             "title_1": "",
+             "image_1": "",
+             "title_2": "",
+             "image_2": "",
+             "title_3": "",
+             "image_3": ""
+         }
+     }
+  ```
+
+:mountain_snow: *submitDetailData*
+----
+  Returns data as a single JSON record, also allows partial editing of the record<sup>1, 2</sup>.<br>
+  <sup>1</sup> - IT IS FORBIDDEN to change user data such as: __first_name,__ __last_name,__ __patronymic,__ __email,__ __phone.__ <br>
+  <sup>2</sup> - IT IS FORBIDDEN to change any data if the moderation status is __not__ __"new".__
+
+* **URL**
+
+  `/api/v1/submitData/<id>/`
+
+* **Method:**
+
+  `GET /submitData/<id>/` - getting a single record using the GET method.<br>
+  `PATCH /submitData/<id>/` - partial editing of one record using the PATCH method.
+  
+*  **URL Params**
+
+  Required:
+  
+  id=[integer]
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 OK `{ state : 1, message : "Данные успешно отредактированы."}` <br />
+    **Content:**
+
+                    Префикс: "Пер."
+                    Название: "Перевал Teodulpass"
+                    Другое название: "Теодуль, Teodulo"
+                    Соединяет: "ледник Теодуль и долину реки Мармор"
+                    Статус данных: "new"
+                    Категория трудности: "winter-1A"
+                    
+                    Широта: 45.94271
+                    Долгота: 7.70897
+                    Высота: 3301 <------ 3323
+
+                    Имя: "Василий"
+                    Фамилия: "Васильев"
+                    Отчество: "Васильевич"
+                    Электронная почта: "vasyl60@example.com"
+                    Телефон: "+70123456789"
+
+                    Название фото 1: "Перевал Teodulpass-1"
+                    URL изображения 1: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Colle_del_Teodulo_001.jpg"
+                    Название фото 2: "Перевал Teodulpass-2"
+                    URL изображения 2: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Rif-theodulo.jpg/800px-Rif-theodulo.jpg"
+                    Название фото 3: "" <------ Перевал Teodulpass-3
+                    URL изображения 3: "" <------ https://upload.wikimedia.org/wikipedia/commons/f/f7/Passo-Teodulo.jpg
+
+* **Sample Call:**
+
+  ```
+     {
+         "id": 1,
+         "beauty_title": "Пер.",
+         "title": "Перевал Teodulpass",
+         "other_titles": "Теодуль, Teodulo",
+         "connect": "ледник Теодуль и долину реки Мармор",
+         "add_time": "2023-07-19T12:06:44.305663+03:00",
+         "status": "new",
+         "level": "winter-1A",
+         "coordinates": {
+             "id": 1,
+             "latitude": 45.94271,
+             "longitude": 7.70897,
+             "height": 3323
+         },
+         "user": {
+             "id": 1,
+             "first_name": "Василий",
+             "last_name": "Васильев",
+             "patronymic": "Васильевич",
+             "email": "vasyl60@example.com",
+             "phone": "+70123456789"
+         },
+         "images": {
+             "title_1": "Перевал Teodulpass-1",
+             "image_1": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Colle_del_Teodulo_001.jpg",
+             "title_2": "Перевал Teodulpass-2",
+             "image_2": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Rif-theodulo.jpg/800px-Rif-theodulo.jpg",
+             "title_3": "Перевал Teodulpass-3",
+             "image_3": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Passo-Teodulo.jpg"
+         }
+     }
+  ```
+  
+#### Technologies and Libraries :
+- Python 3.8.10
+- Django 4.2
+- Django-filter 23.1
+- Python-decouple 3.8
+- Requests 2.28.2
+- REST framework 3.14.0
+- drf-writable-nested 0.7.0
+- drf-yasg 1.21.7
+
+#### Install :
+- Folder name: __pereval_fstr__
+- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
+- Save and extract the folder to any convenient location.
+
+#### Language :
+| Rank | Languages |
+|-----:|-----------|
+|     1| Python    |
+
+#### Demonstration :
+![Pereval_fstr_scr_1](https://github.com/ra1ngts/django/assets/122100029/5c93cfd8-4ae0-4b26-8c05-3f3ae1f59f50)
+![Pereval_fstr_scr_2](https://github.com/ra1ngts/django/assets/122100029/0508c9ee-27c7-4ee3-b3aa-503f18592eed)
+![Pereval_fstr_scr_3](https://github.com/ra1ngts/django/assets/122100029/a5ff86af-8a1e-4953-a7b8-8429b558a6c8)
+![Pereval_fstr_scr_4](https://github.com/ra1ngts/django/assets/122100029/552fe664-6603-4e35-815a-cde533570da6)
+![Pereval_fstr_scr_5](https://github.com/ra1ngts/django/assets/122100029/31d58cf6-3230-4606-94ee-1851223db14d)
