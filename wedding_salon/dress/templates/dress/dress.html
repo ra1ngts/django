@@ -36,29 +36,6 @@
 {% endif %}
 <br>
 <br>
-<br>
-<style>
-/* Стили кнопки */
-.Twitter{display: inline-block;cursor: pointer; font-size:12px;text-decoration:none;padding:5px 20px; color:#6f5673;background:#ffff0;border-radius:15px;border:1px solid #6f5673;}
-.Twitter:hover{text-decoration:none;background:#cebed0;color:#6f5673;border:1px solid #6f5673;transition: all 0.2s ease;}
-</style>
-<a class="Twitter" href="https://twitter.com/share?url=#тут адрес сайта#{{ get_absolute_url }}"   title="Twitter">Twitter</a>
-<style>
-/* Стили кнопки */
-.Facebook{display: inline-block;cursor: pointer; font-size:12px;text-decoration:none;padding:5px 20px; color:#6f5673;background:#ffff0;border-radius:15px;border:1px solid #6f5673;}
-.Facebook:hover{text-decoration:none;background:#cebed0;color:#6f5673;border:1px solid #6f5673;transition: all 0.2s ease;}
-</style>
-<a class="Facebook" href="https://www.facebook.com/sharer/sharer.php?u=#тут адрес сайта#{{ get_absolute_url }}"   title="Facebook">Facebook</a>
-<style>
-/* Стили кнопки */
-.Linkedin{display: inline-block;cursor: pointer; font-size:12px;text-decoration:none;padding:5px 20px; color:#6f5673;background:#ffff0;border-radius:15px;border:1px solid #6f5673;}
-.Linkedin:hover{text-decoration:none;background:#cebed0;color:#6f5673;border:1px solid #6f5673;transition: all 0.2s ease;}
-</style>
-<a class="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=#тут адрес сайта#{{ get_absolute_url }}"   title="Linkedin">Linkedin</a>
-<style>
-/* Стили кнопки */
-.Google{display: inline-block;cursor: pointer; font-size:12px;text-decoration:none;padding:5px 20px; color:#6f5673;background:#ffff0;border-radius:15px;border:1px solid #6f5673;}
-.Google:hover{text-decoration:none;background:#cebed0;color:#6f5673;border:1px solid #6f5673;transition: all 0.2s ease;}
-</style>
-<a class="Google" href="https://plus.google.com/share?url=#тут адрес сайта#{{ get_absolute_url }}"   title="Google+">Google+</a>
+<script src="https://yastatic.net/share2/share.js"></script>
+<div class="ya-share2" data-curtain data-size="l" data-shape="round" data-services="telegram,whatsapp"></div>
 {% endblock %}
