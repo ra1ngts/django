@@ -434,4 +434,158 @@ __The user, using the mobile application, will transfer the following data about
 ![Pereval_fstr_scr_2](https://github.com/ra1ngts/django/assets/122100029/0508c9ee-27c7-4ee3-b3aa-503f18592eed)
 ![Pereval_fstr_scr_3](https://github.com/ra1ngts/django/assets/122100029/a5ff86af-8a1e-4953-a7b8-8429b558a6c8)
 ![Pereval_fstr_scr_4](https://github.com/ra1ngts/django/assets/122100029/552fe664-6603-4e35-815a-cde533570da6)
-![Pereval_fstr_scr_5](https://github.com/ra1ngts/django/assets/122100029/31d58cf6-3230-4606-94ee-1851223db14d)
+
+### :nail_care: "Project - Manicure REST API"
+
+---
+
+1.Technical task
+---
+
+I tried to implement using the rest framework to record a client in a beauty salon.
+The client will be able to make an appointment at the salon using a mobile application. To do this, the client needs to register. 
+Next, you need to choose a salon in which he wants to be provided with services. After that, select the service itself, then select the master. 
+After specify the client's name, contact number for communication, e-mail, date and time of the visit.
+
+2.Implementation
+----
+
+*user-records*
+----
+  Returns data as a list of JSON records <br>
+
+* **URL**
+
+  `/api/v1/user-records/`
+
+* **Method:**
+
+  `POST /user-records/` - creating a record using the POST method.<br>
+  `GET /user-records/` - getting record via GET method.<br>
+
+*  **URL Params**
+
+  None
+
+* **Data Params**
+
+        {
+            "salon": "",
+            "master": "",
+            "services": "",
+            "name": "",
+            "phone": "",
+            "email": "",
+            "date": ""
+        }
+
+* **Success Response:**
+
+  * **Code:** 201 CREATED <br />
+    **Content:**
+    
+                    Название салона: ""
+                    Имя мастера: ""
+                    Название услуги: ""
+                    Имя: ""
+                    Телефон: ""
+                    Электронная почта: ""
+                    Дата и время записи: ""
+
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ error : "Это поле не может быть пустым." }`
+
+* **Sample Call:**
+
+  ```
+     {
+        {
+            "id": 1,
+            "salon": "Братиславская",
+            "master": "Аня",
+            "services": "КОМПЛЕКС МАНИКЮР",
+            "name": "Валерия",
+            "phone": "+70123456789",
+            "email": "example@example.com",
+            "date": "01.08.2023 в 09:00"
+        }
+     }
+  ```
+
+*user-records/id/*
+----
+  Returns the data as a single JSON record, and also allows you to delete (cancel) the record. <br>
+
+* **URL**
+
+  `/api/v1/user-records/<id>/`
+
+* **Method:**
+
+  `GET /user-records/<id>/` - getting a single record using the GET method.<br>
+  `DELETE /user-records/<id>/` - deleting an entry (cancellation).
+  
+* **URL Params**
+
+  Required:
+  
+  id=[integer]
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:**
+
+                    Название салона: "Братиславская"
+                    Имя мастера: "Аня"
+                    Название услуги: "КОМПЛЕКС МАНИКЮР"
+                    Имя: "Валерия"
+                    Телефон: "+70123456789"
+                    Электронная почта: "example@example.com"
+                    Дата и время записи: "01.08.2023 в 09:00"
+
+* **Sample Call:**
+
+  ```
+     {
+        {
+            "id": 1,
+            "salon": "Братиславская",
+            "master": "Аня",
+            "services": "КОМПЛЕКС МАНИКЮР",
+            "name": "Валерия",
+            "phone": "+70123456789",
+            "email": "example@example.com",
+            "date": "01.08.2023 в 09:00"
+        }
+     }
+  ```
+  
+#### Technologies and Libraries :
+- Python 3.8.10
+- Django 4.2
+- Python-decouple 3.8
+- Requests 2.28.2
+- REST framework 3.14.0
+- Djoser 2.2.0
+
+#### Install :
+- Folder name: __manicure__
+- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
+- Save and extract the folder to any convenient location.
+
+#### Language :
+| Rank | Languages |
+|-----:|-----------|
+|     1| Python    |
+
+#### Demonstration :
+![Manicure_scr_1](https://github.com/ra1ngts/django/assets/122100029/a87c220b-99bb-4afc-90b1-805349071c8d)
+![Manicure_scr_2](https://github.com/ra1ngts/django/assets/122100029/169ffb38-1bbd-4658-8b6d-7d87198477e8)
+![Manicure_scr_3](https://github.com/ra1ngts/django/assets/122100029/dfa9091c-081b-4bfb-b6d3-c9a04c483910)
