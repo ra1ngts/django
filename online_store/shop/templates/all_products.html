@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Все товары</h1>
+{% for product in products %}
+{{ product.name }}<br>
+{{ product.category }}<br>
+{{ product.images | safe }}<br>
+{{ product.description }}<br>
+{{ product.price }}<br>
+{{ product.stock }}<br>
+{{ product.available }}<br>
+{{ product.created }}<br>
+{{ product.updated }}
+{% endfor %}
+</body>
+</html>
