@@ -1,43 +1,52 @@
-from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 
 from .models import Product, Category
 
 
-def product_list(request):
-    products = Product.objects.all()
-    categories = Category.objects.all()
-    context = {'products': products,
-               'categories': categories,
-               'title': 'Главная страница',
-               'cat_selected': 0,
-               }
-    return render(request, 'shop/index.html', context=context)
+class ProductList(ListView):
+    model = Product
+    template_name = 'shop/index.html'
+    context_object_name = 'products'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        context['title'] = 'Главная страница'
+        context['cat_selected'] = 0
+        return context
+
+    def get_queryset(self):
+        return Product.objects.filter(available=True)
 
 
-def product_category(request, category_slug):
-    products = Product.objects.filter(category__slug=category_slug)
-    categories = Category.objects.all()
-    if len(products) == 0:
-        raise Http404()
-    context = {'products': products,
-               'categories': categories,
-               'title': 'Главная страница',
-               'cat_selected': category_slug,
-               }
-    return render(request, 'shop/index.html', context=context)
+class ProductCategory(ListView):
+    model = Product
+    template_name = 'shop/index.html'
+    context_object_name = 'products'
+    allow_empty = False
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        context['title'] = f'Категория: {str(context["products"][0].category)}'
+        context['cat_selected'] = context["products"][0].category
+        return context
+
+    def get_queryset(self):
+        return Product.objects.filter(category__slug=self.kwargs['category_slug'])
 
 
-def product_detail(request, product_slug):
-    product = get_object_or_404(Product, slug=product_slug)
+class ProductDetail(DetailView):
+    model = Product
+    template_name = 'shop/detail.html'
+    context_object_name = 'product'
+    slug_url_kwarg = 'product_slug'
 
-    context = {
-        'product': product,
-        'title': f'Товар: {product.title}',
-        'cat_selected': 1,
-    }
-
-    return render(request, 'shop/detail.html', context=context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = f'Товар: {context["product"].category} / {context["product"].title}'
+        return context
 
 
 def about(request):
