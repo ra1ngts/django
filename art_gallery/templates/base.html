@@ -1,4 +1,7 @@
 {% load static %}
+{% load main_tags %}
+{% get_categories as categories %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,22 +39,22 @@
       <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-6 col-xl-2" data-aos="fade-down">
-            <h1 class="mb-0"><a href="{% url 'home' %}" class="text-white h2 mb-0">Art gallery</a></h1>
+            <h1 class="mb-0"><a href="{% url 'home' %}" class="text-white h2 mb-0">Портфолио</a></h1>
           </div>
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'home' %}">Главная</a></li>
                 <li class="has-children">
-                  <a href="{% url 'category' %}">Gallery</a>
+                  <a href="{% url 'home' %}">Галерея</a>
                   <ul class="dropdown">
-                    {% for c in cats %}
-                    <li><a href="{{ c.get_absolute_url }}">{{ c.title }}</a></li>
+                    {% for category in categories %}
+                    <li style="text-align: center"><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
                     {% endfor %}
                   </ul>
                 </li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'contacts' %}">Contacts</a></li>
+                <li><a href="{% url 'about' %}">Обо мне</a></li>
+                <li><a href="{% url 'contacts' %}">Контакты</a></li>
               </ul>
             </nav>
           </div>
@@ -87,7 +90,7 @@
     <div class="footer py-4">
       <div class="container-fluid text-center">
         <p>
-          Copyright &copy; All rights reserved | With <i class="icon-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank" >David Khurtsidze</a>
+          Этот сайт создан для дочери, с <i class="icon-heart-o" aria-hidden="true"></i> от <a href="#" target="_blank" >папы</a>
         </p>
       </div>
     </div>

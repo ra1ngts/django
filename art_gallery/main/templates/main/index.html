@@ -1,30 +1,29 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block content %}
-    <div class="container-fluid" data-aos="fade" data-aos-delay="500">
-      <div class="row">
-        {% for c in cats %}
-        <div class="col-lg-4">
-          <div class="image-wrap-2">
-            <div class="image-info">
-              <h2 class="mb-3">{{ c.title }}</h2>
-              <a href="{{ c.get_absolute_url }}" class="btn btn-outline-white py-2 px-4">Look</a>
-            </div>
-            <img src="{% static 'main/images/img_2.jpg' %}" alt="Image" class="img-fluid">
-          </div>
-        </div>
-        {% endfor %}
-<!--        <div class="col-lg-4">-->
-<!--          <div class="image-wrap-2">-->
-<!--            <div class="image-info">-->
-<!--              <h2 class="mb-3">People</h2>-->
-<!--              <a href="single.html" class="btn btn-outline-white py-2 px-4">More Photos</a>-->
-<!--            </div>-->
-<!--            <img src="{% static 'main/images/img_3.jpg' %}" alt="Image" class="img-fluid">-->
-<!--          </div>-->
-<!--        </div>-->
+    <div class="site-section"  data-aos="fade">
+      <div class="container-fluid">
 
+        <div class="row justify-content-center">
+
+          <div class="col-md-7">
+            <div class="row mb-5">
+              <div class="col-12 ">
+                <h2 class="site-section-heading text-center">{{ title }}</h2>
+              </div>
+            </div>
+          </div>
+
+        <div class="row" id="lightgallery">
+        {% for image in gallery %}
+          {% if image.image %}
+          <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 item" data-aos="fade" data-src="{{ image.image.url }}" data-sub-html="<h4>{{ image.title }}</h4>">
+            <a href="{{ image.title }}"><img src="{{ image.image.url }}" alt="IMage" class="img-fluid"></a>
+          </div>
+          {% endif %}
+        {% endfor %}
+        </div>
+        </div>
       </div>
     </div>
 {% endblock %}
