@@ -41,10 +41,14 @@
           <div class="col-6 col-xl-2" data-aos="fade-down">
             <h1 class="mb-0"><a href="{% url 'home' %}" class="text-white h2 mb-0">Портфолио</a></h1>
           </div>
+
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
             <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-                <li><a href="{% url 'home' %}">Главная</a></li>
+
+                {% url 'home' as home %}
+                <li class="nav-item {% if request.path == home %}active{% endif %}"><a class="nav-link" href="{{ home }}">Главная</a></li>
+
                 <li class="has-children">
                   <a href="{% url 'home' %}">Галерея</a>
                   <ul class="dropdown">
@@ -53,8 +57,13 @@
                     {% endfor %}
                   </ul>
                 </li>
-                <li><a href="{% url 'about' %}">Обо мне</a></li>
-                <li><a href="{% url 'contacts' %}">Контакты</a></li>
+
+                {% url 'about' as about %}
+                <li class="nav-item {% if request.path == about %}active{% endif %}"><a class="nav-link" href="{{ about }}">О себе</a></li>
+
+                {% url 'contacts' as contacts %}
+                <li class="nav-item {% if request.path == contacts %}active{% endif %}"><a class="nav-link" href="{{ contacts }}">Контакты</a>
+
               </ul>
             </nav>
           </div>
