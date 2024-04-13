@@ -1,46 +1,66 @@
 from django.core.mail import BadHeaderError
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import ListView, FormView
 
 from .forms import FeedbackForm
-from .models import Gallery
+from .models import Gallery, About
 from .services.email import message_from_feedback
 
 
-def index(request):
-    gallery = Gallery.objects.all()
-    data = {'title': 'Галерея',
-            'gallery': gallery
-            }
-    return render(request, 'main/index.html', context=data)
+class Index(ListView):
+    model = Gallery
+    template_name = 'main/index.html'
+    context_object_name = 'gallery'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Галерея'
+        return context
+
+    def get_queryset(self):
+        return Gallery.objects.filter(is_published=True)
 
 
-def show_gallery(request, cat_id):
-    gallery = Gallery.objects.filter(cat_id=cat_id)
-    data = {'title': 'Галерея',
-            'gallery': gallery,
-            'selected': cat_id
-            }
-    return render(request, 'main/category.html', context=data)
+class ShowGallery(ListView):
+    model = Gallery
+    template_name = 'main/category.html'
+    context_object_name = 'gallery'
+    allow_empty = False
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = f'Галерея: {context["gallery"][0].category}'
+        context['selected'] = context['gallery'][0].category_id
+        return context
+
+    def get_queryset(self):
+        return Gallery.objects.filter(category__id=self.kwargs['category_id'], is_published=True)
 
 
-def show_image(request, img_id):
-    data = {'title': f'Название: {img_id}',
-            'img_id': img_id
-            }
-    return render(request, 'main/category.html', context=data)
+class Information(ListView):
+    model = About
+    template_name = 'main/about.html'
+    context_object_name = 'information'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(*kwargs)
+        context['title'] = 'О себе'
+        return context
 
 
-def about(request):
-    data = {'title': 'О себе'}
-    return render(request, 'main/about.html', context=data)
+class Contacts(FormView):
+    form_class = FeedbackForm
+    template_name = 'main/contacts.html'
+    success_url = reverse_lazy('success')
+    extra_context = {'title': 'Контакты',
+                     'address': 'Россия, г.Москва',
+                     'phone': '8(123)456-78-90',
+                     'email': 'example@mail.com'
+                     }
 
-
-def contacts(request):
-    if request.method == 'GET':
-        form = FeedbackForm()
-    elif request.method == 'POST':
-        form = FeedbackForm(request.POST)
+    def form_valid(self, form):
         if form.is_valid():
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
@@ -52,17 +72,9 @@ def contacts(request):
                 message_from_feedback(first_name, last_name, email, subject, message)
             except BadHeaderError:
                 return HttpResponse('Ошибка в теме письма.')
-            return redirect('success')
-    else:
-        return HttpResponse('Неверный запрос.')
-
-    data = {'title': 'Контакты',
-            'address': 'Россия, г.Москва',
-            'phone': '8(123)456-78-90',
-            'email': 'example@mail.com',
-            'form': form
-            }
-    return render(request, 'main/contacts.html', context=data)
+        else:
+            return HttpResponse('Неверный запрос.')
+        return super(Contacts, self).form_valid(form)
 
 
 def success(request):

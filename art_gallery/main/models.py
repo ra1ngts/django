@@ -6,13 +6,10 @@ class Gallery(models.Model):
     title = models.CharField(max_length=255, verbose_name='Название')
     image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, verbose_name='Изображение')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
-    cat = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категория')
+    category = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категория')
 
     def __str__(self):
         return self.title
-
-    def get_absolute_url(self):
-        return reverse('show_image', kwargs={'img_id': self.pk})
 
     class Meta:
         verbose_name = 'Галерея'
@@ -27,9 +24,22 @@ class Category(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('show_gallery', kwargs={'cat_id': self.pk})
+        return reverse('show_gallery', kwargs={'category_id': self.pk})
 
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         ordering = ['title']
+
+
+class About(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Название')
+    content = models.TextField(verbose_name='Описание')
+    photo = models.ImageField(upload_to='images/about', blank=True, verbose_name='Фотография')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'О себе'
+        verbose_name_plural = 'О себе'

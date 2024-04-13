@@ -4,12 +4,12 @@
 
 С контактной формы поступило новое сообщение со следующим содержимым:
 
-    Имя: {{ first_name }}
-    {% if last_name %}
-    Фамилия: {{ last_name }}
-    {% endif %}
+    Имя: {{ first_name }} {% if last_name %}Фамилия: {{ last_name }}{% endif %}
     Тема: {{ subject }}
-    Сообщение: {{ message }}
-    Email отправителя: {{ email }}
+    Сообщение:
+
+    {{ message }}
+
+    Email: {{ email }}
 
 {% endautoescape %}
