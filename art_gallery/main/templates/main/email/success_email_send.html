@@ -1,12 +1,18 @@
-{% extends 'base.html' %}
-
-{% block content %}
 <style>
 div.center_message {
 	text-align: center;
 }
 </style>
-<div class="center_message">
-    <h4>Ваше сообщение успешно отправлено.</h4>
-</div>
-{% endblock %}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-dismissible alert-success">
+      <button type="button" class="close" data-dismiss="alert">
+      ×
+      </button>
+      <div class="center_message">
+      <strong>{{ message }}</strong>
+      </div>
+    </div>
+ {% endfor %}
+{% endif %}
