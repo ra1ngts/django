@@ -1,7 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include 'main/email/success_email_send.html' %}
+<style>
+div.center_message {
+	text-align: center;
+}
+</style>
+
+{% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+      <div class="center_message">
+      <strong>{{ form.errors }}</strong>
+      </div>
+    </div>
+{% endif %}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-dismissible alert-success">
+      <button type="button" class="close" data-dismiss="alert">
+      ×
+      </button>
+      <div class="center_message">
+      <strong>{{ message }}</strong>
+      </div>
+    </div>
+ {% endfor %}
+{% endif %}
+
     <div class="site-section"  data-aos="fade">
       <div class="container">
 
@@ -34,7 +60,6 @@
               </div>
 
               <div class="row form-group">
-
                 <div class="col-md-12">
                   <label class="text-white" for="{{ form.email.auto_id }}">{{ form.email.label }}</label>
                   {{ form.email }}
@@ -42,7 +67,6 @@
               </div>
 
               <div class="row form-group">
-
                 <div class="col-md-12">
                   <label class="text-white" for="{{ form.subject.auto_id }}">{{ form.subject.label }}</label>
                   {{ form.subject }}
@@ -58,10 +82,16 @@
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Отправить" class="btn btn-primary py-2 px-4 text-white">
+                  <label class="text-white"  for="{{ form.captcha.auto_id }}">{{ form.captcha.label }}</label>
+                  {{ form.captcha }}
                 </div>
               </div>
 
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Отправить" class="btn btn-primary py-2 px-4 text-white">
+                </div>
+              </div>
 
             </form>
           </div>

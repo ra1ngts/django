@@ -1,3 +1,4 @@
+from captcha.fields import CaptchaField
 from django import forms
 
 
@@ -7,6 +8,7 @@ class FeedbackForm(forms.Form):
     email = forms.EmailField(label='Электронная почта')
     subject = forms.CharField(max_length=255, label='Заголовок')
     message = forms.CharField(widget=forms.Textarea(attrs={'cols': 30, 'row': 7}), label='Сообщение')
+    captcha = CaptchaField(label='Проверка')
 
     def __init__(self, *args, **kwargs):
         super(FeedbackForm, self).__init__(*args, **kwargs)

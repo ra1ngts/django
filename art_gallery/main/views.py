@@ -1,8 +1,6 @@
-from django.contrib import messages
-from django.core.mail import BadHeaderError
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.urls import reverse_lazy
+from django.views.generic import ListView, FormView
 
 from .forms import FeedbackForm
 from .models import Gallery, About, Category
@@ -51,32 +49,25 @@ class Information(DataMixin, ListView):
         return dict(list(context.items()) + list(addition_context.items()))
 
 
-def contacts(request):
-    if request.method == 'GET':
-        form = FeedbackForm()
-    elif request.method == 'POST':
-        form = FeedbackForm(request.POST)
-        if form.is_valid():
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            email = form.cleaned_data['email']
-            subject = form.cleaned_data['subject']
-            message = form.cleaned_data['message']
-            print(f'С контактной формы поступило новое сообщение от {first_name} с электронной почты: {email}')
-            try:
-                message_from_feedback(first_name, last_name, email, subject, message)
-                messages.success(request, 'Ваше сообщение успешно отправлено.')
-            except BadHeaderError:
-                messages.error(request, 'Неверные данные в форме')
-                messages.error(request, form.errors)
-    else:
-        return HttpResponse('Неверный запрос.')
+class Contacts(SuccessMessageMixin, FormView):
+    form_class = FeedbackForm
+    template_name = 'main/contacts.html'
+    success_url = reverse_lazy('contacts')
+    success_message = 'Ваше сообщение успешно отправлено.'
+    extra_context = {'title': 'Контакты',
+                     'categories': Category.objects.all(),
+                     'address': 'Россия, г.Москва',
+                     'phone': '8(123)456-78-90',
+                     'email': 'example@mail.com'
+                     }
 
-    data = {'title': 'Контакты',
-            'address': 'Россия, г.Москва',
-            'phone': '8(123)456-78-90',
-            'email': 'example@mail.com',
-            'categories': Category.objects.all(),
-            'form': form
-            }
-    return render(request, 'main/contacts.html', context=data)
+    def form_valid(self, form):
+        first_name = form.cleaned_data['first_name']
+        last_name = form.cleaned_data['last_name']
+        email = form.cleaned_data['email']
+        subject = form.cleaned_data['subject']
+        message = form.cleaned_data['message']
+        captcha = form.cleaned_data['captcha']
+        message_from_feedback(first_name, last_name, email, subject, message, captcha)
+        print(f'С контактной формы поступило новое сообщение от {first_name} с электронной почты: {email}')
+        return super().form_valid(form)
