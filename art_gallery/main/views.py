@@ -1,9 +1,10 @@
 from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, FormView
 
 from .forms import FeedbackForm
-from .models import Gallery, About, Category
+from .models import Gallery, About
 from .services.email import message_from_feedback
 from .services.utils import DataMixin
 
@@ -55,7 +56,6 @@ class Contacts(SuccessMessageMixin, FormView):
     success_url = reverse_lazy('contacts')
     success_message = 'Ваше сообщение успешно отправлено.'
     extra_context = {'title': 'Контакты',
-                     'categories': Category.objects.all(),
                      'address': 'Россия, г.Москва',
                      'phone': '8(123)456-78-90',
                      'email': 'example@mail.com'
@@ -71,3 +71,24 @@ class Contacts(SuccessMessageMixin, FormView):
         message_from_feedback(first_name, last_name, email, subject, message, captcha)
         print(f'С контактной формы поступило новое сообщение от {first_name} с электронной почты: {email}')
         return super().form_valid(form)
+
+
+def trace_handler403(request, exception):
+    context = {'title': 'Ошибка доступа: 403',
+               'error_message': 'Ошибка доступа: 403'
+               }
+    return render(request=request, template_name='error.html', status=403, context=context)
+
+
+def trace_handler404(request, exception):
+    context = {'title': 'Страница не найдена: 404',
+               'error_message': 'Страница не найдена: 404'
+               }
+    return render(request=request, template_name='error.html', status=404, context=context)
+
+
+def trace_handler500(request):
+    context = {'title': 'Ошибка сервера: 500',
+               'error_message': 'Ошибка сервера: 500'
+               }
+    return render(request=request, template_name='error.html', status=500, context=context)
