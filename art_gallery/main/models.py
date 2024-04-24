@@ -1,11 +1,13 @@
 from django.db import models
 from django.urls import reverse
 
+from main.services.resources import STATUS
+
 
 class Gallery(models.Model):
     title = models.CharField(max_length=255, verbose_name='Название')
     image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, verbose_name='Изображение')
-    is_published = models.BooleanField(default=True, verbose_name='Публикация')
+    published = models.BooleanField(default=STATUS['NO'], verbose_name='Публикация')
     category = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категория')
 
     def __str__(self):

@@ -6,6 +6,7 @@ from django.views.generic import ListView, FormView
 from .forms import FeedbackForm
 from .models import Gallery, About
 from .services.email import message_from_feedback
+from .services.resources import STATUS
 from .services.utils import DataMixin
 
 
@@ -20,7 +21,7 @@ class Index(DataMixin, ListView):
         return dict(list(context.items()) + list(addition_context.items()))
 
     def get_queryset(self):
-        return Gallery.objects.filter(is_published=True)
+        return Gallery.objects.filter(published=STATUS['YES'])
 
 
 class ShowGallery(DataMixin, ListView):
@@ -36,7 +37,7 @@ class ShowGallery(DataMixin, ListView):
         return dict(list(context.items()) + list(addition_context.items()))
 
     def get_queryset(self):
-        return Gallery.objects.filter(category__id=self.kwargs['category_id'], is_published=True)
+        return Gallery.objects.filter(category__id=self.kwargs['category_id'], published=STATUS['YES'])
 
 
 class Information(DataMixin, ListView):
@@ -55,10 +56,14 @@ class Contacts(SuccessMessageMixin, FormView):
     template_name = 'main/contacts.html'
     success_url = reverse_lazy('contacts')
     success_message = 'Ваше сообщение успешно отправлено.'
+    phone = '+71234567890'
+    email = 'example@mail.com'
+    cv_link = '#'
     extra_context = {'title': 'Контакты',
                      'address': 'Россия, г.Москва',
-                     'phone': '8(123)456-78-90',
-                     'email': 'example@mail.com'
+                     'phone': phone,
+                     'email': email,
+                     'cv_link': cv_link
                      }
 
     def form_valid(self, form):

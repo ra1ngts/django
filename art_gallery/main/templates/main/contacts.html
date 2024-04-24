@@ -101,10 +101,13 @@ div.center_message {
               <p class="mb-4">{{ address }}</p>
 
               <p class="mb-0 font-weight-bold text-white">Телефон</p>
-              <p class="mb-4"><a href="#">{{ phone }}</a></p>
+              <p class="mb-4"><a href="tel:{{ phone }}">{{ phone }}</a></p>
 
               <p class="mb-0 font-weight-bold text-white">Электронная почта</p>
-              <p class="mb-0"><a href="#">{{ email }}</a></p>
+              <p class="mb-0"><a href="mailto:{{ email }}">{{ email }}</a></p>
+              <br>
+              <p class="mb-0 font-weight-bold text-white">Резюме</p>
+              <p class="mb-4"><a href="{{ cv_link }}">Скачать</a></p>
 
             </div>
 

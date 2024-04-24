@@ -32,3 +32,6 @@ if settings.DEBUG:
 handler403 = 'main.views.trace_handler403'
 handler404 = 'main.views.trace_handler404'
 handler500 = 'main.views.trace_handler500'
+
+admin.site.site_header = 'Панель администрирования'
+admin.site.index_title = 'Галерея'
