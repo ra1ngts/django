@@ -8,8 +8,8 @@ class GalleryAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'image', 'published', 'category']
     list_display_links = ['title', 'image', 'category']
     list_editable = ['published']
-    list_filter = ['title', 'published', 'category']
-    search_fields = ['title', 'published', 'category']
+    list_filter = ['title', 'published', 'category__title']
+    search_fields = ['title', 'published', 'category__title']
     list_per_page = 10
 
 

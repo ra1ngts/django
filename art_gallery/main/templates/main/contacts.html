@@ -97,16 +97,16 @@ div.center_message {
           </div>
           <div class="col-lg-3 ml-auto">
             <div class="mb-3">
-              <p class="mb-0 font-weight-bold text-white">Адрес</p>
+              <p class="mb-0 font-weight-bold text-white">{{ address_title }}</p>
               <p class="mb-4">{{ address }}</p>
 
-              <p class="mb-0 font-weight-bold text-white">Телефон</p>
+              <p class="mb-0 font-weight-bold text-white">{{ phone_title }}</p>
               <p class="mb-4"><a href="tel:{{ phone }}">{{ phone }}</a></p>
 
-              <p class="mb-0 font-weight-bold text-white">Электронная почта</p>
+              <p class="mb-0 font-weight-bold text-white">{{ email_title }}</p>
               <p class="mb-0"><a href="mailto:{{ email }}">{{ email }}</a></p>
               <br>
-              <p class="mb-0 font-weight-bold text-white">Резюме</p>
+              <p class="mb-0 font-weight-bold text-white">{{ cv_title }}</p>
               <p class="mb-4"><a href="{{ cv_link }}">Скачать</a></p>
 
             </div>

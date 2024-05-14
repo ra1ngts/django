@@ -6,7 +6,6 @@ from django.views.generic import ListView, FormView
 from .forms import FeedbackForm
 from .models import Gallery, About
 from .services.email import message_from_feedback
-from .services.resources import STATUS
 from .services.utils import DataMixin
 
 
@@ -21,7 +20,7 @@ class Index(DataMixin, ListView):
         return dict(list(context.items()) + list(addition_context.items()))
 
     def get_queryset(self):
-        return Gallery.objects.filter(published=STATUS['YES'])
+        return Gallery.objects.filter(published=Gallery.STATUS.PUBLISHED)
 
 
 class ShowGallery(DataMixin, ListView):
@@ -37,7 +36,7 @@ class ShowGallery(DataMixin, ListView):
         return dict(list(context.items()) + list(addition_context.items()))
 
     def get_queryset(self):
-        return Gallery.objects.filter(category__id=self.kwargs['category_id'], published=STATUS['YES'])
+        return Gallery.objects.filter(category__id=self.kwargs['category_id'], published=Gallery.STATUS.PUBLISHED)
 
 
 class Information(DataMixin, ListView):
@@ -56,14 +55,15 @@ class Contacts(SuccessMessageMixin, FormView):
     template_name = 'main/contacts.html'
     success_url = reverse_lazy('contacts')
     success_message = 'Ваше сообщение успешно отправлено.'
-    phone = '+71234567890'
-    email = 'example@mail.com'
-    cv_link = '#'
     extra_context = {'title': 'Контакты',
+                     'address_title': 'Адрес',
                      'address': 'Россия, г.Москва',
-                     'phone': phone,
-                     'email': email,
-                     'cv_link': cv_link
+                     'phone_title': 'Телефон',
+                     'phone': '+71234567890',
+                     'email_title': 'Электронная почта',
+                     'email': 'example@mail.com',
+                     'cv_title': 'Резюме',
+                     'cv_link': '#'
                      }
 
     def form_valid(self, form):
