@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from .models import Gallery, Category, About
+from modeltranslation.admin import TranslationAdmin
 
 
 @admin.register(Gallery)
@@ -14,12 +15,12 @@ class GalleryAdmin(admin.ModelAdmin):
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(TranslationAdmin):
     list_display = ['id', 'title']
     list_display_links = ['title']
 
 
 @admin.register(About)
-class AboutAdmin(admin.ModelAdmin):
+class AboutAdmin(TranslationAdmin):
     list_display = ['id', 'title', 'content', 'photo']
     list_display_links = ['title', 'photo']

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
 <style>
@@ -89,7 +90,7 @@ div.center_message {
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Отправить" class="btn btn-primary py-2 px-4 text-white">
+                  <input type="submit" value="{% trans 'Отправить' %}" class="btn btn-primary py-2 px-4 text-white">
                 </div>
               </div>
 
@@ -107,7 +108,7 @@ div.center_message {
               <p class="mb-0"><a href="mailto:{{ email }}">{{ email }}</a></p>
               <br>
               <p class="mb-0 font-weight-bold text-white">{{ cv_title }}</p>
-              <p class="mb-4"><a href="{{ cv_link }}">Скачать</a></p>
+              <p class="mb-4"><a href="{{ cv_link }}">{% trans "Скачать" %}</a></p>
 
             </div>
 

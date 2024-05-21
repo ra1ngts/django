@@ -7,6 +7,7 @@ from .forms import FeedbackForm
 from .models import Gallery, About
 from .services.email import message_from_feedback
 from .services.utils import DataMixin
+from django.utils.translation import gettext_lazy as _
 
 
 class Index(DataMixin, ListView):
@@ -16,7 +17,7 @@ class Index(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        addition_context = self.get_user_context(title='Галерея')
+        addition_context = self.get_user_context(title=_('Галерея'))
         return dict(list(context.items()) + list(addition_context.items()))
 
     def get_queryset(self):
@@ -31,7 +32,8 @@ class ShowGallery(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        addition_context = self.get_user_context(title=f'Галерея: {context["gallery"][0].category}',
+        title = _('Галерея')
+        addition_context = self.get_user_context(title=f'{title}: {context["gallery"][0].category}',
                                                  selected=context['gallery'][0].category_id)
         return dict(list(context.items()) + list(addition_context.items()))
 
@@ -46,7 +48,7 @@ class Information(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(*kwargs)
-        addition_context = self.get_user_context(title='О себе')
+        addition_context = self.get_user_context(title=_('Обо мне'))
         return dict(list(context.items()) + list(addition_context.items()))
 
 
@@ -54,15 +56,15 @@ class Contacts(SuccessMessageMixin, FormView):
     form_class = FeedbackForm
     template_name = 'main/contacts.html'
     success_url = reverse_lazy('contacts')
-    success_message = 'Ваше сообщение успешно отправлено.'
-    extra_context = {'title': 'Контакты',
-                     'address_title': 'Адрес',
-                     'address': 'Россия, г.Москва',
-                     'phone_title': 'Телефон',
+    success_message = _('Ваше сообщение успешно отправлено.')
+    extra_context = {'title': _('Контакты'),
+                     'address_title': _('Адрес'),
+                     'address': _('Россия, г.Москва'),
+                     'phone_title': _('Телефон'),
                      'phone': '+71234567890',
-                     'email_title': 'Электронная почта',
+                     'email_title': _('Электронная почта'),
                      'email': 'example@mail.com',
-                     'cv_title': 'Резюме',
+                     'cv_title': _('Резюме'),
                      'cv_link': '#'
                      }
 
@@ -79,21 +81,21 @@ class Contacts(SuccessMessageMixin, FormView):
 
 
 def trace_handler403(request, exception):
-    context = {'title': 'Ошибка доступа: 403',
-               'error_message': 'Ошибка доступа: 403'
+    context = {'title': _('Ошибка доступа: 403'),
+               'error_message': _('Ошибка доступа: 403')
                }
     return render(request=request, template_name='error.html', status=403, context=context)
 
 
 def trace_handler404(request, exception):
-    context = {'title': 'Страница не найдена: 404',
-               'error_message': 'Страница не найдена: 404'
+    context = {'title': _('Страница не найдена: 404'),
+               'error_message': _('Страница не найдена: 404')
                }
     return render(request=request, template_name='error.html', status=404, context=context)
 
 
 def trace_handler500(request):
-    context = {'title': 'Ошибка сервера: 500',
-               'error_message': 'Ошибка сервера: 500'
+    context = {'title': _('Ошибка сервера: 500'),
+               'error_message': _('Ошибка сервера: 500')
                }
     return render(request=request, template_name='error.html', status=500, context=context)

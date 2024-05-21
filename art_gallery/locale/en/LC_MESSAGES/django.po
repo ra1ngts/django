@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-21 11:58+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\gallery\settings.py:119
+msgid "Русский"
+msgstr "Russian"
+
+#: .\gallery\settings.py:120
+msgid "English"
+msgstr "Английский"
+
+#: .\main\forms.py:7
+msgid "Имя"
+msgstr "Name"
+
+#: .\main\forms.py:8
+msgid "Фамилия"
+msgstr "Last name"
+
+#: .\main\forms.py:9 .\main\views.py:65
+msgid "Электронная почта"
+msgstr "E-mail"
+
+#: .\main\forms.py:10
+msgid "Заголовок"
+msgstr "Title"
+
+#: .\main\forms.py:11
+msgid "Сообщение"
+msgstr "Message"
+
+#: .\main\forms.py:12
+msgid "Проверка"
+msgstr "Verification"
+
+#: .\main\forms.py:18
+msgid "Введите свое сообщение или вопрос..."
+msgstr "Enter your message or question..."
+
+#: .\main\templates\main\category.html:15 .\main\views.py:20 .\main\views.py:35
+#: .\templates\base.html:54
+msgid "Галерея"
+msgstr "Gallery"
+
+#: .\main\templates\main\contacts.html:93
+msgid "Отправить"
+msgstr "Send"
+
+#: .\main\templates\main\contacts.html:111
+msgid "Скачать"
+msgstr "Download"
+
+#: .\main\views.py:51 .\templates\base.html:65
+msgid "Обо мне"
+msgstr "About"
+
+#: .\main\views.py:59
+msgid "Ваше сообщение успешно отправлено."
+msgstr "Your message has been sent successfully."
+
+#: .\main\views.py:60 .\templates\base.html:68
+msgid "Контакты"
+msgstr "Contacts"
+
+#: .\main\views.py:61
+msgid "Адрес"
+msgstr "Address"
+
+#: .\main\views.py:62
+msgid "Россия, г.Москва"
+msgstr "Russia, Moscow city"
+
+#: .\main\views.py:63
+msgid "Телефон"
+msgstr "Phone"
+
+#: .\main\views.py:67
+msgid "Резюме"
+msgstr "CV"
+
+#: .\main\views.py:84 .\main\views.py:85
+msgid "Ошибка доступа: 403"
+msgstr "Access Error: 403"
+
+#: .\main\views.py:91 .\main\views.py:92
+msgid "Страница не найдена: 404"
+msgstr "Page not found: 404"
+
+#: .\main\views.py:98 .\main\views.py:99
+msgid "Ошибка сервера: 500"
+msgstr "Server error: 500"
+
+#: .\templates\base.html:43
+msgid "Портфолио"
+msgstr "Portfolio"
+
+#: .\templates\base.html:51
+msgid "Главная"
+msgstr "Main"
+
+#: .\templates\base.html:119
+msgid ""
+"Этот сайт создан для дочери с <i class=\"icon-heart-o\" aria-hidden=\"true"
+"\"></i> от <a href=\"#\" target=\"_blank\">папы</a>. "
+msgstr "This site was created for my daughter with <i class=\"icon-heart-o\" aria-hidden=\"true\"></i> from <a href=\"#\" target=\"_blank\">dad</a>."

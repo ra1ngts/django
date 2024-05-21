@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 {% load main_tags %}
 {% get_categories as categories %}
@@ -39,7 +40,7 @@
       <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-6 col-xl-2" data-aos="fade-down">
-            <h1 class="mb-0"><a href="{% url 'home' %}" class="text-white h2 mb-0">Портфолио</a></h1>
+            <h1 class="mb-0"><a href="{% url 'home' %}" class="text-white h2 mb-0">{% trans "Портфолио" %}</a></h1>
           </div>
 
           <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
@@ -47,10 +48,10 @@
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
 
                 {% url 'home' as home %}
-                <li class="nav-item {% if request.path == home %}active{% endif %}"><a class="nav-link" href="{{ home }}">Главная</a></li>
+                <li class="nav-item {% if request.path == home %}active{% endif %}"><a class="nav-link" href="{{ home }}">{% trans "Главная" %}</a></li>
 
                 <li class="has-children">
-                  <a href="{% url 'home' %}">Галерея</a>
+                  <a href="{% url 'home' %}">{% trans "Галерея" %}</a>
                   <ul class="dropdown">
                     {% for category in categories %}
                       {% if category.gallery__count > 0 %}
@@ -61,36 +62,51 @@
                 </li>
 
                 {% url 'about' as about %}
-                <li class="nav-item {% if request.path == about %}active{% endif %}"><a class="nav-link" href="{{ about }}">О себе</a></li>
+                <li class="nav-item {% if request.path == about %}active{% endif %}"><a class="nav-link" href="{{ about }}">{% trans "Обо мне" %}</a></li>
 
                 {% url 'contacts' as contacts %}
-                <li class="nav-item {% if request.path == contacts %}active{% endif %}"><a class="nav-link" href="{{ contacts }}">Контакты</a>
+                <li class="nav-item {% if request.path == contacts %}active{% endif %}"><a class="nav-link" href="{{ contacts }}">{% trans "Контакты" %}</a>
 
               </ul>
             </nav>
           </div>
 
-          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
-            <div class="d-none d-xl-inline-block">
-              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
-                <li>
-                  <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                </li>
-                <li>
-                  <a href="#" class="pl-3 pr-3"><span class="icon-youtube-play"></span></a>
-                </li>
-              </ul>
-            </div>
+          <form action="{% url 'set_language' %}" method="post" id="language-form">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}">
+              <select name="language" onchange="document.getElementById('language-form').submit();">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                  {{ language.name_local }} ({{ language.code }})
+                </option>
+                {% endfor %}
+              </select>
+          </form>
 
-            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+<!--          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">-->
+<!--            <div class="d-none d-xl-inline-block">-->
+<!--              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">-->
+<!--                <li>-->
+<!--                  <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                  <a href="#" class="pl-3 pr-3"><span class="icon-youtube-play"></span></a>-->
+<!--                </li>-->
+<!--              </ul>-->
+<!--            </div>-->
 
-          </div>
+<!--            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>-->
+
+<!--          </div>-->
         </div>
       </div>
     </header>
@@ -100,9 +116,7 @@
 
     <div class="footer py-4">
       <div class="container-fluid text-center">
-        <p>
-          Этот сайт создан для дочери, с <i class="icon-heart-o" aria-hidden="true"></i> от <a href="#" target="_blank" >папы</a>
-        </p>
+          <p>{% blocktrans %}Этот сайт создан для дочери с <i class="icon-heart-o" aria-hidden="true"></i> от <a href="#" target="_blank">папы</a>. {% endblocktrans %}</p>
       </div>
     </div>
   </div>
