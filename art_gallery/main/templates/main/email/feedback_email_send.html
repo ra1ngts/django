@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .contact-details {
+      margin-top: 20px;
+    }
+
+    .contact-details p {
+      margin: 5px 0;
+    }
+  </style>
+  <title>Новое сообщение</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Здравствуйте, Администратор.</h1>
+    <p>С контактной формы поступило новое сообщение со следующим содержимым:</p>
+    <div class="contact-details">
+      <p><strong>{{ first_name }} {{ email }}</strong></p>
+      <p>{{ subject }}</p>
+      <p>{{ message }}</p>
+    </div>
+  </div>
+</body>
+
+</html>

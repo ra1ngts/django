@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  div.center_message {
+    text-align: center;
+  }
+</style>
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <div class="center_message">
+    <strong>{{ error_message }}</strong>
+  </div>
+</div>
+{% endblock %}

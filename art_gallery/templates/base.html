@@ -1,0 +1,139 @@
+{% load i18n %}
+{% load static %}
+{% load main_tags %}
+{% get_categories as categories %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{ title }}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap">
+  <link rel="shortcut icon" type="image/png" href="{% static 'main/images/favicon.png' %}">
+  <link rel="stylesheet" href="{% static 'main/fonts/icomoon/style.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/jquery-ui.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/lightgallery.min.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/bootstrap-datepicker.css' %}">
+  <link rel="stylesheet" href="{% static 'main/fonts/flaticon/font/flaticon.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/swiper.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/aos.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+</head>
+
+<body>
+
+  <div class="site-wrap">
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="site-navbar py-3" role="banner">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            <h1 class="mb-0"><a href="{% url 'home' %}" class="text-white h2 mb-0">{% trans "Портфолио" %}</a></h1>
+          </div>
+
+          <div class="col-6 col-xl-10 d-flex justify-content-center">
+            <div class="d-xl-none site-menu-toggle js-menu-toggle text-white ml-3"><span class="icon-menu h3"></span></div>
+            <nav class="site-navigation position-relative text-right d-none d-xl-block" role="navigation">
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                {% url 'home' as home %}
+                <li class="nav-item {% if request.path == home %}active{% endif %}"><a class="nav-link"
+                    href="{{ home }}">{% trans "Главная" %}</a></li>
+
+                <li class="has-children {% if request.path|slice:':8' == '/gallery' %}active{% endif %}">
+                  <a href="{% url 'home' %}">{% trans "Галерея" %}</a>
+                  <ul class="dropdown">
+                    {% for category in categories %}
+                    {% if category.gallery__count > 0 %}
+                    <li style="text-align: center" class="{% if request.path == category.get_absolute_url %}active{% endif %}"><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                  </ul>
+                </li>
+
+                {% url 'about' as about %}
+                <li class="nav-item {% if request.path == about %}active{% endif %}"><a class="nav-link"
+                    href="{{ about }}">{% trans "Обо мне" %}</a></li>
+
+                {% url 'contacts' as contacts %}
+                <li class="nav-item {% if request.path == contacts %}active{% endif %}"><a class="nav-link"
+                    href="{{ contacts }}">{% trans "Контакты" %}</a>
+              </ul>
+            </nav>
+            <form action="{% url 'set_language' %}" method="post" id="language-form" class="ml-3">
+              {% csrf_token %}
+              <input name="next" type="hidden" value="{{ request.path }}">
+              <select name="language" onchange="document.getElementById('language-form').submit();">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                  {{ language.name_local }} ({{ language.code }})
+                </option>
+                {% endfor %}
+              </select>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="footer py-4">
+      <div class="container-fluid text-center">
+        <p>
+          {% blocktrans with heart=heart email_link=email_link %}
+            Этот сайт создан для дочери с {{ heart }} от {{ email_link }}.
+          {% endblocktrans %}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'main/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'main/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'main/js/jquery-ui.js' %}"></script>
+  <script src="{% static 'main/js/popper.min.js' %}"></script>
+  <script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'main/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'main/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'main/js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'main/js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'main/js/swiper.min.js' %}"></script>
+  <script src="{% static 'main/js/aos.js' %}"></script>
+  <script src="{% static 'main/js/picturefill.min.js' %}"></script>
+  <script src="{% static 'main/js/lightgallery-all.min.js' %}"></script>
+  <script src="{% static 'main/js/jquery.mousewheel.min.js' %}"></script>
+  <script src="{% static 'main/js/main.js' %}"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#lightgallery').lightGallery();
+
+      $(".js-menu-toggle").on("click", function(e) {
+        e.preventDefault();
+        $(".site-mobile-menu").toggleClass("open");
+      });
+    });
+  </script>
+
+</body>
+
+</html>

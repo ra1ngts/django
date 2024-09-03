@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<ul>
+    {% for p in products %}
+        <li>
+            <h2>{{ p.title }}</h2>
+                {{ p.price }}</p>
+                <hr>
+        </li>
+    <p class=""><a href="{{ p.get_absolute_url }}">Посмотреть</a></p>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<style>
+  div.center_message {
+    text-align: center;
+  }
+</style>
+
+{% if form.errors %}
+<div class="alert alert-danger" role="alert">
+  <div class="center_message">
+    <strong>{{ form.errors }}</strong>
+  </div>
+</div>
+{% endif %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-dismissible alert-success">
+  <button type="button" class="close" data-dismiss="alert">
+    ×
+  </button>
+  <div class="center_message">
+    <strong>{{ message }}</strong>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="site-section" data-aos="fade">
+  <div class="container">
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-7">
+        <div class="row mb-5">
+          <div class="col-12 ">
+            <h2 class="site-section-heading text-center">{{ title }}</h2>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 mb-5">
+        <form action="{% url 'contacts' %}" method="post">
+          {% csrf_token %}
+
+          <div class="row form-group">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label class="text-white" for="{{ form.first_name.auto_id }}">{{ form.first_name.label }}</label>
+              {{ form.first_name }}
+            </div>
+            <div class="col-md-6">
+              <label class="text-white" for="{{ form.last_name.auto_id }}">{{ form.last_name.label }}</label>
+              {{ form.last_name }}
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              {% for f in form %}
+                {% if f.name != 'first_name' and f.name != 'last_name' %}
+                  <label class="text-white" for="{{ f.auto_id }}">{{ f.label }}</label>
+                  {{ f }}
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="{% trans 'Отправить' %}" class="btn btn-primary py-2 px-4 text-white">
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="col-lg-3 ml-auto">
+        <div class="mb-3">
+          <p class="mb-0 font-weight-bold text-white">{{ address_title }}</p>
+          <p class="mb-4">{{ address }}</p>
+
+          <p class="mb-0 font-weight-bold text-white">{{ phone_title }}</p>
+          <p class="mb-4"><a href="tel:{{ phone }}">{{ phone }}</a></p>
+
+          <p class="mb-0 font-weight-bold text-white">{{ email_title }}</p>
+          <p class="mb-0"><a href="mailto:{{ email }}">{{ email }}</a></p>
+          <br>
+          <p class="mb-0 font-weight-bold text-white">{{ cv_title }}</p>
+          <p class="mb-4"><a href="{{ cv_link }}">{% trans "Скачать" %}</a></p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
