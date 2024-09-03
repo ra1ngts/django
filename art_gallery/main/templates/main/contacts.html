@@ -62,29 +62,12 @@
 
           <div class="row form-group">
             <div class="col-md-12">
-              <label class="text-white" for="{{ form.email.auto_id }}">{{ form.email.label }}</label>
-              {{ form.email }}
-            </div>
-          </div>
-
-          <div class="row form-group">
-            <div class="col-md-12">
-              <label class="text-white" for="{{ form.subject.auto_id }}">{{ form.subject.label }}</label>
-              {{ form.subject }}
-            </div>
-          </div>
-
-          <div class="row form-group">
-            <div class="col-md-12">
-              <label class="text-white" for="{{ form.message.auto_id }}">{{ form.message.label }}</label>
-              {{ form.message }}
-            </div>
-          </div>
-
-          <div class="row form-group">
-            <div class="col-md-12">
-              <label class="text-white" for="{{ form.captcha.auto_id }}">{{ form.captcha.label }}</label>
-              {{ form.captcha }}
+              {% for f in form %}
+                {% if f.name != 'first_name' and f.name != 'last_name' %}
+                  <label class="text-white" for="{{ f.auto_id }}">{{ f.label }}</label>
+                  {{ f }}
+                {% endif %}
+              {% endfor %}
             </div>
           </div>
 

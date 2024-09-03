@@ -21,7 +21,7 @@ class Index(DataMixin, ListView):
         return dict(list(context.items()) + list(addition_context.items()))
 
     def get_queryset(self):
-        return Gallery.objects.filter(published=Gallery.STATUS.PUBLISHED)
+        return Gallery.objects.filter(published=Gallery.STATUS.PUBLISHED).order_by('-title')
 
 
 class ShowGallery(DataMixin, ListView):
@@ -52,7 +52,7 @@ class Information(DataMixin, ListView):
         return dict(list(context.items()) + list(addition_context.items()))
 
 
-class Contacts(SuccessMessageMixin, FormView):
+class Contacts(SuccessMessageMixin, DataMixin, FormView):
     form_class = FeedbackForm
     template_name = 'main/contacts.html'
     success_url = reverse_lazy('contacts')
@@ -78,6 +78,12 @@ class Contacts(SuccessMessageMixin, FormView):
         message_from_feedback(first_name, last_name, email, subject, message, captcha)
         print(f'С контактной формы поступило новое сообщение от {first_name} с электронной почты: {email}')
         return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_context = self.get_user_context(**kwargs)
+        context.update(user_context)
+        return context
 
 
 def trace_handler403(request, exception):

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-21 11:58+0300\n"
+"POT-Creation-Date: 2024-08-18 11:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,19 +26,19 @@ msgstr "Russian"
 msgid "English"
 msgstr "Английский"
 
-#: .\main\forms.py:7
+#: .\main\forms.py:7 .\main\forms.py:18
 msgid "Имя"
 msgstr "Name"
 
-#: .\main\forms.py:8
+#: .\main\forms.py:8 .\main\forms.py:19
 msgid "Фамилия"
 msgstr "Last name"
 
-#: .\main\forms.py:9 .\main\views.py:65
+#: .\main\forms.py:9 .\main\forms.py:20 .\main\views.py:68
 msgid "Электронная почта"
 msgstr "E-mail"
 
-#: .\main\forms.py:10
+#: .\main\forms.py:10 .\main\forms.py:21
 msgid "Заголовок"
 msgstr "Title"
 
@@ -50,12 +50,16 @@ msgstr "Message"
 msgid "Проверка"
 msgstr "Verification"
 
-#: .\main\forms.py:18
+#: .\main\forms.py:22
 msgid "Введите свое сообщение или вопрос..."
 msgstr "Enter your message or question..."
 
-#: .\main\templates\main\category.html:15 .\main\views.py:20 .\main\views.py:35
-#: .\templates\base.html:54
+#: .\main\forms.py:23
+msgid "Проверочный код с изображения"
+msgstr "Verification code from the image"
+
+#: .\main\templates\main\category.html:15 .\main\views.py:23 .\main\views.py:38
+#: .\templates\base.html:57
 msgid "Галерея"
 msgstr "Gallery"
 
@@ -67,56 +71,65 @@ msgstr "Send"
 msgid "Скачать"
 msgstr "Download"
 
-#: .\main\views.py:51 .\templates\base.html:65
+#: .\main\views.py:22
+msgid "папы"
+msgstr "father"
+
+#: .\main\views.py:54 .\templates\base.html:69
 msgid "Обо мне"
 msgstr "About"
 
-#: .\main\views.py:59
+#: .\main\views.py:62
 msgid "Ваше сообщение успешно отправлено."
 msgstr "Your message has been sent successfully."
 
-#: .\main\views.py:60 .\templates\base.html:68
+#: .\main\views.py:63 .\templates\base.html:73
 msgid "Контакты"
 msgstr "Contacts"
 
-#: .\main\views.py:61
+#: .\main\views.py:64
 msgid "Адрес"
 msgstr "Address"
 
-#: .\main\views.py:62
+#: .\main\views.py:65
 msgid "Россия, г.Москва"
 msgstr "Russia, Moscow city"
 
-#: .\main\views.py:63
+#: .\main\views.py:66
 msgid "Телефон"
 msgstr "Phone"
 
-#: .\main\views.py:67
+#: .\main\views.py:70
 msgid "Резюме"
 msgstr "CV"
 
-#: .\main\views.py:84 .\main\views.py:85
+#: .\main\views.py:87 .\main\views.py:88
 msgid "Ошибка доступа: 403"
 msgstr "Access Error: 403"
 
-#: .\main\views.py:91 .\main\views.py:92
+#: .\main\views.py:94 .\main\views.py:95
 msgid "Страница не найдена: 404"
 msgstr "Page not found: 404"
 
-#: .\main\views.py:98 .\main\views.py:99
+#: .\main\views.py:101 .\main\views.py:102
 msgid "Ошибка сервера: 500"
 msgstr "Server error: 500"
 
-#: .\templates\base.html:43
+#: .\templates\base.html:45
 msgid "Портфолио"
 msgstr "Portfolio"
 
-#: .\templates\base.html:51
+#: .\templates\base.html:54
 msgid "Главная"
 msgstr "Main"
 
-#: .\templates\base.html:119
+#: .\templates\base.html:101
+#, python-format
 msgid ""
-"Этот сайт создан для дочери с <i class=\"icon-heart-o\" aria-hidden=\"true"
-"\"></i> от <a href=\"#\" target=\"_blank\">папы</a>. "
-msgstr "This site was created for my daughter with <i class=\"icon-heart-o\" aria-hidden=\"true\"></i> from <a href=\"#\" target=\"_blank\">dad</a>."
+"\n"
+"            Этот сайт создан для дочери с %(heart)s от %(email_link)s.\n"
+"          "
+msgstr ""
+"\n"
+"            This site was created for my daughter with %(heart)s from %(email_link)s.\n"
+"          "

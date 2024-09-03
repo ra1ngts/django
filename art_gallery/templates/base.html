@@ -11,6 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap">
+  <link rel="shortcut icon" type="image/png" href="{% static 'main/images/favicon.png' %}">
   <link rel="stylesheet" href="{% static 'main/fonts/icomoon/style.css' %}">
   <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'main/css/magnific-popup.css' %}">
@@ -22,7 +23,7 @@
   <link rel="stylesheet" href="{% static 'main/fonts/flaticon/font/flaticon.css' %}">
   <link rel="stylesheet" href="{% static 'main/css/swiper.css' %}">
   <link rel="stylesheet" href="{% static 'main/css/aos.css' %}">
-  <link rel="stylesheet" href="{% static 'main/css/styles!.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
 </head>
 
 <body>
@@ -44,10 +45,10 @@
             <h1 class="mb-0"><a href="{% url 'home' %}" class="text-white h2 mb-0">{% trans "Портфолио" %}</a></h1>
           </div>
 
-          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
-            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+          <div class="col-6 col-xl-10 d-flex justify-content-center">
+            <div class="d-xl-none site-menu-toggle js-menu-toggle text-white ml-3"><span class="icon-menu h3"></span></div>
+            <nav class="site-navigation position-relative text-right d-none d-xl-block" role="navigation">
               <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
-
                 {% url 'home' as home %}
                 <li class="nav-item {% if request.path == home %}active{% endif %}"><a class="nav-link"
                     href="{{ home }}">{% trans "Главная" %}</a></li>
@@ -70,47 +71,23 @@
                 {% url 'contacts' as contacts %}
                 <li class="nav-item {% if request.path == contacts %}active{% endif %}"><a class="nav-link"
                     href="{{ contacts }}">{% trans "Контакты" %}</a>
-
               </ul>
             </nav>
+            <form action="{% url 'set_language' %}" method="post" id="language-form" class="ml-3">
+              {% csrf_token %}
+              <input name="next" type="hidden" value="{{ request.path }}">
+              <select name="language" onchange="document.getElementById('language-form').submit();">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                {% for language in languages %}
+                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                  {{ language.name_local }} ({{ language.code }})
+                </option>
+                {% endfor %}
+              </select>
+            </form>
           </div>
-
-          <form action="{% url 'set_language' %}" method="post" id="language-form">
-            {% csrf_token %}
-            <input name="next" type="hidden" value="{{ request.path }}">
-            <select name="language" onchange="document.getElementById('language-form').submit();">
-              {% get_current_language as LANGUAGE_CODE %}
-              {% get_available_languages as LANGUAGES %}
-              {% get_language_info_list for LANGUAGES as languages %}
-              {% for language in languages %}
-              <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                {{ language.name_local }} ({{ language.code }})
-              </option>
-              {% endfor %}
-            </select>
-          </form>
-
-          <!--          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">-->
-          <!--            <div class="d-none d-xl-inline-block">-->
-          <!--              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">-->
-          <!--                <li>-->
-          <!--                  <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>-->
-          <!--                </li>-->
-          <!--                <li>-->
-          <!--                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>-->
-          <!--                </li>-->
-          <!--                <li>-->
-          <!--                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>-->
-          <!--                </li>-->
-          <!--                <li>-->
-          <!--                  <a href="#" class="pl-3 pr-3"><span class="icon-youtube-play"></span></a>-->
-          <!--                </li>-->
-          <!--              </ul>-->
-          <!--            </div>-->
-
-          <!--            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>-->
-
-          <!--          </div>-->
         </div>
       </div>
     </header>
@@ -120,7 +97,11 @@
 
     <div class="footer py-4">
       <div class="container-fluid text-center">
-        <p>{% blocktrans %}Этот сайт создан для дочери с <i class="icon-heart-o" aria-hidden="true"></i> от <a href="#" target="_blank">папы</a>. {% endblocktrans %}</p>
+        <p>
+          {% blocktrans with heart=heart email_link=email_link %}
+            Этот сайт создан для дочери с {{ heart }} от {{ email_link }}.
+          {% endblocktrans %}
+        </p>
       </div>
     </div>
   </div>
@@ -145,6 +126,11 @@
   <script>
     $(document).ready(function () {
       $('#lightgallery').lightGallery();
+
+      $(".js-menu-toggle").on("click", function(e) {
+        e.preventDefault();
+        $(".site-mobile-menu").toggleClass("open");
+      });
     });
   </script>
 

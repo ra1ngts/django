@@ -5,25 +5,23 @@
   <div class="container-fluid">
 
     <div class="row justify-content-center">
-
       <div class="col-md-7">
         <div class="row mb-5">
-          <div class="col-12 ">
+          <div class="col-12">
             <h2 class="site-section-heading text-center">{{ title }}</h2>
           </div>
         </div>
       </div>
-
     </div>
 
-    <div class="row mb-5">
-      <div class="col-md-7">
+    <div class="row mb-5 justify-content-center">
+      <div class="col-md-6 d-flex justify-content-center">
         {% for info in information %}
         {% if info.photo %}
         <img src="{{ info.photo.url }}" alt="Images" class="img-fluid">
         {% endif %}
       </div>
-      <div class="col-md-4 ml-auto">
+      <div class="col-md-5 ml-auto">
         <h3 class="text-white">{{ info.title }}</h3>
         <p>{{ info.content|linebreaks }}</p>
         {% endfor %}

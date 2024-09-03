@@ -15,7 +15,22 @@ class FeedbackForm(forms.Form):
         super(FeedbackForm, self).__init__(*args, **kwargs)
 
         for name, field in self.fields.items():
-            placeholder = _('Введите свое сообщение или вопрос...')
+            first_name_plcholder = _('Имя')
+            last_name_plcholder = _('Фамилия')
+            email_plcholder = _('Электронная почта')
+            subject_plcholder = _('Заголовок')
+            message_plcholder = _('Введите свое сообщение или вопрос...')
+            captcha_plcholder = _('Проверочный код с изображения')
+            if name == 'first_name':
+                field.widget.attrs.update({'placeholder': first_name_plcholder})
+            if name == 'last_name':
+                field.widget.attrs.update({'placeholder': last_name_plcholder})
+            if name == 'email':
+                field.widget.attrs.update({'placeholder': email_plcholder})
+            if name == 'subject':
+                field.widget.attrs.update({'placeholder': subject_plcholder})
             if name == 'message':
-                field.widget.attrs.update({'placeholder': placeholder})
+                field.widget.attrs.update({'placeholder': message_plcholder})
+            if name == 'captcha':
+                field.widget.attrs.update({'placeholder': captcha_plcholder})
             field.widget.attrs.update({'class': 'form-control'})
