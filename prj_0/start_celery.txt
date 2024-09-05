@@ -1,2 +1,0 @@
-celery -A prj_0 worker -l INFO
-celery -A prj_0 beat -l INFO
