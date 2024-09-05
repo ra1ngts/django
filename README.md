@@ -70,7 +70,7 @@
 ---
 
 #### About project :
-- __"Project - Wedding salon"__ - Personal project for business.
+- __"Project - [Wedding salon](https://weddingh.pythonanywhere.com/dresses/)"__ - Personal project for business.
 
 #### Peculiarities :
 - Possibility to create categories of dresses or accessories.
@@ -589,3 +589,51 @@ After specify the client's name, contact number for communication, e-mail, date 
 ![Manicure_scr_1](https://github.com/ra1ngts/django/assets/122100029/a87c220b-99bb-4afc-90b1-805349071c8d)
 ![Manicure_scr_2](https://github.com/ra1ngts/django/assets/122100029/169ffb38-1bbd-4658-8b6d-7d87198477e8)
 ![Manicure_scr_3](https://github.com/ra1ngts/django/assets/122100029/dfa9091c-081b-4bfb-b6d3-c9a04c483910)
+
+### :art: "Project - Art Gallery"
+
+---
+
+#### About project :
+- __"Project - [Art Gallery](https://agataportfolio.pythonanywhere.com/)"__ - Personal project for my artist daughter.
+
+#### Peculiarities :
+- Possibility to create categories of artwork.
+- Possibility to add, edit, and delete artwork.
+- The ability to share artwork on social networks.
+- The app's interface is also adapted for the mobile version.
+- The contact form for sending messages to the owner with email notifications.
+- The web app has been translated into English and Russian, and you can choose between them.
+
+#### For what :
+- A personal project for my artist daughter for her birthday.
+
+#### Visualization :
+- Using HTML and Bootstrap templates, JS and CSS styles.
+
+#### Technologies and Libraries :
+- Python 3.12.3
+- Django 5.0.6
+- Django-simple-captcha 0.6.0
+- Python-decouple 3.8
+- Django-modeltranslation 0.19.3
+
+#### Install :
+- Folder name: __art_gallery__
+- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
+- Save and extract the folder to any convenient location.
+
+#### Language :
+| Rank | Languages |
+|-----:|-----------|
+|     1| Python    |
+|     2| CSS       |
+|     3| HTML      |
+|     4| JS        |
+
+#### Demonstration :
+![Gallery_scr_1](https://github.com/user-attachments/assets/96ef3761-446f-4d4c-9aa9-2b3858ffd7de)
+![Gallery_scr_2](https://github.com/user-attachments/assets/65a2807c-2f14-4969-85b4-b50de456b1b8)
+![Gallery_scr_3](https://github.com/user-attachments/assets/82073000-ecc1-4f33-8a30-319d990269db)
+![Gallery_scr_4](https://github.com/user-attachments/assets/84e82fd5-02a2-48db-9ae7-d38de6bc4789)
+![Gallery_scr_5](https://github.com/user-attachments/assets/3117abb9-6909-4d16-a839-560b181d87d7)
