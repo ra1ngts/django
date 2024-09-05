@@ -637,3 +637,58 @@ After specify the client's name, contact number for communication, e-mail, date 
 ![Gallery_scr_3](https://github.com/user-attachments/assets/82073000-ecc1-4f33-8a30-319d990269db)
 ![Gallery_scr_4](https://github.com/user-attachments/assets/84e82fd5-02a2-48db-9ae7-d38de6bc4789)
 ![Gallery_scr_5](https://github.com/user-attachments/assets/3117abb9-6909-4d16-a839-560b181d87d7)
+
+### :bride_with_veil: "Project - Wedding salon v2"
+
+---
+
+#### About project :
+- __"Project - [Wedding salon v2](https://weddh.pythonanywhere.com/dresses/)"__ - Personal project for business.
+
+#### Peculiarities :
+- The ability to create categories for dresses or accessories.
+- The ability to add, edit, and delete dress, accessory or bride models.
+- The ability to search for dress models using filters.
+- The ability to write a product review if you are authorized.
+- The ability to like or dislike dress or accessory models.
+- The ability to share a dress or accessory model on social media.
+- The ability to register, authenticate, and authorize a user.
+- The ability to add multiple photos to models.
+- Pagination implemented.
+- Implemented custom handlers for 403, 404, and 500 errors.
+- New review email notification implemented.
+- New email notification from the contact form implemented.
+
+#### For what :
+- Personal project for business.
+
+#### Visualization :
+- Using HTML and Bootstrap templates, JS and CSS styles.
+
+#### Technologies and Libraries :
+- Python 3.12.3
+- Django 5.0.6
+- Django-allauth 0.63.3
+- Django-filter 24.2
+- Python-decouple 3.8
+- Django-simple-captcha 0.6.0
+
+#### Install :
+- Folder name: __wedding_salon_v2__
+- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
+- Save and extract the folder to any convenient location.
+
+#### Language :
+| Rank | Languages |
+|-----:|-----------|
+|     1| Python    |
+|     2| CSS       |
+|     3| HTML      |
+|     4| JS        |
+
+#### Demonstration :
+![Wedding_salon_2_scr_1](https://github.com/user-attachments/assets/8dc451e2-43c5-4797-a874-de46d465e229)
+![Wedding_salon_2_scr_2](https://github.com/user-attachments/assets/13545daa-03c9-47e7-8f65-c90563ec48e7)
+![Wedding_salon_2_scr_3](https://github.com/user-attachments/assets/07456685-65ba-40d0-824f-dbbbbe334d22)
+![Wedding_salon_2_scr_4](https://github.com/user-attachments/assets/9f0c1650-b2d2-46a9-a695-d074adc9a4cb)
+![Wedding_salon_2_scr_5](https://github.com/user-attachments/assets/2fa86b3a-95d4-4cfb-add3-797b4ac5cc22)
