@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <form method="get">
+      <div class="filters-container">
+        <div class="filter-item">
+          <label class="form-label">Категория</label>
+          {% for field in filterset.form.cat %}
+          <div class="custom-checkbox">{{ field }}</div>
+          {% endfor %}
+        </div>
+
+        <div class="filter-item">
+          <label class="form-label">Цвет</label>
+          {% for field in filterset.form.color %}
+          <div class="custom-checkbox">{{ field }}</div>
+          {% endfor %}
+        </div>
+
+        <div class="filter-item">
+          <label class="form-label">Ткань</label>
+          {% for field in filterset.form.textile %}
+          <div class="custom-checkbox">{{ field }}</div>
+          {% endfor %}
+        </div>
+
+        <div class="filter-item">
+          <label class="form-label">Размер</label>
+          {% for field in filterset.form.size %}
+          <div class="custom-checkbox">{{ field }}</div>
+          {% endfor %}
+        </div>
+
+        <div class="filter-item">
+          <label for="price-min" class="form-label">Стоимость от: <span id="min_price_value">{{ request.GET.min_price }}
+              р.</span></label>
+          {{ filterset.form.min_price }}
+        </div>
+
+        <div class="filter-item">
+          <label for="price-max" class="form-label">Стоимость до: <span id="max_price_value">{{ request.GET.max_price }}
+              р.</span></label>
+          {{ filterset.form.max_price }}
+        </div>
+      </div>
+      <br>
+      <div class="col-md-12 text-center">
+        <button type="submit" class="btn btn-look-dress">Найти</button>
+      </div>
+    </form>
+
+    <hr>
+    <div class="row mt-4">
+      {% if search %}
+      {% for dress in search %}
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+
+          <a href="{{ dress.get_absolute_url }}"><img class="bd-placeholder-img card-img-top zoom-effect" height="225"
+              src="{{ dress.main_photo.url }}" alt="{{ dress.title }}"></a>
+          <div class="card-body">
+            <h4 class="title-panel text-center">{{ dress.title }}</h4>
+            <p class="card-text"><b>Категория:</b> {{ dress.cat }}</p>
+            <p class="card-text"><b>Цвет:</b> {{ dress.color.all|join:', ' }}</p>
+            <p class="card-text"><b>Ткань:</b> {{ dress.textile.all|join:', ' }}</p>
+            <p class="card-text"><b>Размер:</b> {{ dress.size.all|join:', ' }}</p>
+            <p class="card-text"><b>Стоимость:</b> {{ dress.price }} руб.</p>
+            <div class="col-md-12 text-center">
+              <a href="{{ dress.get_absolute_url }}" class="btn btn-look-dress">Посмотреть</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <div class="col-md-12 text-center">
+        <h4>Ничего не найдено.</h4>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+</div>
+<script>
+  document.getElementById('price-min').addEventListener('input', function () {
+    document.getElementById('price-min-value').innerText = this.value;
+  });
+  document.getElementById('price-max').addEventListener('input', function () {
+    document.getElementById('price-max-value').innerText = this.value;
+  });
+</script>
+{% endblock content %}

@@ -1,0 +1,24 @@
+<ul class="custom-pagination justify-content-center">
+  {% if page_obj.has_previous %}
+  <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"><span
+        aria-hidden="true">&laquo;</span></a></li>
+  {% else %}
+  <li class="page-item disabled"><a class="page-link"><span aria-hidden="true">&laquo;</span></a></li>
+  {% endif %}
+
+  {% for num_page in page_obj.paginator.page_range %}
+  {% if num_page == page_obj.number %}
+  <li class="page-item active"><a class="page-link disabled">{{ num_page }}</a></li>
+  {% else %}
+  <li class="page-item"><a class="page-link" href="?page={{ num_page }}">{{ num_page }}</a></li>
+  {% endif %}
+  {% endfor %}
+
+  {% if page_obj.has_next %}
+  <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}"><span
+        aria-hidden="true">&raquo;</span></a></li>
+  {% else %}
+  <li class="page-item disabled"><a class="page-link"><span aria-hidden="true">&raquo;</span></a></li>
+  </li>
+  {% endif %}
+</ul>

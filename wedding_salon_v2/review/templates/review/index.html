@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    {% if 'review' in message.extra_tags %}
+    {% if message.tags %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <div class="successful-message"><strong>{{ message }}</strong></div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% for review in page_obj.object_list %}
+    <p><em><b>{{ review.name }} - {{ review.time_create|date:"d.m.Y" }}</b></em></p>
+    <p><em>{{ review.review|linebreaksbr }}</em></p>
+    {% endfor %}
+    {% include 'pagination.html' %}
+    {% if user.is_authenticated %}
+    <hr>
+    <div class="text-center">
+      <h4>Добавить отзыв</h4>
+    </div>
+    <form method="post" class="row g-3 needs-validation" style="max-width: 600px; margin: auto;">
+      {% csrf_token %}
+      {% for f in form %}
+      <div class="col-12 mb-3">
+        <label for="{{ f.auto_id }}" class="form-label">{{ f.label }}</label>
+        {{ f }}
+        {% if f.errors %}
+        {% for error in f.errors %}
+        <div class="error-message">{{ error }}</div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      {% endfor %}
+      <div class="col-12">
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <div class="error-message">{{ error }}</div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-look-dress" type="submit">Добавить</button>
+      </div>
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

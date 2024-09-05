@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <form method="post">
+      {% csrf_token %}
+      <div class="text-center">
+        <p>Вы уверены, что хотите выйти?</p>
+        <button class="btn btn-look-dress" type="submit">Выйти</button>
+        <a href="javascript:history.back()" class="btn btn-look-dress">Отмена</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="look-container">
+    <div class="thumbnails-container">
+      {% if dress.photos %}
+      {% for p in dress.photos.all %}
+      <img class="thumbnail-photo" src="{{ p.photo.url }}"
+        onclick="document.getElementById('main-photo').src = '{{ p.photo.url }}';">
+      {% endfor %}
+      {% endif %}
+    </div>
+    {% if dress.photos %}
+    <div id="main-photo-container">
+      <img id="main-photo" src="{{ dress.photos.first.photo.url }}">
+    </div>
+    {% endif %}
+    <div class="product-details">
+      <h4 class="title-panel">{{ dress.cat }}</h4>
+      <p><b>Цвет:</b> {{ dress.color.all|join:', ' }}.</p>
+      <p><b>Ткань:</b> {{ dress.textile.all|join:', ' }}.</p>
+      <p><b>Размер:</b> {{ dress.size.all|join:', ' }}.</p>
+      <p><b>Стоимость:</b> {{ dress.price }} руб.</p>
+      <p><b>Наличие:</b> {{ dress.availability }}.</p><br>
+
+      <p>Хотите <a href="tel:{{ phone }}"><b>узнать</b></a> сколько будет стоить подшив этого платья?</p>
+
+      <div class="rating">
+        <button id="like-button" onclick="updateRating('like')"><img src="{% static 'dress/images/icons/like.png' %}"
+            alt="Like" width="26px"></button>
+        <button id="dislike-button" onclick="updateRating('dislike')"><img
+            src="{% static 'dress/images/icons/dislike.png' %}" alt="Dislike" width="26px"></button>
+        <p><b>Рейтинг:</b> <span id="rating-value">{{ dress.rating }}</span></p>
+      </div>
+
+      <div class="ya-share2" data-curtain data-limit="0" data-more-button-type="short"
+        data-services="vkontakte,odnoklassniki,telegram,viber,whatsapp"></div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://yastatic.net/share2/share.js"></script>
+<script>
+  function updateRating(action) {
+    const csrfToken = '{{ csrf_token }}';
+    fetch("{% url 'dress_update_rating' dress.id %}", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': csrfToken
+      },
+      body: JSON.stringify({ action: action })
+    })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('rating-value').innerText = data.rating;
+      });
+  }
+</script>
+{% endblock %}

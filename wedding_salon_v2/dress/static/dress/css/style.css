@@ -1,0 +1,360 @@
+:root {
+    /* Переменные для основных цветов и значений */
+    --primary-color: #6f5673;
+    --secondary-color: #b9a9bb;
+    --light-bg-color: #fef5ff;
+    --highlight-color: #f4e2f7;
+    --text-color: #fff;
+    --gray-800: #343a40;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.justify-content-md-between {
+    background: var(--primary-color); /* Основной цвет фона */
+    padding: 50px; /* Отступы вокруг элемента */
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        flex: 0 0 auto; /* Фиксированный размер элемента */
+        width: 0; /* Ширина элемента 0 */
+    }
+}
+
+body {
+    background-color: var(--light-bg-color); /* Цвет фона */
+}
+
+.link-secondary {
+    color: var(--text-color) !important; /* Цвет текста с !important для переопределения других стилей */
+}
+
+a {
+    color: var(--gray-800); /* Цвет текста */
+    text-decoration: none; /* Удаление подчеркивания */
+}
+
+.nav-link, .nav-link-bottom {
+    color: var(--secondary-color); /* Вторичный цвет текста */
+    font-size: 17px; /* Размер шрифта */
+    text-decoration: none; /* Удаление подчеркивания */
+}
+
+.nav-link:hover, .nav-link:active, .nav-link:focus {
+    color: var(--text-color); /* Цвет текста при наведении, активации и фокусе */
+}
+
+.nav-link-bottom:hover {
+    color: var(--primary-color); /* Основной цвет текста при наведении */
+}
+
+.nav-link.active {
+    color: var(--text-color); /* Основной цвет текста для активного элемента */
+    font-weight: 500; /* Полужирный шрифт */
+}
+
+.nav-link-bottom.active {
+    color: var(--primary-color); /* Основной цвет текста для активного элемента */
+    font-weight: 500; /* Полужирный шрифт */
+}
+
+.dropdown-item.active {
+    color: var(--primary-color); /* Основной цвет текста для активного элемента */
+    background-color: var(--highlight-color);
+    font-weight: 500; /* Полужирный шрифт */
+}
+
+.copyright-text {
+    text-align: center; /* Выравнивание текста по центру */
+    color: var(--secondary-color); /* Вторичный цвет текста */
+}
+
+.bd-placeholder-img.card-img-top {
+    width: 100%; /* Ширина 100% от родительского элемента */
+    height: 400px; /* Фиксированная высота */
+    object-fit: cover; /* Изображение покрывает весь контейнер без искажения */
+}
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 1; /* Полная непрозрачность фона */
+    background-color: var(--light-bg-color) !important; /* Цвет фона с !important */
+    box-shadow: 0px 4px 8px var(--shadow-color); /* Тень вокруг элемента */
+}
+
+.card-body {
+    flex: 1 1 auto; /* Гибкий рост элемента */
+    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x); /* Отступы внутри элемента */
+    color: var(--gray-800); /* Серый цвет текста */
+}
+
+.dropdown-item {
+    color: var(--secondary-color); /* Вторичный цвет текста */
+}
+
+.dropdown-item:hover {
+    color: var(--primary-color); /* Основной цвет текста при наведении */
+    background: var(--highlight-color); /* Цвет фона при наведении */
+    font-weight: 500; /* Полужирный шрифт */
+}
+
+.dropdown-menu.show {
+    display: block; /* Отображение блока */
+    background-color: var(--light-bg-color); /* Цвет фона */
+}
+
+.card {
+    overflow: hidden; /* Скрытие содержимого, выходящего за границы элемента */
+}
+
+.card-img-top {
+    margin-bottom: 20px; /* Нижний отступ */
+}
+
+.zoom-effect {
+    transition: transform 0.2s ease-in-out; /* Плавный переход для трансформаций */
+}
+
+.zoom-effect:hover {
+    transform: scale(1.1); /* Масштабирование при наведении */
+}
+
+.look-container {
+  display: flex; /* Используем flexbox для расположения элементов */
+  flex-wrap: wrap; /* Разрешаем перенос элементов на следующую строку при необходимости */
+  justify-content: center; /* Выравниваем элементы по центру оси X */
+  gap: 20px; /* Добавляем промежутки между элементами */
+  padding: 20px; /* Добавляем отступы внутри контейнера */
+  border-radius: 10px; /* Задаем скругление углов */
+  box-shadow: 0px 4px 8px var(--shadow-color); /* Добавляем тень */
+}
+
+@media (max-width: 768px) {
+  .look-container {
+    flex-direction: column; /* При максимальной ширине экрана менее 768px располагаем элементы в столбец */
+    align-items: center; /* Центрируем элементы по оси Y */
+  }
+}
+
+.thumbnail-photo {
+    width: 100px; /* Ширина миниатюры */
+    margin-bottom: 5px; /* Нижний отступ */
+    cursor: pointer; /* Курсор указателя при наведении */
+    border-radius: 5px; /* Скругленные углы */
+}
+
+#main-photo-container {
+    width: 500px; /* Ширина контейнера для основного фото */
+    display: flex; /* Гибкий контейнер */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    justify-content: center; /* Выравнивание по центру по горизонтали */
+    overflow: hidden; /* Скрытие содержимого, выходящего за границы элемента */
+    border-radius: 10px; /* Скругленные углы */
+    margin-left: 20px; /* Левый отступ */
+}
+
+#main-photo {
+    max-width: 100%; /* Максимальная ширина 100% */
+    max-height: 100%; /* Максимальная высота 100% */
+    box-sizing: border-box; /* Учет границ и отступов в общей ширине и высоте */
+    border-radius: 10px; /* Скругленные углы */
+}
+
+.product-details {
+    flex: 1; /* Гибкий рост элемента */
+    padding-left: 20px; /* Левый отступ */
+    display: flex; /* Гибкий контейнер */
+    flex-direction: column; /* Вертикальное расположение элементов */
+}
+
+#like-button, #dislike-button {
+    background: none; /* Без фона */
+    border: none; /* Без границ */
+    padding: 5px; /* Внутренние отступы */
+    cursor: pointer; /* Курсор указателя при наведении */
+    font-size: 1.5em; /* Размер шрифта */
+}
+
+#like-button:focus, #dislike-button:focus {
+    outline: none; /* Удаление обводки при фокусе */
+}
+
+.btn-look-dress {
+    --bs-btn-color: var(--secondary-color); /* Цвет текста кнопки */
+    --bs-btn-bg: var(--primary-color); /* Фоновый цвет кнопки */
+    --bs-btn-border-color: var(--primary-color); /* Цвет границы кнопки */
+    --bs-btn-hover-color: #fff; /* Цвет текста кнопки при наведении */
+    --bs-btn-hover-bg: var(--primary-color); /* Фоновый цвет кнопки при наведении */
+    --bs-btn-hover-border-color: var(--primary-color); /* Цвет границы кнопки при наведении */
+    --bs-btn-focus-shadow-rgb: 49, 132, 253; /* RGB значение тени кнопки при фокусировке */
+    --bs-btn-active-color: #fff; /* Цвет текста кнопки при активации (нажатии) */
+    --bs-btn-active-bg: var(--primary-color); /* Фоновый цвет кнопки при активации (нажатии) */
+    --bs-btn-active-border-color: var(--primary-color); /* Цвет границы кнопки при активации (нажатии) */
+}
+
+.title-panel {
+    background: #ece3ed; /* Фоновый цвет панели заголовка */
+    padding: 15px; /* Внутренние отступы панели заголовка */
+    box-sizing: border-box; /* Учет отступов и границ в общей ширине и высоте элемента */
+    overflow: hidden; /* Обрезка содержимого, выходящего за пределы панели */
+    color: var(--primary-color); /* Цвет текста панели заголовка */
+    border-radius: 5px; /* Закругление углов панели заголовка */
+    text-align: center; /* Позиция текста по центру */
+}
+
+.filters-container {
+    display: flex; /* Гибкий контейнер */
+    flex-wrap: wrap; /* Перенос элементов на новую строку по мере необходимости */
+    justify-content: space-between; /* Равномерное распределение пространства между элементами */
+}
+
+.filters-container .filter-item {
+    flex: 1 1 200px; /* Гибкий рост элемента с минимальной шириной 200px */
+}
+
+.filters-container .filter-item label {
+    display: block; /* Отображение блока */
+    margin-bottom: 5px; /* Нижний отступ */
+}
+
+.price-filters {
+    display: flex; /* Гибкий контейнер */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    flex: 1 1 200px; /* Гибкий рост элемента с минимальной шириной 200px */
+    margin: 10px; /* Отступы вокруг элемента */
+}
+
+h4, b, p {
+    color: var(--gray-800); /* Общий цвет текста для заголовков, жирного текста и обычного текста */
+}
+
+.form-label {
+    color: var(--gray-800); /* Цвет текста */
+    font-weight: 500; /* Полужирный шрифт */
+}
+
+label {
+    color: var(--gray-800); /* Цвет текста */
+}
+
+.custom-checkbox input[type="checkbox"] {
+    appearance: none; /* Удаление стандартного стиля чекбокса */
+    width: 14px; /* Ширина чекбокса */
+    height: 14px; /* Высота чекбокса */
+    border: 1px solid var(--primary-color); /* Цвет границы чекбокса */
+    border-radius: 3px; /* Закругление углов чекбокса */
+    margin-right: 3px; /* Отступ справа */
+    position: relative; /* Относительное позиционирование */
+    cursor: pointer; /* Курсор указателя при наведении */
+    background-color: var(--text-color); /* Цвет фона для невыбранного чекбокса */
+}
+
+.custom-checkbox input[type="checkbox"]:checked {
+    background-color: var(--primary-color); /* Цвет фона для выбранного чекбокса */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+    background-size: 10px 10px; /* Размер галочки */
+    background-position: center; /* Позиционирование галочки по центру */
+    background-repeat: no-repeat; /* Запрет на повторение изображения */
+}
+
+.custom-pagination {
+    --bs-pagination-padding-x: 0.75rem; /* Горизонтальные отступы */
+    --bs-pagination-padding-y: 0.375rem; /* Вертикальные отступы */
+    --bs-pagination-font-size: 1rem; /* Размер шрифта */
+    --bs-pagination-color: var(--primary-color); /* Основной цвет текста */
+    --bs-pagination-bg: var(--bs-body-bg); /* Фоновый цвет */
+    --bs-pagination-border-width: var(--bs-border-width); /* Ширина границы */
+    --bs-pagination-border-color: var(--bs-border-color); /* Цвет границы */
+    --bs-pagination-border-radius: var(--bs-border-radius); /* Закругление углов */
+    --bs-pagination-hover-color: var(--primary-color); /* Цвет текста при наведении */
+    --bs-pagination-hover-bg: #ece3ed; /* Фоновый цвет при наведении */
+    --bs-pagination-hover-border-color: #ece3ed; /* Цвет границы при наведении */
+    --bs-pagination-focus-color: var(--primary-color); /* Цвет текста при фокусе */
+    --bs-pagination-focus-bg: #ece3ed; /* Фоновый цвет при фокусе */
+    --bs-pagination-active-color: #fff; /* Цвет текста при активации */
+    --bs-pagination-active-bg: #0d6efd; /* Фоновый цвет при активации */
+    --bs-pagination-active-border-color: #0d6efd; /* Цвет границы при активации */
+    --bs-pagination-disabled-color: rgb(114 117 120 / 75%); /* Цвет текста для неактивного состояния */
+    --bs-pagination-disabled-bg: #f4f5f7; /* Фоновый цвет для неактивного состояния */
+    --bs-pagination-disabled-border-color: var(--bs-border-color); /* Цвет границы для неактивного состояния */
+    display: flex; /* Гибкий контейнер */
+    padding-left: 0; /* Удаление отступа слева */
+    list-style: none; /* Удаление стиля списка */
+}
+
+.successful-message {
+    text-align: center; /* Позиция сообщения об успешной отправке по центру */
+}
+
+.error-message {
+    color: #ff001b; /* Цвет текста сообщения об ошибке */
+    padding: 5px; /* Внутренний отступ */
+}
+
+.contact-photos {
+    display: flex; /* Используем Flexbox */
+    flex-direction: column; /* Элементы располагаются в колонку */
+    align-items: center; /* Центрирование элементов по горизонтали */
+}
+
+.contact-photos img {
+    width: 100%; /* Ширина 100% от родительского контейнера */
+    max-width: 300px; /* Максимальная ширина */
+    margin-bottom: 10px; /* Нижний отступ */
+    border-radius: 10px; /* Скругленные углы */
+    box-shadow: 0px 4px 8px var(--shadow-color); /* Тень вокруг изображения */
+    object-fit: cover; /* Изображение покрывает весь контейнер, сохраняя пропорции */
+}
+
+@media (min-width: 576px) {
+    .contact-photos {
+        flex-direction: row; /* Меняем направление на горизонтальное для больших экранов */
+        justify-content: center; /* Центрируем элементы по горизонтали */
+    }
+
+    .contact-photos img {
+        margin: 0 10px; /* Горизонтальные отступы между изображениями */
+    }
+}
+
+.profile-image {
+  border: 1px solid var(--secondary-color); /* Цвет и ширина рамки */
+  padding: 10px; /* Отступ между изображением и рамкой */
+  border-radius: 4px; /* Скругление углов рамки */
+}
+
+.thumbnails-container {
+  display: flex; /* Используем flexbox для расположения элементов */
+  flex-direction: column; /* Располагаем миниатюры в столбец по умолчанию */
+  gap: 10px; /* Добавляем промежутки между миниатюрами */
+  flex-wrap: wrap; /* Позволяет переносить миниатюры на новую строку */
+}
+
+@media (max-width: 768px) {
+  .thumbnails-container {
+    flex-direction: row; /* При максимальной ширине экрана менее 768px располагаем миниатюры в строку */
+    justify-content: center; /* Центрируем миниатюры по горизонтали */
+  }
+}
+
+.thumbnail-photo {
+  width: 100px; /* Фиксированная ширина миниатюры */
+  cursor: pointer; /* Изменяем курсор при наведении для обозначения кликабельности */
+}
+
+#main-photo-container {
+  text-align: center; /* Центрируем содержимое */
+  width: 100%; /* Ширина контейнера равна 100% от родительского элемента */
+  max-width: 500px; /* Максимальная ширина контейнера для главного фото */
+  margin: 0 auto; /* Автоматический отступ сверху и снизу, выравниваем по центру */
+}
+
+#main-photo {
+  max-width: 100%; /* Главное фото занимает максимально возможную ширину контейнера */
+  height: auto; /* Высота автоматически подстраивается */
+}
+
+.product-details {
+  max-width: 100%; /* Максимальная ширина блока с деталями продукта */
+  margin: 20px auto; /* Внешние отступы сверху и снизу, выравниваем по центру */
+  text-align: left; /* Позиция текста слева */
+}

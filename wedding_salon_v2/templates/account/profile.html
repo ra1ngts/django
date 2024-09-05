@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="album py-5 bg-body-tertiary">
+  <div class="container text-left">
+    {% if messages %}
+    {% for message in messages %}
+    {% if 'signup' in message.extra_tags %}
+    {% if message.tags %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <div class="successful-message"><strong>{{ message }}</strong></div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% if 'login' in message.extra_tags %}
+    {% if message.tags %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <div class="successful-message"><strong>{{ message }}</strong></div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% if 'change_password' in message.extra_tags %}
+    {% if message.tags %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <div class="successful-message"><strong>{{ message }}</strong></div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    <div class="row">
+      <div class="col-md-2">
+        <img src="{% static 'dress/images/icons/woman.png' %}" width="400px" alt="Profile Image"
+          class="img-fluid profile-image">
+      </div>
+      <div class="col-md-10">
+        <p><b>{{ user }}</b></p>
+        <p>{{ user.email }}</p>
+        <a href="{% url 'change_password' %}">
+          <button class="btn btn-look-dress" type="submit">Изменить пароль</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

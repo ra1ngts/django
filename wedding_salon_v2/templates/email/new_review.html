@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .review-details {
+      margin-top: 20px;
+    }
+
+    .review-details p {
+      margin: 5px 0;
+    }
+  </style>
+  <title>Новый отзыв</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Здравствуйте, Администратор.</h1>
+    <p>Появился новый отзыв на сайте! Ждем модерации:</p>
+    <div class="review-details">
+      <p><strong>{{ name }}</strong></p>
+      <p>{{ review }}</p>
+    </div>
+  </div>
+</body>
+
+</html>

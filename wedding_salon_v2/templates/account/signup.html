@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="album py-5 bg-body-tertiary d-flex align-items-center">
+  <div class="container">
+    <p class="text-center">Уже зарегистрированы? <a href="{% url 'login' %}"><b>Войдите.</b></a></p>
+    <form method="post" class="row g-3 needs-validation" style="max-width: 600px; margin: auto;">
+      {% csrf_token %}
+      {% for f in form %}
+      <div class="col-12 mb-3 text-left">
+        <label for="{{ f.auto_id }}" class="form-label">{{ f.label }}</label>
+        {{ f }}
+        {% if f.help_text %}
+          <small class="form-text text-muted">{{ f.help_text }}</small>
+        {% endif %}
+        {% if f.errors %}
+        {% for error in f.errors %}
+        <div class="error-message">{{ error }}</div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      {% endfor %}
+      <div class="col-12">
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <div class="error-message">{{ error }}</div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-look-dress" type="submit">Регистрация</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

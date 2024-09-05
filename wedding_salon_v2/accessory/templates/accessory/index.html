@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for accessory in accessories %}
+      <div class="col">
+        <div class="card shadow-sm">
+          <a href="{{ accessory.get_absolute_url }}">
+            <img class="bd-placeholder-img card-img-top zoom-effect" height="225" src="{{ accessory.main_photo.url }}"
+              alt="{{ accessory.title }}">
+          </a>
+          <div class="card-body text-center d-flex flex-column align-items-center">
+            <h4>{{ accessory.title }}</h4>
+            <p class="card-text">{{ accessory.price }} р.</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <br>
+  {% include 'pagination.html' %}
+</div>
+{% endblock %}

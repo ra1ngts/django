@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="look-container">
+    <div class="thumbnails-container">
+      {% if bride.photos %}
+      {% for p in bride.photos.all %}
+      <img class="thumbnail-photo" src="{{ p.photo.url }}"
+        onclick="document.getElementById('main-photo').src = '{{ p.photo.url }}';">
+      {% endfor %}
+      {% endif %}
+    </div>
+    {% if bride.photos %}
+    <div id="main-photo-container">
+      <img id="main-photo" src="{{ bride.photos.first.photo.url }}">
+    </div>
+    {% endif %}
+    <div class="product-details">
+      <h4 class="title-panel">{{ bride.bcat }}</h4>
+      {% if dress and bride.slug == dress.slug %}
+      <div class="col-12 text-center">
+        <a href="{{ bride.get_dress_url }}"><button class="btn btn-look-dress" type="submit">В каталоге</button></a>
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+{% endblock %}

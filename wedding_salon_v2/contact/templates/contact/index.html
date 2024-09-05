@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    {% if 'contact' in message.extra_tags %}
+    {% if message.tags %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <div class="successful-message"><strong>{{ message }}</strong></div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    <div class="text-center">{% for c in contacts %}
+      <h3>{{ c.title }}</h3>
+      <p>{{ c.address }}</p>
+      <p><b>ПН - ПТ:</b> {{ c.weekdays }}</p>
+      <p><b>СБ и ВС:</b> {{ c.weekends }}</p>
+      <p class="mb-4"><a href="tel:{{ phone }}">{{ c.phone|safe }}</a></p>
+      <p class="mb-4"><a href="mailto:{{ email }}">{{ c.email|safe }}</a></p>
+      <a href="{{ c.instagram }}"><img src="{% static 'dress/images/icons/social/instagram.svg' %}" width="32"
+          height="32" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16"></a>
+      <a href="{{ c.vk }}"><img src="{% static 'dress/images/icons/social/vk.svg' %}" width="32" height="32"
+          fill="currentColor" class="bi bi-vk" viewBox="0 0 16 16"></a>
+      <br><br>
+      <div class="contact-photos">
+        {% if c.photo_1 %}
+        <img src="{{ c.photo_1.url }}" class="img-fluid">
+        {% endif %}
+        {% if c.photo_2 %}
+        <img src="{{ c.photo_2.url }}" class="img-fluid">
+        {% endif %}
+      </div>
+      {% endfor %}
+      <hr>
+      <h4>Обратная связь</h4>
+    </div>
+    <form method="post" class="row g-3 needs-validation" style="max-width: 600px; margin: auto;">
+      {% csrf_token %}
+      {% for f in form %}
+      <div class="col-12 mb-3">
+        <label for="{{ f.auto_id }}" class="form-label">{{ f.label }}</label>
+        {{ f }}
+        {% if f.errors %}
+        {% for error in f.errors %}
+        <div class="error-message">{{ error }}</div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      {% endfor %}
+      <div class="col-12">
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <div class="error-message">{{ error }}</div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-look-dress" type="submit">Отправить</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
