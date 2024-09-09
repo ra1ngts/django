@@ -30,6 +30,21 @@
         {% endfor %}
         {% endif %}
       </div>
+      {% elif f.field.widget.input_type == 'password' %}
+      <div class="col-12 mb-3 text-left position-relative">
+        <label for="{{ f.auto_id }}" class="form-label">{{ f.label }}</label>
+        <div class="input-group">
+          {{ f }}
+          <span class="input-group-text toggle-password" onclick="togglePassword()">
+            <i id="password-icon" class="bi bi-eye"></i>
+          </span>
+        </div>
+        {% if f.errors %}
+        {% for error in f.errors %}
+        <div class="error-message">{{ error }}</div>
+        {% endfor %}
+        {% endif %}
+      </div>
       {% else %}
       <div class="col-12 mb-3 text-left">
         <label for="{{ f.auto_id }}" class="form-label">{{ f.label }}</label>
@@ -55,4 +70,22 @@
     </form>
   </div>
 </div>
+
+<script>
+  function togglePassword() {
+    var passwordField = document.getElementById("id_password");
+    var passwordIcon = document.getElementById("password-icon");
+
+    if (passwordField.type === "password") {
+      passwordField.type = "text";
+      passwordIcon.classList.remove("bi-eye");
+      passwordIcon.classList.add("bi-eye-slash");
+    } else {
+      passwordField.type = "password";
+      passwordIcon.classList.remove("bi-eye-slash");
+      passwordIcon.classList.add("bi-eye");
+    }
+  }
+</script>
+
 {% endblock %}
