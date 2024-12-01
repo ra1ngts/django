@@ -1,0 +1,22 @@
+2024-12-01 17:08:43,677 - ERROR - Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS. - D:\envs\news_portal\lib\site-packages\django\core\handlers\exception.py - (<class 'django.core.exceptions.DisallowedHost'>, DisallowedHost("Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS."), <traceback object at 0x0000021581711340>)
+Traceback (most recent call last):
+  File "D:\envs\news_portal\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\envs\news_portal\lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "D:\envs\news_portal\lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "D:\envs\news_portal\lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+2024-12-01 17:08:44,268 - ERROR - Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS. - D:\envs\news_portal\lib\site-packages\django\core\handlers\exception.py - (<class 'django.core.exceptions.DisallowedHost'>, DisallowedHost("Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS."), <traceback object at 0x00000215817B9F40>)
+Traceback (most recent call last):
+  File "D:\envs\news_portal\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\envs\news_portal\lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "D:\envs\news_portal\lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "D:\envs\news_portal\lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
