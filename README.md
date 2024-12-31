@@ -182,6 +182,9 @@
 
 ---
 
+#### About project :
+- __"Project - [Pereval REST API](https://pereval.pythonanywhere.com/swagger/)"__ - REST API for Federation of Sports Tourism of Russia (FSTR).
+
 1.Technical task
 ---
 
