@@ -635,7 +635,7 @@ After specify the client's name, contact number for communication, e-mail, date 
 #### Demonstration :
 ![Gallery_scr_1](https://github.com/user-attachments/assets/cd3ffb2f-318a-4fdb-843c-c8e8a3a75354)
 ![Gallery_scr_2](https://github.com/user-attachments/assets/1d5b8fb5-64c1-40d8-96aa-4d2b31b16b8f)
-![Gallery_scr_3](https://github.com/user-attachments/assets/9299849d-79e3-4139-87ca-a06d5f99af02)
+![Gallery_scr_3](https://github.com/user-attachments/assets/1fae07ca-21e0-4310-9799-d0677880cf15)
 ![Gallery_scr_4](https://github.com/user-attachments/assets/a56d803b-dd10-4252-b77d-79ad60fb2e2d)
 
 ### :bride_with_veil: "Project - Wedding salon v2"
