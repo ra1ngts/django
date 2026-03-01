@@ -45,7 +45,7 @@
 - REST Simple-jwt 5.2.2
 - Djoser 2.2.0
 
-#### Install :
+#### Installation :
 - Folder name: __news_portal__
 - On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
 - Save and extract the folder to any convenient location.
@@ -103,7 +103,7 @@
 - Logging
 - REST framework 3.14.0
 
-#### Install :
+#### Installation :
 - Folder name: __wedding_salon__
 - On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
 - Save and extract the folder to any convenient location.
@@ -155,7 +155,7 @@
 - Installed google fonts
 - Django-ckeditor 6.6.1
 
-#### Install :
+#### Installation :
 - Folder name: __bulletin_board__
 - On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
 - Save and extract the folder to any convenient location.
@@ -420,7 +420,7 @@ __The user, using the mobile application, will transfer the following data about
 - drf-writable-nested 0.7.0
 - drf-yasg 1.21.7
 
-#### Install :
+#### Installation :
 - Folder name: __pereval_fstr__
 - On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
 - Save and extract the folder to any convenient location.
@@ -576,7 +576,7 @@ After specify the client's name, contact number for communication, e-mail, date 
 - REST framework 3.14.0
 - Djoser 2.2.0
 
-#### Install :
+#### Installation :
 - Folder name: __manicure__
 - On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
 - Save and extract the folder to any convenient location.
@@ -619,7 +619,7 @@ After specify the client's name, contact number for communication, e-mail, date 
 - Python-decouple 3.8
 - Django-modeltranslation 0.19.3
 
-#### Install :
+#### Installation :
 - Folder name: __art_gallery__
 - On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
 - Save and extract the folder to any convenient location.
@@ -673,7 +673,7 @@ After specify the client's name, contact number for communication, e-mail, date 
 - Python-decouple 3.8
 - Django-simple-captcha 0.6.0
 
-#### Install :
+#### Installation :
 - Folder name: __wedding_salon_v2__
 - On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
 - Save and extract the folder to any convenient location.
