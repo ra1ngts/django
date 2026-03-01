@@ -688,8 +688,7 @@ After specify the client's name, contact number for communication, e-mail, date 
 |     4| JS        |
 
 #### Demonstration :
-![Wedding_salon_2_scr_1](https://github.com/user-attachments/assets/8dc451e2-43c5-4797-a874-de46d465e229)
-![Wedding_salon_2_scr_2](https://github.com/user-attachments/assets/13545daa-03c9-47e7-8f65-c90563ec48e7)
-![Wedding_salon_2_scr_3](https://github.com/user-attachments/assets/07456685-65ba-40d0-824f-dbbbbe334d22)
-![Wedding_salon_2_scr_4](https://github.com/user-attachments/assets/9f0c1650-b2d2-46a9-a695-d074adc9a4cb)
-![Wedding_salon_2_scr_5](https://github.com/user-attachments/assets/2fa86b3a-95d4-4cfb-add3-797b4ac5cc22)
+![Wedding_salon_2_scr_1](https://github.com/user-attachments/assets/2c97e4a6-8c5d-49c4-b41b-6be1c3a70999)
+![Wedding_salon_2_scr_2](https://github.com/user-attachments/assets/ad1fda3e-2863-4b49-b574-8f52c85ee916)
+![Wedding_salon_2_scr_3](https://github.com/user-attachments/assets/85bac461-1c70-4947-8e42-d190fb236486)
+![Wedding_salon_2_scr_4](https://github.com/user-attachments/assets/f8d60f99-1138-4f83-a550-b800b189e65a)
