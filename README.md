@@ -633,11 +633,10 @@ After specify the client's name, contact number for communication, e-mail, date 
 |     4| JS        |
 
 #### Demonstration :
-![Gallery_scr_1](https://github.com/user-attachments/assets/96ef3761-446f-4d4c-9aa9-2b3858ffd7de)
-![Gallery_scr_2](https://github.com/user-attachments/assets/65a2807c-2f14-4969-85b4-b50de456b1b8)
-![Gallery_scr_3](https://github.com/user-attachments/assets/82073000-ecc1-4f33-8a30-319d990269db)
-![Gallery_scr_4](https://github.com/user-attachments/assets/84e82fd5-02a2-48db-9ae7-d38de6bc4789)
-![Gallery_scr_5](https://github.com/user-attachments/assets/3117abb9-6909-4d16-a839-560b181d87d7)
+![Gallery_scr_1](https://github.com/user-attachments/assets/cd3ffb2f-318a-4fdb-843c-c8e8a3a75354)
+![Gallery_scr_2](https://github.com/user-attachments/assets/1d5b8fb5-64c1-40d8-96aa-4d2b31b16b8f)
+![Gallery_scr_3](https://github.com/user-attachments/assets/9299849d-79e3-4139-87ca-a06d5f99af02)
+![Gallery_scr_4](https://github.com/user-attachments/assets/a56d803b-dd10-4252-b77d-79ad60fb2e2d)
 
 ### :bride_with_veil: "Project - Wedding salon v2"
 
