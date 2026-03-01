@@ -116,12 +116,10 @@
 |     3| HTML      |
 
 #### Demonstration :
-![Wedding_salon_scr_1](https://github.com/ra1ngts/django/assets/122100029/3c715c10-ee85-4df2-812a-750f09e2ba10)
-![Wedding_salon_scr_2](https://github.com/ra1ngts/django/assets/122100029/ab56195f-f51c-49ca-a025-c07cffc03c98)
-![Wedding_salon_scr_3](https://github.com/ra1ngts/django/assets/122100029/5116d12b-a9a3-4a3b-8690-00d8694adea7)
-![Wedding_salon_scr_4](https://github.com/ra1ngts/django/assets/122100029/518b7e1c-9357-4827-8752-185ad027bddc)
-![Wedding_salon_scr_5](https://github.com/ra1ngts/django/assets/122100029/31a7bc06-365c-4064-b925-82c72e234457)
-![Wedding_salon_scr_6](https://github.com/ra1ngts/django/assets/122100029/9e20234b-b196-4d28-aad5-8a30b5d58116)
+![Wedding_salon_scr_1](https://github.com/user-attachments/assets/c637dbb6-5297-4c11-9737-64eff56d1458)
+![Wedding_salon_scr_2](https://github.com/user-attachments/assets/2d162556-33d5-44e3-8c17-eb7dfa0347f0)
+![Wedding_salon_scr_3](https://github.com/user-attachments/assets/860beb7d-3b56-4290-b6cd-c2929d95b8a8)
+![Wedding_salon_scr_4](https://github.com/user-attachments/assets/4effd145-7b4b-427b-8fde-1947f621492d)
 
 ### :open_book: "Project - Bulletin board"
 
