@@ -1,693 +1,293 @@
-### :newspaper: "Project - News Portal"
+# :snake: Django Learning Projects
+
+#### About project :
+- __Django Learning Projects__ — a collection of educational projects developed while learning and practicing Django.
+- The repository contains several independent projects created to explore different aspects of Django and web application development.
+
+### :bride_with_veil: Wedding Salon
 
 ---
 
 #### About project :
-- __"Project - News Portal"__ - The project is a thesis.
+- __Wedding Salon__ — a personal Django-based e-commerce project developed for a real business use case.
+- The website provides a catalog of wedding dresses and accessories with filtering, user interaction, reviews, and product sharing.
 
-#### Peculiarities :
-- Creating news categories.
-- Create new articles or news of your choice.
-- Editing, as well as deleting news or articles.
-- Implementing a News Category Subscription.
-- Implementation of likes and dislikes of posts.
-- Implementing Search with Filters.
-- Implementation of a system for sending messages to e-mail (notification of a new article or news in a selected category).
-- Weekly newsletter of the news portal.
-- Implementing user registration, authentication, and authorization (as well as authorization through google).
-- Implementation of automatic adding users to categories (regular category and privileged).
-- Сaching templates and sections of the site.
-- Implementation of error logging and other data.
-- Added localization and internationalization.
-- Added light and dark themes.
-- Adaptation to REST architecture.
-
-#### For what :
-- Thesis for several months of learning django.
-
-#### Visualization :
-- Using HTML templates and CSS styles.
+#### Features :
+- Categories for wedding dresses and accessories.
+- Create, edit, and delete products.
+- Product filtering and search.
+- Product reviews.
+- Likes and dislikes.
+- Social media sharing.
+- User registration, authentication, and authorization.
+- Multiple images for each product.
+- Pagination.
+- Logging.
+- Caching.
+- REST API integration.
 
 #### Technologies and Libraries :
 - Python 3.8.10
 - Django 4.2
-- APScheduler 3.10.1
-- Celery 5.2.7
-- Django-allauth 0.54.0
-- Django-filter 23.1
+- Django REST Framework 3.14
+- Django Allauth 0.54.0
+- Django Filter 23.1
 - Python-decouple 3.8
-- Redis 4.5.4
 - Requests 2.28.2
-- Installed google fonts
-- Pytz 2023.3
-- Logging
-- REST framework 3.14.0
-- REST Simple-jwt 5.2.2
-- Djoser 2.2.0
+- PostgreSQL
+- HTML
+- CSS
 
-#### Installation :
-- Folder name: __news_portal__
-- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
-- Save and extract the folder to any convenient location.
-
-#### Language :
-| Rank | Languages |
-|-----:|-----------|
-|     1| Python    |
-|     2| CSS       |
-|     3| HTML      |
+#### Website :
+- [Wedding Salon](https://weddingh.pythonanywhere.com/dresses/)
 
 #### Demonstration :
-![News_portal_scr_1](https://github.com/ra1ngts/django/assets/122100029/c4f96c96-1fcd-4b05-af97-117ab70eb83c)
-![News_portal_scr_2](https://github.com/ra1ngts/django/assets/122100029/d687f5a1-8b4c-4e0d-bce5-9453eb17a283)
-![News_portal_scr_3](https://github.com/ra1ngts/django/assets/122100029/cab35b18-6ba9-41ef-ae9b-387857344ff9)
-![News_portal_scr_4](https://github.com/ra1ngts/django/assets/122100029/aa162582-81a7-4ebc-9615-e42dc788fa4a)
-![News_portal_scr_5](https://github.com/ra1ngts/django/assets/122100029/6aaa644d-c1e9-46c7-9165-b3976e72f291)
-![News_portal_scr_6](https://github.com/ra1ngts/django/assets/122100029/605e6766-9b6f-4de3-8e1a-e0295aaad4d8)
+<img width="1920" height="1461" alt="w1" src="https://github.com/user-attachments/assets/bbe7ea74-e05b-4241-8dbe-1ed9c831c0d9" />
+<img width="1920" height="1461" alt="w2" src="https://github.com/user-attachments/assets/35d5d1bc-68fb-436f-85bf-700bfae1de8b" />
+<img width="1920" height="1461" alt="w3" src="https://github.com/user-attachments/assets/c87b4834-7cfa-409c-8d8d-70da6a9b822f" />
 
-### :bride_with_veil: "Project - Wedding salon"
+### :bride_with_veil: Wedding Salon (2.0)
 
 ---
 
 #### About project :
-- __"Project - [Wedding salon](https://weddingh.pythonanywhere.com/dresses/)"__ - Personal project for business.
+- __Wedding Salon (2.0)__ — the second version of a personal Django-based project developed for a real business use case.
+- The project introduces an updated technology stack, improved functionality, user interactions, and additional email and security features.
 
-#### Peculiarities :
-- Possibility to create categories of dresses or accessories.
-- Possibility to add, edit and delete models of dresses or accessories.
-- The ability to search for models of dresses by filters.
-- Possibility to write a product review.
-- The ability to like or dislike the model you like.
-- The ability to share the model of a dress or accessory using social networks.
-- Ability to register, authenticate and authorize a user.
-- Ability to add multiple photos to models.
-- Implemented pagination.
-- Implementation of logging.
-- Implementation of caching.
-- Adaptation to REST architecture.
-
-#### For what :
-- Personal project for business.
-
-#### Visualization :
-- Using HTML templates and CSS styles.
+#### Features :
+- Categories for wedding dresses and accessories.
+- Create, edit, and delete dresses, accessories, and bride profiles.
+- Product search and filtering.
+- Reviews available to authorized users.
+- Likes and dislikes for dresses and accessories.
+- Social media sharing.
+- User registration, authentication, and authorization.
+- Multiple images for products.
+- Pagination.
+- Custom error handlers for 403, 404, and 500 errors.
+- Email notifications for new reviews.
+- Email notifications from the contact form.
+- CAPTCHA protection for forms.
 
 #### Technologies and Libraries :
-- Python 3.8.10
-- Django 4.2
-- Django-allauth 0.54.0
-- Django-filter 23.1
+- Python 3.12.3
+- Django 5.0.6
+- Django Allauth 0.63.3
+- Django Filter 24.2
+- Django Simple Captcha 0.6.0
 - Python-decouple 3.8
-- Requests 2.28.2
-- Installed google fonts
-- Logging
-- REST framework 3.14.0
+- Bootstrap
+- JavaScript
+- HTML
+- CSS
 
-#### Installation :
-- Folder name: __wedding_salon__
-- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
-- Save and extract the folder to any convenient location.
-
-#### Language :
-| Rank | Languages |
-|-----:|-----------|
-|     1| Python    |
-|     2| CSS       |
-|     3| HTML      |
+#### Website :
+- [Wedding Salon (2.0)](https://weddh.pythonanywhere.com/dresses/)
 
 #### Demonstration :
-![Wedding_salon_scr_1](https://github.com/user-attachments/assets/c637dbb6-5297-4c11-9737-64eff56d1458)
-![Wedding_salon_scr_2](https://github.com/user-attachments/assets/2d162556-33d5-44e3-8c17-eb7dfa0347f0)
-![Wedding_salon_scr_3](https://github.com/user-attachments/assets/860beb7d-3b56-4290-b6cd-c2929d95b8a8)
-![Wedding_salon_scr_4](https://github.com/user-attachments/assets/4effd145-7b4b-427b-8fde-1947f621492d)
+<img width="1920" height="1461" alt="w1" src="https://github.com/user-attachments/assets/c21bbee4-3c65-4c45-9fbd-53ff1ddc4a9c" />
+<img width="1920" height="1461" alt="w2" src="https://github.com/user-attachments/assets/7d18b002-780a-47d6-ae5d-99c406f2f0aa" />
+<img width="2736" height="2320" alt="w3" src="https://github.com/user-attachments/assets/dd4ff01d-b8b3-4563-b76e-b60dff1535c7" />
 
-### :open_book: "Project - Bulletin board"
+### :art: Art Gallery
 
 ---
 
 #### About project :
-- __"Project - Bulletin board"__ - The final project in the school of learning.
+- __Art Gallery__ — a personal project developed for my artist daughter.
+- The website provides an online gallery for showcasing and managing artwork.
+- The project was created as a personal birthday gift.
 
-#### Peculiarities :
-- Ability to create ads by category.
-- Ability to edit, delete and comment on ads.
-- Ability to search ads by filters.
-- With the help of the WYSIWYG editor, additional features have been added (editing text, choosing a color, font, as well as adding and editing photos) when creating or editing an ad.
-- Ability to register, authenticate and authorize the user.
-- Ability to manage through the user's personal account.
-- Implemented pagination.
-- Sending Email Notifications with Celery.
-
-#### For what :
-- The final project in the school of learning.
-
-#### Visualization :
-- Using HTML templates and CSS styles.
+#### Features :
+- Create, edit, and delete artwork.
+- Create and manage artwork categories.
+- Social media sharing.
+- Responsive design for desktop and mobile devices.
+- Contact form with email notifications.
+- English and Russian localization with a language switcher.
 
 #### Technologies and Libraries :
-- Python 3.8.10
-- Django 4.2
-- Celery 5.2.7
-- Django-allauth 0.54.0
-- Django-filter 23.1
+- Python 3.12.3
+- Django 5.0.6
+- Django Simple Captcha 0.6.0
+- Django Modeltranslation 0.19.3
 - Python-decouple 3.8
-- Requests 2.28.2
-- Installed google fonts
-- Django-ckeditor 6.6.1
+- Bootstrap
+- JavaScript
+- HTML
+- CSS
 
-#### Installation :
-- Folder name: __bulletin_board__
-- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
-- Save and extract the folder to any convenient location.
-
-#### Language :
-| Rank | Languages |
-|-----:|-----------|
-|     1| Python    |
-|     2| CSS       |
-|     3| HTML      |
+#### Website :
+- [Art Gallery](https://agataportfolio.pythonanywhere.com/)
 
 #### Demonstration :
-![Bulletin_board_scr_1](https://github.com/ra1ngts/django/assets/122100029/7c90b009-d58b-4abd-abbe-865a09f0393c)
-![Bulletin_board_scr_2](https://github.com/ra1ngts/django/assets/122100029/ecaf8825-85b5-4d6c-9806-a8004714028a)
-![Bulletin_board_scr_3](https://github.com/ra1ngts/django/assets/122100029/5ab03fcd-5aec-40f7-86fa-0a575d1b9750)
-![Bulletin_board_scr_4](https://github.com/ra1ngts/django/assets/122100029/25393336-daad-4e20-a4f9-cb276a323ed9)
-![Bulletin_board_scr_5](https://github.com/ra1ngts/django/assets/122100029/b8ddf92e-c068-4fe8-ac01-f6ef2f5c4b35)
-![Bulletin_board_scr_6](https://github.com/ra1ngts/django/assets/122100029/20c0e093-8e33-4716-96e5-1fd8f520a220)
-![Bulletin_board_scr_7](https://github.com/ra1ngts/django/assets/122100029/845d28a5-4836-4a8e-b488-986c8f50577b)
+<img width="1920" height="1461" alt="gl1" src="https://github.com/user-attachments/assets/6f357fda-4c71-4a15-960d-e80f30c69e81" />
+<img width="1920" height="1461" alt="gl2" src="https://github.com/user-attachments/assets/b9add434-aa9d-4132-9288-b78d656e2e30" />
+<img width="1920" height="1461" alt="gl3" src="https://github.com/user-attachments/assets/200003dc-e9a4-4767-afd5-83f545cf4157" />
+<img width="1920" height="1461" alt="gl4" src="https://github.com/user-attachments/assets/7fdab20b-7375-4fd3-b26f-01e16c438889" />
+<img width="2736" height="2320" alt="gl5" src="https://github.com/user-attachments/assets/6f3a9d29-29d7-435d-8050-d06838b2cf7b" />
 
-### :mountain_snow: "Project - Pereval REST API"
+### :mountain_snow: Pereval REST API
 
 ---
 
 #### About project :
-- __"Project - [Pereval REST API](https://pereval.pythonanywhere.com/swagger/)"__ - REST API for Federation of Sports Tourism of Russia (FSTR).
+- __Pereval REST API__ — an educational REST API project developed for the Federation of Sports Tourism of Russia (FSTR).
+- The API is designed to collect and manage information about mountain passes submitted by tourists through a mobile application.
 
-1.Technical task
----
+#### Features :
+- Create and retrieve mountain pass records.
+- Retrieve a specific pass by ID.
+- Edit submitted data using partial updates.
+- Validation of required fields and submitted data.
+- User and contact information management.
+- Mountain pass coordinates, elevation, difficulty level, and descriptions.
+- Multiple images for each mountain pass.
+- Moderation status tracking.
+- Editing restrictions based on moderation status.
+- Filtering and retrieving passes submitted by a specific user.
+- Nested data serialization and writable nested relationships.
+- Swagger API documentation.
 
-Our company received an order from the Federation of Sports Tourism of Russia (FSTR).
-FSTR is an organization that develops and popularizes sports tourism in Russia and manages the holding of all-Russian competitions in this sport.
+#### API :
+- `POST /api/v1/submitData/` — create a new mountain pass record.
+- `GET /api/v1/submitData/` — retrieve submitted records.
+- `GET /api/v1/submitData/?user__email=<email>` — retrieve records submitted by a specific user.
+- `GET /api/v1/submitData/<id>/` — retrieve a specific record.
+- `PATCH /api/v1/submitData/<id>/` — partially update a record.
 
-On the site https://pereval.online/, the FSTR maintains a database of mountain passes, which is replenished by tourists.
-After overcoming the next pass, the tourist fills out a report in PDF format and sends it to the e-mail of the federation. The FSTR expert group receives this information, verifies it, and then enters it into the database, which is maintained in a Google spreadsheet.
-
-The whole process is very inconvenient and long and takes an average of 3 to 6 months.
-FSTR commissioned students to develop a mobile application for Android and IOS that would make it easier for tourists to send data about the pass and reduce the request processing time to three days.
-
-Tourists will use the mobile application. In the mountains, they will enter the pass data into the application and send it to the FSTR as soon as Internet access becomes available.
-The moderator from the federation will verify and enter the information received from users into the database, and they, in turn, will be able to see the moderation status in the mobile application and view the database with objects contributed by others.
-
-2.Preparing Rest API Requirements
----
-
-  - Entering information about a new object (pass) into the object card.
-  - Editing in the application of data about objects not sent to the FSTR server. The Internet does not always work at the pass.
-  - Filling in the full name and contact details (phone and e-mail) with their subsequent autocompletion when entering data about new objects.
-  - Sending data to the FSTR server.
-  - Receive notification of the status of the submission (success/failure).
-  - The user's consent to the personal data processing policy in case of clicking on the "Send" button when sending data to the server.
-
-__The user, using the mobile application, will transfer the following data about the pass to the FSTR:__
-
-  - __coordinates of the pass and its height__
-  - __Username__
-  - __mail and phone number of the user__
-  - __the name of the pass__
-  - __some photos of the pass__
-
-3.Implementation
-----
-
-:mountain_snow: *submitData*
-----
-  Returns data as a list of JSON records<sup>1</sup>.<br>
-  <sup>1</sup> - Mandatory fields for creating a post: first_name, last_name, patronymic, email, phone.
-
-* **URL**
-
-  `/api/v1/submitData/`
-
-* **Method:**
-
-  `POST /submitData/` - creating a record using the POST method.<br>
-  `GET /submitData/` - getting record via GET method.<br>
-  `GET /submitData/?user__email=<email>` - a list of data about all objects that the user with mail <email> sent to the server.
-  
-*  **URL Params**
-
-  None
-
-* **Data Params**
-
-       "user": {
-        "first_name": "",
-        "last_name": "",
-        "patronymic": "",
-        "email": "",
-        "phone": ""
-        }
-
-* **Success Response:**
-
-  * **Code:** 201 CREATED { message : "Запись успешно создана." } <br />
-    **Content:**
-    
-                    Префикс: ""
-                    Название: ""
-                    Другое название: ""
-                    Соединяет: ""
-                    Статус данных: "new"
-                    Категория трудности: "winter-1A"
-                    
-                    Широта: ""
-                    Долгота: ""
-                    Высота: ""
-
-                    Имя: "Василий"
-                    Фамилия: "Васильев"
-                    Отчество: "Васильевич"
-                    Электронная почта: "vasyl60@example.com"
-                    Телефон: "+70123456789"
-
-                    Название фото 1: ""
-                    URL изображения 1: ""
-                    Название фото 2: ""
-                    URL изображения 2: ""
-                    Название фото 3: ""
-                    URL изображения 3: ""
-
-* **Error Response:**
-
-  * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : "Это поле не может быть пустым." }`
-
-* **Sample Call:**
-
-  ```
-     {
-         "id": 1,
-         "beauty_title": "",
-         "title": "",
-         "other_titles": "",
-         "connect": "",
-         "add_time": "2023-07-19T12:06:44.305663+03:00",
-         "status": "new",
-         "level": "winter-1A",
-         "coordinates": {
-             "id": 1,
-             "latitude": null,
-             "longitude": null,
-             "height": null
-         },
-         "user": {
-             "id": 1,
-             "first_name": "Василий",
-             "last_name": "Васильев",
-             "patronymic": "Васильевич",
-             "email": "vasyl60@example.com",
-             "phone": "+70123456789"
-         },
-         "images": {
-             "title_1": "",
-             "image_1": "",
-             "title_2": "",
-             "image_2": "",
-             "title_3": "",
-             "image_3": ""
-         }
-     }
-  ```
-
-:mountain_snow: *submitDetailData*
-----
-  Returns data as a single JSON record, also allows partial editing of the record<sup>1, 2</sup>.<br>
-  <sup>1</sup> - IT IS FORBIDDEN to change user data such as: __first_name,__ __last_name,__ __patronymic,__ __email,__ __phone.__ <br>
-  <sup>2</sup> - IT IS FORBIDDEN to change any data if the moderation status is __not__ __"new".__
-
-* **URL**
-
-  `/api/v1/submitData/<id>/`
-
-* **Method:**
-
-  `GET /submitData/<id>/` - getting a single record using the GET method.<br>
-  `PATCH /submitData/<id>/` - partial editing of one record using the PATCH method.
-  
-*  **URL Params**
-
-  Required:
-  
-  id=[integer]
-
-* **Data Params**
-
-  None
-
-* **Success Response:**
-
-  * **Code:** 200 OK `{ state : 1, message : "Данные успешно отредактированы."}` <br />
-    **Content:**
-
-                    Префикс: "Пер."
-                    Название: "Перевал Teodulpass"
-                    Другое название: "Теодуль, Teodulo"
-                    Соединяет: "ледник Теодуль и долину реки Мармор"
-                    Статус данных: "new"
-                    Категория трудности: "winter-1A"
-                    
-                    Широта: 45.94271
-                    Долгота: 7.70897
-                    Высота: 3301 <------ 3323
-
-                    Имя: "Василий"
-                    Фамилия: "Васильев"
-                    Отчество: "Васильевич"
-                    Электронная почта: "vasyl60@example.com"
-                    Телефон: "+70123456789"
-
-                    Название фото 1: "Перевал Teodulpass-1"
-                    URL изображения 1: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Colle_del_Teodulo_001.jpg"
-                    Название фото 2: "Перевал Teodulpass-2"
-                    URL изображения 2: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Rif-theodulo.jpg/800px-Rif-theodulo.jpg"
-                    Название фото 3: "" <------ Перевал Teodulpass-3
-                    URL изображения 3: "" <------ https://upload.wikimedia.org/wikipedia/commons/f/f7/Passo-Teodulo.jpg
-
-* **Sample Call:**
-
-  ```
-     {
-         "id": 1,
-         "beauty_title": "Пер.",
-         "title": "Перевал Teodulpass",
-         "other_titles": "Теодуль, Teodulo",
-         "connect": "ледник Теодуль и долину реки Мармор",
-         "add_time": "2023-07-19T12:06:44.305663+03:00",
-         "status": "new",
-         "level": "winter-1A",
-         "coordinates": {
-             "id": 1,
-             "latitude": 45.94271,
-             "longitude": 7.70897,
-             "height": 3323
-         },
-         "user": {
-             "id": 1,
-             "first_name": "Василий",
-             "last_name": "Васильев",
-             "patronymic": "Васильевич",
-             "email": "vasyl60@example.com",
-             "phone": "+70123456789"
-         },
-         "images": {
-             "title_1": "Перевал Teodulpass-1",
-             "image_1": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Colle_del_Teodulo_001.jpg",
-             "title_2": "Перевал Teodulpass-2",
-             "image_2": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Rif-theodulo.jpg/800px-Rif-theodulo.jpg",
-             "title_3": "Перевал Teodulpass-3",
-             "image_3": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Passo-Teodulo.jpg"
-         }
-     }
-  ```
-  
 #### Technologies and Libraries :
 - Python 3.8.10
 - Django 4.2
-- Django-filter 23.1
-- Python-decouple 3.8
-- Requests 2.28.2
-- REST framework 3.14.0
+- Django REST Framework 3.14.0
+- Django Filter 23.1
 - drf-writable-nested 0.7.0
 - drf-yasg 1.21.7
+- Python-decouple 3.8
+- Requests 2.28.2
 
-#### Installation :
-- Folder name: __pereval_fstr__
-- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
-- Save and extract the folder to any convenient location.
-
-#### Language :
-| Rank | Languages |
-|-----:|-----------|
-|     1| Python    |
+#### API Documentation :
+- [Swagger API Documentation](https://pereval.pythonanywhere.com/swagger/)
 
 #### Demonstration :
-![Pereval_fstr_scr_1](https://github.com/ra1ngts/django/assets/122100029/5c93cfd8-4ae0-4b26-8c05-3f3ae1f59f50)
-![Pereval_fstr_scr_2](https://github.com/ra1ngts/django/assets/122100029/0508c9ee-27c7-4ee3-b3aa-503f18592eed)
-![Pereval_fstr_scr_3](https://github.com/ra1ngts/django/assets/122100029/a5ff86af-8a1e-4953-a7b8-8429b558a6c8)
-![Pereval_fstr_scr_4](https://github.com/ra1ngts/django/assets/122100029/552fe664-6603-4e35-815a-cde533570da6)
+<img width="1445" height="695" alt="Pereval_fstr_scr_1" src="https://github.com/user-attachments/assets/c048f83c-c352-4b3c-8056-589a479dc390" />
+<img width="1445" height="695" alt="Pereval_fstr_scr_2" src="https://github.com/user-attachments/assets/d8812677-dea4-468b-8812-82d93a4b7d0e" />
+<img width="1445" height="695" alt="Pereval_fstr_scr_3" src="https://github.com/user-attachments/assets/9bd7afe8-d3fd-497e-9f64-a542dac5a42f" />
+<img width="1445" height="695" alt="Pereval_fstr_scr_4" src="https://github.com/user-attachments/assets/54d1b825-67ef-4b6e-81e0-5b80f9e434c9" />
 
-### :nail_care: "Project - Manicure REST API"
+### :nail_care: Manicure REST API
 
 ---
 
-1.Technical task
----
+#### About project :
+- __Manicure REST API__ — an educational REST API project for managing beauty salon appointments.
+- The API allows clients to create, view, and cancel appointments through a mobile application.
 
-I tried to implement using the rest framework to record a client in a beauty salon.
-The client will be able to make an appointment at the salon using a mobile application. To do this, the client needs to register. 
-Next, you need to choose a salon in which he wants to be provided with services. After that, select the service itself, then select the master. 
-After specify the client's name, contact number for communication, e-mail, date and time of the visit.
+#### Features :
+- Create an appointment at a beauty salon.
+- Select a salon, service, and master.
+- Store client contact information and appointment date.
+- Retrieve appointment information.
+- Cancel an existing appointment.
+- User registration and authentication.
 
-2.Implementation
-----
+#### API :
+- `POST /api/v1/user-records/` — create a new appointment.
+- `GET /api/v1/user-records/` — retrieve appointments.
+- `GET /api/v1/user-records/<id>/` — retrieve a specific appointment.
+- `DELETE /api/v1/user-records/<id>/` — cancel an appointment.
 
-*user-records*
-----
-  Returns data as a list of JSON records <br>
-
-* **URL**
-
-  `/api/v1/user-records/`
-
-* **Method:**
-
-  `POST /user-records/` - creating a record using the POST method.<br>
-  `GET /user-records/` - getting record via GET method.<br>
-
-*  **URL Params**
-
-  None
-
-* **Data Params**
-
-        {
-            "salon": "",
-            "master": "",
-            "services": "",
-            "name": "",
-            "phone": "",
-            "email": "",
-            "date": ""
-        }
-
-* **Success Response:**
-
-  * **Code:** 201 CREATED <br />
-    **Content:**
-    
-                    Название салона: ""
-                    Имя мастера: ""
-                    Название услуги: ""
-                    Имя: ""
-                    Телефон: ""
-                    Электронная почта: ""
-                    Дата и время записи: ""
-
-* **Error Response:**
-
-  * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : "Это поле не может быть пустым." }`
-
-* **Sample Call:**
-
-  ```
-     {
-        {
-            "id": 1,
-            "salon": "Братиславская",
-            "master": "Аня",
-            "services": "КОМПЛЕКС МАНИКЮР",
-            "name": "Валерия",
-            "phone": "+70123456789",
-            "email": "example@example.com",
-            "date": "01.08.2023 в 09:00"
-        }
-     }
-  ```
-
-*user-records/id/*
-----
-  Returns the data as a single JSON record, and also allows you to delete (cancel) the record. <br>
-
-* **URL**
-
-  `/api/v1/user-records/<id>/`
-
-* **Method:**
-
-  `GET /user-records/<id>/` - getting a single record using the GET method.<br>
-  `DELETE /user-records/<id>/` - deleting an entry (cancellation).
-  
-* **URL Params**
-
-  Required:
-  
-  id=[integer]
-
-* **Data Params**
-
-  None
-
-* **Success Response:**
-
-  * **Code:** 200 OK <br />
-    **Content:**
-
-                    Название салона: "Братиславская"
-                    Имя мастера: "Аня"
-                    Название услуги: "КОМПЛЕКС МАНИКЮР"
-                    Имя: "Валерия"
-                    Телефон: "+70123456789"
-                    Электронная почта: "example@example.com"
-                    Дата и время записи: "01.08.2023 в 09:00"
-
-* **Sample Call:**
-
-  ```
-     {
-        {
-            "id": 1,
-            "salon": "Братиславская",
-            "master": "Аня",
-            "services": "КОМПЛЕКС МАНИКЮР",
-            "name": "Валерия",
-            "phone": "+70123456789",
-            "email": "example@example.com",
-            "date": "01.08.2023 в 09:00"
-        }
-     }
-  ```
-  
 #### Technologies and Libraries :
 - Python 3.8.10
 - Django 4.2
+- Django REST Framework 3.14.0
+- Djoser 2.2.0
 - Python-decouple 3.8
 - Requests 2.28.2
-- REST framework 3.14.0
+
+#### Demonstration :
+<img width="1445" height="695" alt="Manicure_scr_1" src="https://github.com/user-attachments/assets/4696d509-8c0a-453e-9630-0e85f90261a5" />
+<img width="1445" height="695" alt="Manicure_scr_2" src="https://github.com/user-attachments/assets/cdb9753f-99c2-4acc-9136-4311aa5c12c3" />
+<img width="1445" height="695" alt="Manicure_scr_3" src="https://github.com/user-attachments/assets/58992341-b2e7-4797-b02d-2e2179c469e9" />
+
+### :newspaper: News Portal
+
+---
+
+#### About project :
+- __News Portal__ — an educational Django project developed to practice building a full-featured web application.
+- The project includes user authentication, news management, subscriptions, search, filtering, notifications, localization, and REST API functionality.
+
+#### Features :
+- User registration, authentication, and authorization, including Google authentication.
+- Create, edit, and delete articles and news.
+- News categories and category subscriptions.
+- Likes and dislikes for posts.
+- Search and filtering.
+- Email notifications and weekly newsletters.
+- Automatic user assignment to categories.
+- Template and section caching.
+- Error logging.
+- Localization and internationalization.
+- Light and dark themes.
+- REST API integration.
+
+#### Technologies and Libraries :
+- Python 3.8.10
+- Django 4.2
+- Django REST Framework 3.14
+- Django Allauth 0.54.0
+- Django Filter 23.1
 - Djoser 2.2.0
-
-#### Installation :
-- Folder name: __manicure__
-- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
-- Save and extract the folder to any convenient location.
-
-#### Language :
-| Rank | Languages |
-|-----:|-----------|
-|     1| Python    |
+- Celery 5.2.7
+- Redis 4.5.4
+- APScheduler 3.10.1
+- PostgreSQL
+- Python-decouple 3.8
+- Requests 2.28.2
 
 #### Demonstration :
-![Manicure_scr_1](https://github.com/ra1ngts/django/assets/122100029/a87c220b-99bb-4afc-90b1-805349071c8d)
-![Manicure_scr_2](https://github.com/ra1ngts/django/assets/122100029/169ffb38-1bbd-4658-8b6d-7d87198477e8)
-![Manicure_scr_3](https://github.com/ra1ngts/django/assets/122100029/dfa9091c-081b-4bfb-b6d3-c9a04c483910)
+<img width="1443" height="851" alt="News_portal_scr_1" src="https://github.com/user-attachments/assets/c8013dc5-0db8-42a2-8c34-266a61bd043c" />
+<img width="1443" height="851" alt="News_portal_scr_2" src="https://github.com/user-attachments/assets/a64a8a81-614f-4afd-b374-13d8a4185185" />
+<img width="1443" height="851" alt="News_portal_scr_3" src="https://github.com/user-attachments/assets/58ca9376-18f6-4267-ad3f-7ce90398dcf8" />
+<img width="1443" height="851" alt="News_portal_scr_4" src="https://github.com/user-attachments/assets/de7115d5-2c80-4408-9bfb-fd1ea08af8b5" />
+<img width="1443" height="718" alt="News_portal_scr_5" src="https://github.com/user-attachments/assets/d9f5e97c-9c16-4ae9-89e5-11ffd1ccc296" />
+<img width="1443" height="718" alt="News_portal_scr_6" src="https://github.com/user-attachments/assets/722fdecb-99d9-48f0-8ed6-4aa65ddd7ced" />
 
-### :art: "Project - Art Gallery"
+### :open_book: Bulletin Board
 
 ---
 
 #### About project :
-- __"Project - [Art Gallery](https://agataportfolio.pythonanywhere.com/)"__ - Personal project for my artist daughter.
+- __Bulletin Board__ — a final educational project developed while learning Django.
+- The project is a web application for creating, managing, searching, and commenting on user-generated advertisements.
 
-#### Peculiarities :
-- Possibility to create categories of artwork.
-- Possibility to add, edit, and delete artwork.
-- The ability to share artwork on social networks.
-- The app's interface is also adapted for the mobile version.
-- The contact form for sending messages to the owner with email notifications.
-- The web app has been translated into English and Russian, and you can choose between them.
-
-#### For what :
-- A personal project for my artist daughter for her birthday.
-
-#### Visualization :
-- Using HTML and Bootstrap templates, JS and CSS styles.
+#### Features :
+- Create advertisements by category.
+- Edit, delete, and comment on advertisements.
+- Search and filter advertisements.
+- WYSIWYG editor for formatting text and managing images.
+- User registration, authentication, and authorization.
+- Personal user account for managing advertisements.
+- Pagination.
+- Email notifications using Celery.
 
 #### Technologies and Libraries :
-- Python 3.12.3
-- Django 5.0.6
-- Django-simple-captcha 0.6.0
+- Python 3.8.10
+- Django 4.2
+- Celery 5.2.7
+- Django Allauth 0.54.0
+- Django Filter 23.1
+- Django CKEditor 6.6.1
 - Python-decouple 3.8
-- Django-modeltranslation 0.19.3
-
-#### Installation :
-- Folder name: __art_gallery__
-- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
-- Save and extract the folder to any convenient location.
-
-#### Language :
-| Rank | Languages |
-|-----:|-----------|
-|     1| Python    |
-|     2| CSS       |
-|     3| HTML      |
-|     4| JS        |
+- Requests 2.28.2
+- HTML
+- CSS
 
 #### Demonstration :
-![Gallery_scr_1](https://github.com/user-attachments/assets/cd3ffb2f-318a-4fdb-843c-c8e8a3a75354)
-![Gallery_scr_2](https://github.com/user-attachments/assets/1d5b8fb5-64c1-40d8-96aa-4d2b31b16b8f)
-![Gallery_scr_3](https://github.com/user-attachments/assets/1fae07ca-21e0-4310-9799-d0677880cf15)
-![Gallery_scr_4](https://github.com/user-attachments/assets/a56d803b-dd10-4252-b77d-79ad60fb2e2d)
-
-### :bride_with_veil: "Project - Wedding salon v2"
-
----
-
-#### About project :
-- __"Project - [Wedding salon v2](https://weddh.pythonanywhere.com/dresses/)"__ - Personal project for business.
-
-#### Peculiarities :
-- The ability to create categories for dresses or accessories.
-- The ability to add, edit, and delete dress, accessory or bride models.
-- The ability to search for dress models using filters.
-- The ability to write a product review if you are authorized.
-- The ability to like or dislike dress or accessory models.
-- The ability to share a dress or accessory model on social media.
-- The ability to register, authenticate, and authorize a user.
-- The ability to add multiple photos to models.
-- Pagination implemented.
-- Implemented custom handlers for 403, 404, and 500 errors.
-- New review email notification implemented.
-- New email notification from the contact form implemented.
-
-#### For what :
-- Personal project for business.
-
-#### Visualization :
-- Using HTML and Bootstrap templates, JS and CSS styles.
-
-#### Technologies and Libraries :
-- Python 3.12.3
-- Django 5.0.6
-- Django-allauth 0.63.3
-- Django-filter 24.2
-- Python-decouple 3.8
-- Django-simple-captcha 0.6.0
-
-#### Installation :
-- Folder name: __wedding_salon_v2__
-- On the repository page сlick the `Code` button in the top right corner. A menu will pop up in which you need to select `Download ZIP`.
-- Save and extract the folder to any convenient location.
-
-#### Language :
-| Rank | Languages |
-|-----:|-----------|
-|     1| Python    |
-|     2| CSS       |
-|     3| HTML      |
-|     4| JS        |
-
-#### Demonstration :
-![Wedding_salon_2_scr_1](https://github.com/user-attachments/assets/2c97e4a6-8c5d-49c4-b41b-6be1c3a70999)
-![Wedding_salon_2_scr_2](https://github.com/user-attachments/assets/ad1fda3e-2863-4b49-b574-8f52c85ee916)
-![Wedding_salon_2_scr_3](https://github.com/user-attachments/assets/85bac461-1c70-4947-8e42-d190fb236486)
-![Wedding_salon_2_scr_4](https://github.com/user-attachments/assets/f8d60f99-1138-4f83-a550-b800b189e65a)
+<img width="1445" height="695" alt="Bulletin_board_scr_1" src="https://github.com/user-attachments/assets/18c7b1c0-51fb-40e8-8b97-023cc6de047b" />
+<img width="1445" height="695" alt="Bulletin_board_scr_2" src="https://github.com/user-attachments/assets/cfdd53d8-afac-459d-9910-ed1bd48af075" />
+<img width="1445" height="695" alt="Bulletin_board_scr_3" src="https://github.com/user-attachments/assets/ff344986-db50-49a4-a2c1-d3408bf35807" />
+<img width="1445" height="695" alt="Bulletin_board_scr_4" src="https://github.com/user-attachments/assets/9329c9f1-20ca-472a-aa52-3a4db2ff4a6a" />
+<img width="1445" height="695" alt="Bulletin_board_scr_6" src="https://github.com/user-attachments/assets/1292ab55-8ef8-46f5-a154-87b97e7c9d50" />
+<img width="1445" height="695" alt="Bulletin_board_scr_7" src="https://github.com/user-attachments/assets/45f9e894-fd5b-42b3-8915-74b63feaa925" />
