@@ -38,8 +38,8 @@
 - HTML
 - CSS
 
-#### Website :
-- [Wedding Salon](https://weddingh.pythonanywhere.com/dresses/)
+__Live Website :__
+:globe_with_meridians: __[Wedding Salon](https://weddingh.pythonanywhere.com/dresses/)__
 
 #### Demonstration :
 <img width="1920" height="1461" alt="w1" src="https://github.com/user-attachments/assets/bbe7ea74-e05b-4241-8dbe-1ed9c831c0d9" />
@@ -81,8 +81,8 @@
 - HTML
 - CSS
 
-#### Website :
-- [Wedding Salon (2.0)](https://weddh.pythonanywhere.com/dresses/)
+__Live Website :__
+:globe_with_meridians: __[Wedding Salon (2.0)](https://weddh.pythonanywhere.com/dresses/)__
 
 #### Demonstration :
 <img width="1920" height="1461" alt="w1" src="https://github.com/user-attachments/assets/c21bbee4-3c65-4c45-9fbd-53ff1ddc4a9c" />
@@ -117,8 +117,8 @@
 - HTML
 - CSS
 
-#### Website :
-- [Art Gallery](https://agataportfolio.pythonanywhere.com/)
+__Live Website :__
+:globe_with_meridians: __[Art Gallery](https://agataportfolio.pythonanywhere.com/)__
 
 #### Demonstration :
 <img width="1920" height="1461" alt="gl1" src="https://github.com/user-attachments/assets/6f357fda-4c71-4a15-960d-e80f30c69e81" />
@@ -166,8 +166,8 @@
 - Python-decouple 3.8
 - Requests 2.28.2
 
-#### API Documentation :
-- [Swagger API Documentation](https://pereval.pythonanywhere.com/swagger/)
+__API Documentation :__
+:globe_with_meridians: [Swagger API Documentation](https://pereval.pythonanywhere.com/swagger/)
 
 #### Demonstration :
 <img width="1445" height="695" alt="Pereval_fstr_scr_1" src="https://github.com/user-attachments/assets/c048f83c-c352-4b3c-8056-589a479dc390" />
