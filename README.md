@@ -1,5 +1,7 @@
 # :snake: Django Learning Projects
 
+---
+
 #### About project :
 - __Django Learning Projects__ — a collection of educational projects developed while learning and practicing Django.
 - The repository contains several independent projects created to explore different aspects of Django and web application development.
